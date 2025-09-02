@@ -1,0 +1,2 @@
+L:/New folder/moodmate/android/app/.cxx/Debug/6v3t4k1l/x86/CMakeFiles/edit_cache.dir
+L:/New folder/moodmate/android/app/.cxx/Debug/6v3t4k1l/x86/CMakeFiles/rebuild_cache.dir
