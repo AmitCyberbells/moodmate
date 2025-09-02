@@ -4,7 +4,7 @@
             "outputFile": "com.example.moodmate.app-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "L:\\New folder\\moodmate\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "L:\\flutter Projects\\moodmate\\moodmate\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
