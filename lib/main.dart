@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/presentation/screens/splash/second_splash_page.dart';
-import 'package:moodmate/presentation/screens/splash/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
