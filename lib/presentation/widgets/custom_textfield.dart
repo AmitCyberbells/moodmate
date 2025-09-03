@@ -3,8 +3,12 @@ import 'package:moodmate/core/constants/colors.dart';
 
 class CustomTextfield extends StatelessWidget {
   final TextEditingController controller;
+  final bool isPassword;
   final String hintText;
+  final IconData prefixIcon;
   const CustomTextfield({
+    this.isPassword = false,
+    required this.prefixIcon,
     required this.controller,
     required this.hintText,
     super.key,
@@ -12,20 +16,28 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      style: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        color: charcoalGray,
-      ),
-      decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
-        hintText: hintText,
-        hintStyle: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: Colors.grey,
+    return Material(
+      color: Colors.transparent,
+      child: TextField(
+        obscureText: isPassword,
+        controller: controller,
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+          color: softWarmWhite,
+          fontWeight: FontWeight.w700,
+        ),
+        decoration: InputDecoration(
+          fillColor: bgBrown,
+          filled: true,
+          prefixIcon: Icon(prefixIcon, size: 24, color: softWarmWhite),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(color: bgBrown, width: 1),
+          ),
+          hintText: hintText,
+          hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+            color: softWarmWhite,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ),
     );

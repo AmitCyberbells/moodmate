@@ -13,3 +13,7 @@ final Color sunshineYellow = Color(0xffFFEBA1);
 //Text & Contrast
 final Color charcoalGray = Color(0xff333333);
 final Color coolGray = Color(0xff666666);
+final Color orange = Color(0xffED7E1C);
+
+//text input bg
+final Color bgBrown = Color(0xff372315);
