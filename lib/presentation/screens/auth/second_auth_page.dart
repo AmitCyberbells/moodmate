@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/presentation/screens/auth/auth_state.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
-import 'package:moodmate/presentation/widgets/custom_button.dart';
+import 'package:moodmate/presentation/widgets/custom_button.dart'
+    show CustomButton;
 import 'package:provider/provider.dart';
 
-class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+class SecondAuthPage extends StatelessWidget {
+  const SecondAuthPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,30 +18,34 @@ class AuthPage extends StatelessWidget {
         const BackgroundVideo(),
         Positioned(
           top: 50,
-          right: 20,
-          child: Text(
-            "Skip",
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
-          ),
-        ),
-        Positioned(
-          bottom: 0,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 70),
             width: size.width,
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(90),
-                topRight: Radius.circular(90),
-              ),
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Moodmate",
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 42,
+                      ),
+                    ),
+                    Text(
+                      "Skip",
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
                 Text(
                   "Do something today",
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -80,6 +85,11 @@ class AuthPage extends StatelessWidget {
               ],
             ),
           ),
+        ),
+        SizedBox(height: 20),
+        Positioned(
+          bottom: -20,
+          child: Image.asset("assets/images/auth.png", width: size.width),
         ),
       ],
     );
