@@ -1,27 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/screens/splash/second_splash_page.dart';
+import 'package:moodmate/presentation/screens/splash/splash_state.dart';
+import 'package:provider/provider.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const SecondSplashPage()),
-      );
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<SplashState>().init(context);
+    });
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
