@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/core/constants/colors.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -15,18 +14,9 @@ class SplashPage extends StatelessWidget {
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Spacer(),
-          Text(
-            "MoodMate",
-            style: TextStyle(
-              fontSize: 35,
-              color: softWarmWhite,
-              fontWeight: FontWeight.w400,
-              decoration: TextDecoration.none,
-            ),
-          ),
-          SizedBox(height: 40),
+          Text("MoodMate", style: Theme.of(context).textTheme.titleLarge),
           Image.asset("assets/images/splash_image.png", fit: BoxFit.fitWidth),
         ],
       ),
