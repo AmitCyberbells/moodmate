@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {
@@ -8,23 +8,23 @@ class AppTheme {
       primaryColor: Colors.white,
       scaffoldBackgroundColor: Color(0xff1b2020),
       textTheme: TextTheme(
-        titleMedium: GoogleFonts.nunito(
-          fontSize: 26,
+        titleMedium: nunito(
+          fontSize: smallTitle,
           color: charcoalGray,
           fontWeight: FontWeight.w600,
         ),
-        titleLarge: GoogleFonts.karantina(
-          fontSize: 96,
+        titleLarge: karantina(
+          fontSize: largeTitle,
           color: softWarmWhite,
           fontWeight: FontWeight.w500,
         ),
-        bodySmall: GoogleFonts.alegreyaSans(fontSize: 14, color: coolGray),
-        bodyMedium: GoogleFonts.alegreyaSans(
-          fontSize: 16,
+        bodySmall: alegreyaSans(fontSize: smallBody, color: coolGray),
+        bodyMedium: inter(
+          fontSize: mediumBody,
           color: charcoalGray,
           fontWeight: FontWeight.w500,
         ),
-        bodyLarge: GoogleFonts.alegreyaSans(fontSize: 22, color: charcoalGray),
+        bodyLarge: alegreyaSans(fontSize: largeBody, color: charcoalGray),
       ),
     );
   }
