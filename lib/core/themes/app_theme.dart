@@ -19,7 +19,11 @@ class AppTheme {
           fontWeight: FontWeight.w500,
         ),
         bodySmall: GoogleFonts.alegreyaSans(fontSize: 14, color: coolGray),
-        bodyMedium: GoogleFonts.alegreyaSans(fontSize: 16, color: charcoalGray),
+        bodyMedium: GoogleFonts.alegreyaSans(
+          fontSize: 16,
+          color: charcoalGray,
+          fontWeight: FontWeight.w500,
+        ),
         bodyLarge: GoogleFonts.alegreyaSans(fontSize: 22, color: charcoalGray),
       ),
     );

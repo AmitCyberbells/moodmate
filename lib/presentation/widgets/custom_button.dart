@@ -23,8 +23,10 @@ class CustomButton extends StatelessWidget {
           border: Border.all(width: 1, color: Colors.white),
         ),
         child: Container(
+          alignment: Alignment.center,
+          width: 110,
           margin: EdgeInsets.all(4),
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
             color: bgColor,
             borderRadius: BorderRadius.circular(40),
@@ -32,11 +34,9 @@ class CustomButton extends StatelessWidget {
           ),
           child: Text(
             title,
-            style: TextStyle(
-              fontSize: 16,
-              color: textColor,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: textColor),
           ),
         ),
       ),
