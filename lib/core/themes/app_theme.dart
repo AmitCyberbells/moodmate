@@ -8,21 +8,19 @@ class AppTheme {
       primaryColor: Colors.white,
       scaffoldBackgroundColor: Color(0xff1b2020),
       textTheme: TextTheme(
-        titleMedium: GoogleFonts.alegreyaSans(
-          fontSize: 30,
-          color: softWarmWhite,
+        titleMedium: GoogleFonts.nunito(
+          fontSize: 26,
+          color: charcoalGray,
+          fontWeight: FontWeight.w600,
         ),
         titleLarge: GoogleFonts.karantina(
           fontSize: 96,
           color: softWarmWhite,
           fontWeight: FontWeight.w500,
         ),
-        bodySmall: GoogleFonts.alegreyaSans(fontSize: 14, color: softWarmWhite),
-        bodyMedium: GoogleFonts.alegreyaSans(
-          fontSize: 18,
-          color: softWarmWhite,
-        ),
-        bodyLarge: GoogleFonts.alegreyaSans(fontSize: 22, color: softWarmWhite),
+        bodySmall: GoogleFonts.alegreyaSans(fontSize: 14, color: coolGray),
+        bodyMedium: GoogleFonts.alegreyaSans(fontSize: 16, color: charcoalGray),
+        bodyLarge: GoogleFonts.alegreyaSans(fontSize: 22, color: charcoalGray),
       ),
     );
   }
