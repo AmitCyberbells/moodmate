@@ -57,12 +57,13 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 5),
                   CustomTextfield(
                     prefixIcon: Icons.email,
                     controller: emailController,
                     hintText: "Enter your email...",
                   ),
+                  SizedBox(height: 20),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -73,12 +74,13 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 5),
                   CustomTextfield(
                     prefixIcon: Icons.lock,
                     controller: passwordController,
                     hintText: "Enter your password...",
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -89,12 +91,13 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 5),
                   CustomTextfield(
                     prefixIcon: Icons.lock,
                     controller: confirmPswController,
                     hintText: "Enter your password...",
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   Text.rich(
                     TextSpan(
                       text: "Already have an account? ",
@@ -115,7 +118,7 @@ class SignupPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   CustomButton(
                     onPressed: () {},
                     textColor: charcoalGray,
