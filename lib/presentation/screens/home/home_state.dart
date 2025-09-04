@@ -3,11 +3,23 @@ import 'package:moodmate/presentation/screens/home/fourth_home_page.dart';
 import 'package:moodmate/presentation/screens/home/home_page.dart';
 import 'package:moodmate/presentation/screens/home/second_home_page.dart';
 import 'package:moodmate/presentation/screens/home/third_home_page.dart';
+import 'package:moodmate/presentation/screens/music/music_page.dart';
 import 'package:page_transition/page_transition.dart';
 
 class HomeState extends ChangeNotifier {
   void pop(BuildContext context) {
     Navigator.pop(context);
+  }
+
+  void pushToMusicPage(BuildContext context) {
+    Navigator.push(
+      context,
+      PageTransition(
+        duration: Duration(seconds: 2),
+        type: PageTransitionType.fade,
+        child: MusicPage(),
+      ),
+    );
   }
 
   void firstToSecond(BuildContext context) {

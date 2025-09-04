@@ -29,7 +29,7 @@ class AppTheme {
           color: charcoalGray,
           fontWeight: FontWeight.w500,
         ),
-        bodyLarge: alegreyaSans(fontSize: largeBody, color: charcoalGray),
+        bodyLarge: alegreya(fontSize: largeBody, color: charcoalGray),
       ),
     );
   }

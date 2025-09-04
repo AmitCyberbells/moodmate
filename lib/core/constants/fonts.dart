@@ -14,3 +14,4 @@ Function nunito = fonts.GoogleFonts.nunito;
 Function karantina = fonts.GoogleFonts.karantina;
 Function inter = fonts.GoogleFonts.inter;
 Function alegreyaSans = fonts.GoogleFonts.alegreyaSans;
+Function alegreya = fonts.GoogleFonts.alegreya;

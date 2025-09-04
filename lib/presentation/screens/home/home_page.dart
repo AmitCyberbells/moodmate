@@ -99,7 +99,9 @@ class HomePage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    provider.pushToMusicPage(context);
+                  },
                   textColor: charcoalGray,
                   bgColor: softWarmWhite,
                   title: "Pick Your Buddy",

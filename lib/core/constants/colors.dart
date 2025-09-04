@@ -17,3 +17,9 @@ final Color orange = Color(0xffED7E1C);
 
 //text input bg
 final Color bgBrown = Color(0xff372315);
+
+// box color
+final Color pinkContainer = Color(0xffFFC9E9);
+final Color serachContainer = Color(0xff262135);
+//icon color
+final Color iconColor = Color(0xff371B34);
