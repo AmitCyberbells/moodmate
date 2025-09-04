@@ -140,7 +140,7 @@ class MusicPage extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.home_rounded, size: 35, color: iconColor),
+                  icon: Icon(Icons.home_rounded, size: 35, color: coolGray),
                 ),
                 IconButton(
                   onPressed: () {},
@@ -152,14 +152,14 @@ class MusicPage extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.person, size: 35, color: iconColor),
+                  icon: Icon(Icons.person, size: 35, color: coolGray),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.settings_outlined,
                     size: 35,
-                    color: iconColor,
+                    color: coolGray,
                   ),
                 ),
               ],

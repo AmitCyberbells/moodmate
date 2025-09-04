@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
-import 'package:moodmate/presentation/screens/home/home_state.dart';
+import 'package:moodmate/presentation/screens/pet_selection/home_state.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:moodmate/presentation/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 
-class ThirdHomePage extends StatelessWidget {
-  const ThirdHomePage({super.key});
+class SecondPetPage extends StatelessWidget {
+  const SecondPetPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class ThirdHomePage extends StatelessWidget {
                       icon: Icons.arrow_back,
                       bgColor: softWarmWhite,
                       onPressed: () {
-                        provider.thirdToSecond(context);
+                        provider.secondToFirst(context);
                       },
                       iconColor: charcoalGray,
                     ),
@@ -62,12 +62,12 @@ class ThirdHomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          "assets/images/pet3.png",
+                          "assets/images/pet2.png",
                           width: size.width / 2.2,
                         ),
                         SizedBox(height: 20),
                         Text(
-                          "Hi, I am Pip",
+                          "Hi, I am Bubbles",
                           style: Theme.of(
                             context,
                           ).textTheme.titleSmall?.copyWith(
@@ -82,7 +82,7 @@ class ThirdHomePage extends StatelessWidget {
                       icon: Icons.arrow_forward,
                       bgColor: softWarmWhite,
                       onPressed: () {
-                        provider.thirdToFourth(context);
+                        provider.secondToThird(context);
                       },
                       iconColor: charcoalGray,
                     ),
@@ -92,7 +92,7 @@ class ThirdHomePage extends StatelessWidget {
                 Divider(height: 1, color: softWarmWhite),
                 SizedBox(height: 10),
                 Text(
-                  "Pip is a little ducky with a big heart and even bigger curiosity. Always waddling around with cheerful energy, Pip brings sunshine to your cloudy days.\n\nWhether it’s celebrating your wins or splashing away your worries, this tiny feathered friend is here to remind you: it’s okay to take things one small step (or waddle) at a time.\n\nWith Pip around, life feels lighter, warmer, and a lot more fun.",
+                  "Your cozy little owl buddy who’s here to keep you company. Bubbles may look tiny, but don’t underestimate those wise eyes—this owl knows how to bring comfort, joy, and just the right amount of silliness.\n\nWhether you’re journaling your feelings, tracking your mood, or just need a gentle nudge to smile, Bubbles will be right there, flapping in with warmth and a sprinkle of magic.\n\nBubbles isn’t just a pet, it’s your late-night confidant, your mood cheerleader, and your fluffy reminder that you’re never alone.",
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: softWarmWhite,
                     fontWeight: FontWeight.w400,

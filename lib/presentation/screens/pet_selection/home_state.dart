@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/screens/home/fourth_home_page.dart';
-import 'package:moodmate/presentation/screens/home/home_page.dart';
-import 'package:moodmate/presentation/screens/home/second_home_page.dart';
-import 'package:moodmate/presentation/screens/home/third_home_page.dart';
+import 'package:moodmate/presentation/screens/pet_selection/fourth_pet_page.dart';
+import 'package:moodmate/presentation/screens/pet_selection/first_pet_page.dart';
+import 'package:moodmate/presentation/screens/pet_selection/second_pet_page.dart';
+import 'package:moodmate/presentation/screens/pet_selection/third_pet_page.dart';
 import 'package:moodmate/presentation/screens/music/music_page.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -28,7 +28,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.rightToLeft,
-        child: SecondHomePage(),
+        child: SecondPetPage(),
       ),
     );
   }
@@ -39,7 +39,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.leftToRight,
-        child: FourthHomePage(),
+        child: FourthPetPage(),
       ),
     );
   }
@@ -50,7 +50,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.rightToLeft,
-        child: ThirdHomePage(),
+        child: ThirdPetPage(),
       ),
     );
   }
@@ -61,7 +61,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.leftToRight,
-        child: HomePage(),
+        child: FirstPetPage(),
       ),
     );
   }
@@ -72,7 +72,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.rightToLeft,
-        child: FourthHomePage(),
+        child: FourthPetPage(),
       ),
     );
   }
@@ -83,7 +83,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.leftToRight,
-        child: SecondHomePage(),
+        child: SecondPetPage(),
       ),
     );
   }
@@ -94,7 +94,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.rightToLeft,
-        child: HomePage(),
+        child: FirstPetPage(),
       ),
     );
   }
@@ -105,7 +105,7 @@ class HomeState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.leftToRight,
-        child: ThirdHomePage(),
+        child: ThirdPetPage(),
       ),
     );
   }

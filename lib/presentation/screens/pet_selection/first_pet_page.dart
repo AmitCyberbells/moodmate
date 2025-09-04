@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
-import 'package:moodmate/presentation/screens/home/home_state.dart';
+import 'package:moodmate/presentation/screens/pet_selection/home_state.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:moodmate/presentation/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 
-class FourthHomePage extends StatelessWidget {
-  const FourthHomePage({super.key});
+class FirstPetPage extends StatelessWidget {
+  const FirstPetPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final provider = context.read<HomeState>();
-
     return Scaffold(
       body: Stack(
         children: [
@@ -54,7 +53,7 @@ class FourthHomePage extends StatelessWidget {
                       icon: Icons.arrow_back,
                       bgColor: softWarmWhite,
                       onPressed: () {
-                        provider.fourthToThird(context);
+                        provider.firstToFourth(context);
                       },
                       iconColor: charcoalGray,
                     ),
@@ -62,12 +61,12 @@ class FourthHomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          "assets/images/pet4.png",
+                          "assets/images/pet1.png",
                           width: size.width / 2.2,
                         ),
                         SizedBox(height: 20),
                         Text(
-                          "Hi, I am Bellie",
+                          "Hi, I am Oreo",
                           style: Theme.of(
                             context,
                           ).textTheme.titleSmall?.copyWith(
@@ -82,7 +81,7 @@ class FourthHomePage extends StatelessWidget {
                       icon: Icons.arrow_forward,
                       bgColor: softWarmWhite,
                       onPressed: () {
-                        provider.fourthToFirst(context);
+                        provider.firstToSecond(context);
                       },
                       iconColor: charcoalGray,
                     ),
@@ -92,7 +91,7 @@ class FourthHomePage extends StatelessWidget {
                 Divider(height: 1, color: softWarmWhite),
                 SizedBox(height: 10),
                 Text(
-                  "Bellie isn’t just any pup—she’s your shadow, your cuddle-bug, and your personal cheerleader all wrapped up in a wagging tail.\n\nShe tilts her head like she really gets you, sneaks in soft nuzzles when you’re sad, and does her little “happy dance” whenever you smile.\n\nBellie’s not just here to guard your world—she’s here to fill it with warmth, wiggles, and unconditional love. Basically, she’s the definition of “good girl energy.",
+                  "Oreo is your quiet little guardian. He doesn’t talk much, but he sees everything—especially the things you try to hide from yourself. \n\nWhen your mind feels heavy, Oreo just sits beside you, blinking slowly, reminding you that it’s okay to pause. He knows how long nights can feel, and that’s why he stays awake with you.\n\nYou’ll notice he never judges, never hurries you—he just waits until you’re ready. With Oreo, you’re never really alone in the dark.",
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: softWarmWhite,
                     fontWeight: FontWeight.w400,
