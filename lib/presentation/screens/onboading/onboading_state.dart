@@ -6,13 +6,14 @@ import 'package:page_transition/page_transition.dart';
 
 class OnboadingState extends ChangeNotifier {
   void skip(BuildContext context) {
-    Navigator.pushReplacement(
+    Navigator.pushAndRemoveUntil(
       context,
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
         child: SecondAuthPage(),
       ),
+      (Route<dynamic> route) => false,
     );
   }
 

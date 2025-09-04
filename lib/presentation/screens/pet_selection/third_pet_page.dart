@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
-import 'package:moodmate/presentation/screens/pet_selection/home_state.dart';
+import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:moodmate/presentation/widgets/custom_icon_button.dart';
@@ -12,7 +12,7 @@ class ThirdPetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final provider = context.read<HomeState>();
+    final provider = context.read<PetSelectionState>();
 
     return Scaffold(
       body: Stack(
