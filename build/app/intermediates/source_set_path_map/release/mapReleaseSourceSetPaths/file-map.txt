@@ -1,0 +1,31 @@
+com.example.moodmate.app-jetified-lifecycle-livedata-core-ktx-2.7.0-0 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\2c40f74deb9cf2f0d9408330f1f39764\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.example.moodmate.app-jetified-tracing-1.2.0-1 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\41192d6f6ee53eacf5ee382110c4c331\transformed\jetified-tracing-1.2.0\res
+com.example.moodmate.app-lifecycle-runtime-2.7.0-2 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\4cb12c459d318c802b9faa8576174550\transformed\lifecycle-runtime-2.7.0\res
+com.example.moodmate.app-jetified-annotation-experimental-1.4.0-3 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\4f212706885e4ac6ce3ba21f0816335a\transformed\jetified-annotation-experimental-1.4.0\res
+com.example.moodmate.app-lifecycle-livedata-core-2.7.0-4 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\53c6624cef36afcbb43a8e9432af3355\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.moodmate.app-jetified-startup-runtime-1.1.1-5 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\5d5a3866349602b1d2246a1122a8126c\transformed\jetified-startup-runtime-1.1.1\res
+com.example.moodmate.app-jetified-core-ktx-1.13.1-6 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\69858e128acf67a3a52d344d3d91e750\transformed\jetified-core-ktx-1.13.1\res
+com.example.moodmate.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-7 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\7031ae944fb2097dd8b83abac7604663\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.moodmate.app-jetified-media3-exoplayer-1.5.1-8 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\709b7f236d1961021a74b8d31ec28ad0\transformed\jetified-media3-exoplayer-1.5.1\res
+com.example.moodmate.app-jetified-profileinstaller-1.3.1-9 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\7109acf505a60c1bd0a5cc92a195927b\transformed\jetified-profileinstaller-1.3.1\res
+com.example.moodmate.app-core-1.13.1-10 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\731cd9948a7dde4822052c6be439a4c3\transformed\core-1.13.1\res
+com.example.moodmate.app-jetified-window-java-1.2.0-11 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\747018d1fbf2d30e9107d4492b966a67\transformed\jetified-window-java-1.2.0\res
+com.example.moodmate.app-jetified-lifecycle-process-2.7.0-12 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\a79f45dbb86cbb2c22ed31e133fc82bf\transformed\jetified-lifecycle-process-2.7.0\res
+com.example.moodmate.app-jetified-savedstate-1.2.1-13 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\ad8a4db0eb8f2d726a359e05fbef4f98\transformed\jetified-savedstate-1.2.1\res
+com.example.moodmate.app-core-runtime-2.2.0-14 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\ae456744e7471a35e9a0278f1fcd7001\transformed\core-runtime-2.2.0\res
+com.example.moodmate.app-lifecycle-viewmodel-2.7.0-15 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\c367e564adbb11eaa7ff7932e0350706\transformed\lifecycle-viewmodel-2.7.0\res
+com.example.moodmate.app-jetified-core-1.0.0-16 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\c5f532e2070a10b3e078ff5baff28a49\transformed\jetified-core-1.0.0\res
+com.example.moodmate.app-lifecycle-livedata-2.7.0-17 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\c72858c6acce7d95d13c059c4d363647\transformed\lifecycle-livedata-2.7.0\res
+com.example.moodmate.app-jetified-activity-1.8.1-18 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\e212cc4fb2918d7699d873f0eae7a1fb\transformed\jetified-activity-1.8.1\res
+com.example.moodmate.app-jetified-window-1.2.0-19 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\eaf3c33b1c2c22b1781558d0ca2e0eca\transformed\jetified-window-1.2.0\res
+com.example.moodmate.app-fragment-1.7.1-20 C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\f139ce187556c870aa87492eb71ce098\transformed\fragment-1.7.1\res
+com.example.moodmate.app-main-21 L:\flutter Projects\moodmate\moodmate\android\app\src\main\res
+com.example.moodmate.app-release-22 L:\flutter Projects\moodmate\moodmate\android\app\src\release\res
+com.example.moodmate.app-pngs-23 L:\flutter Projects\moodmate\moodmate\build\app\generated\res\pngs\release
+com.example.moodmate.app-resValues-24 L:\flutter Projects\moodmate\moodmate\build\app\generated\res\resValues\release
+com.example.moodmate.app-packageReleaseResources-25 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.example.moodmate.app-packageReleaseResources-26 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.example.moodmate.app-merged-not-compiled-resources-27 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\merged-not-compiled-resources\release
+com.example.moodmate.app-release-28 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\merged_res\release\mergeReleaseResources
+com.example.moodmate.app-release-29 L:\flutter Projects\moodmate\moodmate\build\path_provider_android\intermediates\packaged_res\release\packageReleaseResources
+com.example.moodmate.app-release-30 L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\packaged_res\release\packageReleaseResources
