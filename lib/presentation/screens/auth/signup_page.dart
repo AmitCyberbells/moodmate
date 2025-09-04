@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/presentation/screens/auth/auth_state.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:moodmate/presentation/widgets/custom_textfield.dart';
+import 'package:provider/provider.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -10,6 +12,8 @@ class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final provider = context.read<AuthState>();
+
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController confirmPswController = TextEditingController();
@@ -120,7 +124,9 @@ class SignupPage extends StatelessWidget {
                   ),
                   SizedBox(height: 30),
                   CustomButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      provider.signupButtonClick(context);
+                    },
                     textColor: charcoalGray,
                     bgColor: softWarmWhite,
                     title: "Sign Up",

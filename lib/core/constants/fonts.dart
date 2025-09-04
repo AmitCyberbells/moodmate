@@ -5,7 +5,7 @@ final double smallBody = 14;
 final double mediumBody = 16;
 final double largeBody = 18;
 
-final double smallTitle = 26;
+final double smallTitle = 24;
 final double mediumTitle = 32;
 final double largeTitle = 96;
 

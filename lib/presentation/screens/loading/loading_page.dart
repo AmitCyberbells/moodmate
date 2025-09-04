@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/presentation/screens/loading/loading_state.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
+import 'package:provider/provider.dart';
 
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key});
@@ -8,7 +10,7 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final provider = context.read<LoadingState>();
     return Scaffold(
       body: Stack(
         children: [
@@ -64,7 +66,9 @@ class LoadingPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: softWarmWhite,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-        onPressed: () {},
+        onPressed: () {
+          provider.arrowButtonClick(context);
+        },
         child: Icon(Icons.arrow_forward, size: 16, color: charcoalGray),
       ),
     );

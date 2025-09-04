@@ -5,7 +5,9 @@ class CustomButton extends StatelessWidget {
   final Color bgColor;
   final Color textColor;
   final VoidCallback onPressed;
+  final double width;
   const CustomButton({
+    this.width = 110,
     required this.onPressed,
     required this.textColor,
     required this.bgColor,
@@ -24,7 +26,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Container(
           alignment: Alignment.center,
-          width: 110,
+          width: width,
           margin: EdgeInsets.all(4),
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(

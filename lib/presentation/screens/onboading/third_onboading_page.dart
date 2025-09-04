@@ -65,7 +65,7 @@ class ThirdOnboadingPage extends StatelessWidget {
                 children: [
                   Text(
                     "Find support when you need it most.",
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   SizedBox(height: 10),
 

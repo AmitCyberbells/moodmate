@@ -158,6 +158,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "page_transition",
+      "rootUri": "file:///C:/Users/RAHUL/AppData/Local/Pub/Cache/hosted/pub.dev/page_transition-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/RAHUL/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.9.1",
       "packageUri": "lib/",
@@ -326,7 +332,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-09-03T06:38:05.702675Z",
+  "generated": "2025-09-04T05:31:23.508281Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///L:/flutter%20sdk/flutter",

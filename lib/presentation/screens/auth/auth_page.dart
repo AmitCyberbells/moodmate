@@ -12,6 +12,7 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final provider = context.read<AuthState>();
+
     return Stack(
       children: [
         const BackgroundVideo(),

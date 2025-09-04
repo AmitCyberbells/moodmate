@@ -65,7 +65,7 @@ class SecondOnboadingPage extends StatelessWidget {
                 children: [
                   Text(
                     "Discover tools made for your wellbeing.",
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   SizedBox(height: 10),
 

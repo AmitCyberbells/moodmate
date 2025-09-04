@@ -9,6 +9,11 @@ class AppTheme {
       scaffoldBackgroundColor: Color(0xff1b2020),
       textTheme: TextTheme(
         titleMedium: nunito(
+          fontSize: mediumTitle,
+          color: charcoalGray,
+          fontWeight: FontWeight.w600,
+        ),
+        titleSmall: nunito(
           fontSize: smallTitle,
           color: charcoalGray,
           fontWeight: FontWeight.w600,

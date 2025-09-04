@@ -64,7 +64,7 @@ class OnboadingPage extends StatelessWidget {
                 children: [
                   Text(
                     "Track your moods and journal your thoughts.",
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   SizedBox(height: 10),
 
