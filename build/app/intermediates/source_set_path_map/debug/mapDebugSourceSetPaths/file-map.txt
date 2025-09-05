@@ -26,5 +26,6 @@ com.example.moodmate.app-resValues-24 L:\flutter Projects\moodmate\moodmate\buil
 com.example.moodmate.app-packageDebugResources-25 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
 com.example.moodmate.app-packageDebugResources-26 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
 com.example.moodmate.app-debug-27 L:\flutter Projects\moodmate\moodmate\build\app\intermediates\merged_res\debug\mergeDebugResources
-com.example.moodmate.app-debug-28 L:\flutter Projects\moodmate\moodmate\build\path_provider_android\intermediates\packaged_res\debug\packageDebugResources
-com.example.moodmate.app-debug-29 L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.moodmate.app-debug-28 L:\flutter Projects\moodmate\moodmate\build\fluttertoast\intermediates\packaged_res\debug\packageDebugResources
+com.example.moodmate.app-debug-29 L:\flutter Projects\moodmate\moodmate\build\path_provider_android\intermediates\packaged_res\debug\packageDebugResources
+com.example.moodmate.app-debug-30 L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\packaged_res\debug\packageDebugResources

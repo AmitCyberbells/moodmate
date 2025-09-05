@@ -26,6 +26,7 @@ MERGED from L:\flutter Projects\moodmate\moodmate\android\app\src\main\AndroidMa
 INJECTED from L:\flutter Projects\moodmate\moodmate\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from L:\flutter Projects\moodmate\moodmate\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from L:\flutter Projects\moodmate\moodmate\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+MERGED from [:fluttertoast] L:\flutter Projects\moodmate\moodmate\build\fluttertoast\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_android] L:\flutter Projects\moodmate\moodmate\build\path_provider_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-7:12
 MERGED from [:video_player_android] L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\f139ce187556c870aa87492eb71ce098\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
@@ -106,6 +107,8 @@ uses-sdk
 INJECTED from L:\flutter Projects\moodmate\moodmate\android\app\src\debug\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from L:\flutter Projects\moodmate\moodmate\android\app\src\debug\AndroidManifest.xml
 INJECTED from L:\flutter Projects\moodmate\moodmate\android\app\src\debug\AndroidManifest.xml
+MERGED from [:fluttertoast] L:\flutter Projects\moodmate\moodmate\build\fluttertoast\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] L:\flutter Projects\moodmate\moodmate\build\fluttertoast\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] L:\flutter Projects\moodmate\moodmate\build\path_provider_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_android] L:\flutter Projects\moodmate\moodmate\build\path_provider_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44
 MERGED from [:video_player_android] L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:5:5-44

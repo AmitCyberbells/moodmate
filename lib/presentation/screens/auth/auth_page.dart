@@ -62,7 +62,9 @@ class AuthPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        provider.signin(context);
+                      },
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
                       title: "Login",
