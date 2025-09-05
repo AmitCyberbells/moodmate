@@ -38,4 +38,38 @@ class AuthState extends ChangeNotifier {
       (Route<dynamic> route) => false,
     );
   }
+
+  void signinButtonClick(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      PageTransition(
+        duration: Duration(seconds: 2),
+        type: PageTransitionType.fade,
+        child: LoadingPage(),
+      ),
+      (Route<dynamic> route) => false,
+    );
+  }
+
+  void signinTextClick(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      PageTransition(
+        duration: Duration(seconds: 2),
+        type: PageTransitionType.fade,
+        child: SigninPage(),
+      ),
+    );
+  }
+
+  void signupTextClick(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      PageTransition(
+        duration: Duration(seconds: 2),
+        type: PageTransitionType.fade,
+        child: SignupPage(),
+      ),
+    );
+  }
 }

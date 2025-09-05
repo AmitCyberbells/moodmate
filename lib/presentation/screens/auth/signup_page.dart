@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/presentation/screens/auth/auth_state.dart';
@@ -118,6 +119,11 @@ class SignupPage extends StatelessWidget {
                             color: orange,
                             fontWeight: FontWeight.w800,
                           ),
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  provider.signinTextClick(context);
+                                },
                         ),
                       ],
                     ),
