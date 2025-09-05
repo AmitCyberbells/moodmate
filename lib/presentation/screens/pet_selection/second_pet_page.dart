@@ -101,7 +101,7 @@ class SecondPetPage extends StatelessWidget {
                 SizedBox(height: 20),
                 CustomButton(
                   onPressed: () {
-                    provider.pushToMusicPage(context);
+                    provider.pushToHomepage(context);
                   },
                   textColor: charcoalGray,
                   bgColor: softWarmWhite,

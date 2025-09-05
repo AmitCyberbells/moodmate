@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/screens/home/home_page.dart';
+import 'package:moodmate/presentation/screens/main/main_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/fourth_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/first_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/second_pet_page.dart';
@@ -11,14 +11,15 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pop(context);
   }
 
-  void pushToMusicPage(BuildContext context) {
-    Navigator.push(
+  void pushToHomepage(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
       context,
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
-        child: HomePage(),
+        child: MainPage(),
       ),
+      (Route<dynamic> route) => false,
     );
   }
 
