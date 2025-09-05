@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/screens/auth/signin_page.dart';
+import 'package:moodmate/presentation/screens/auth/login_page.dart';
 import 'package:moodmate/presentation/screens/auth/signup_page.dart';
 import 'package:moodmate/presentation/screens/loading/loading_page.dart';
 import 'package:page_transition/page_transition.dart';
@@ -22,7 +22,7 @@ class AuthState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
-        child: SigninPage(),
+        child: LoginPage(),
       ),
     );
   }
@@ -57,7 +57,7 @@ class AuthState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
-        child: SigninPage(),
+        child: LoginPage(),
       ),
     );
   }

@@ -3,12 +3,18 @@ import 'package:moodmate/core/constants/colors.dart';
 
 class CustomTextfield extends StatelessWidget {
   final TextEditingController controller;
+  final bool filled;
+  final Color bgColor;
   final bool isPassword;
   final String hintText;
-  final IconData prefixIcon;
+  final Color hintTextColor;
+  final Color textColor;
   const CustomTextfield({
+    this.filled = false,
+    required this.hintTextColor,
+    required this.textColor,
+    this.bgColor = Colors.transparent,
     this.isPassword = false,
-    required this.prefixIcon,
     required this.controller,
     required this.hintText,
     super.key,
@@ -22,21 +28,26 @@ class CustomTextfield extends StatelessWidget {
         obscureText: isPassword,
         controller: controller,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-          color: softWarmWhite,
-          fontWeight: FontWeight.w700,
+          color: textColor,
+          fontWeight: FontWeight.w600,
         ),
+
         decoration: InputDecoration(
-          fillColor: bgBrown,
-          filled: true,
-          prefixIcon: Icon(prefixIcon, size: 24, color: softWarmWhite),
-          border: OutlineInputBorder(
+          fillColor: bgColor,
+          filled: filled,
+          suffixIcon:
+              isPassword
+                  ? Icon(Icons.remove_red_eye_rounded, color: charcoalGray)
+                  : SizedBox(width: 0, height: 0),
+
+          enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
-            borderSide: BorderSide(color: bgBrown, width: 1),
+            borderSide: BorderSide(color: softWarmWhite, width: 1),
           ),
           hintText: hintText,
           hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: softWarmWhite,
-            fontWeight: FontWeight.w700,
+            color: hintTextColor,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),
