@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/presentation/screens/home/home_page.dart';
+import 'package:moodmate/presentation/screens/home/second_home_page.dart';
 import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
 import 'package:moodmate/presentation/screens/music/music_page.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
@@ -14,12 +15,7 @@ class MainPage extends StatelessWidget {
     final navigationProvider = Provider.of<MainBottomNavigationState>(context);
     final List<Widget> _pages = const [
       HomePage(),
-      Center(
-        child: Text(
-          "Journal Page",
-          style: TextStyle(fontSize: 25, color: Colors.white),
-        ),
-      ),
+      SecondHomePage(),
       MusicPage(),
       Center(
         child: Text(

@@ -33,3 +33,5 @@ final Color happyColor = Color(0xffEF5DA8);
 final Color calmColor = Color(0xffAEAFF7);
 final Color relaxColor = Color(0xffF09E54);
 final Color angryColor = Color(0xffA0E3E2);
+final Color sadColor = Color(0xffFF4C6B);
+final Color anxiousColor = Color(0xffFF8B83);

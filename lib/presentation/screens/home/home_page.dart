@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/presentation/screens/home/home_state.dart';
+import 'package:moodmate/presentation/screens/home/widgets/mood_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -70,109 +71,25 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: happyColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset(
-                      "assets/images/happy.png",
-                      height: 35,
-                      width: 35,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    "Happy",
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: softWarmWhite,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+              MoodWidget(
+                img: "assets/images/happy.png",
+                title: "Happy",
+                bgColor: happyColor,
               ),
-              Column(
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: calmColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset(
-                      "assets/images/calm.png",
-                      height: 35,
-                      width: 35,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    "Calm",
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: softWarmWhite,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+              MoodWidget(
+                img: "assets/images/calm.png",
+                title: "Calm",
+                bgColor: calmColor,
               ),
-              Column(
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: relaxColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset(
-                      "assets/images/relax.png",
-                      height: 35,
-                      width: 35,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    "Relax",
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: softWarmWhite,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+              MoodWidget(
+                img: "assets/images/relax.png",
+                title: "Relax",
+                bgColor: relaxColor,
               ),
-              Column(
-                children: [
-                  Container(
-                    width: 60,
-                    height: 60,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: angryColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Image.asset(
-                      "assets/images/angry.png",
-                      height: 35,
-                      width: 35,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    "Angry",
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: softWarmWhite,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
+              MoodWidget(
+                img: "assets/images/angry.png",
+                title: "Angry",
+                bgColor: angryColor,
               ),
             ],
           ),
