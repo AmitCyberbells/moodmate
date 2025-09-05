@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/screens/pet_selection/first_pet_page.dart';
+import 'package:moodmate/presentation/screens/main/main_page.dart';
 import 'package:page_transition/page_transition.dart';
 
 class LoadingState extends ChangeNotifier {
@@ -9,7 +9,7 @@ class LoadingState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
-        child: FirstPetPage(),
+        child: MainPage(),
       ),
     );
   }

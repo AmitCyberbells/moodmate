@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/themes/app_theme.dart';
 import 'package:moodmate/presentation/screens/auth/auth_state.dart';
+import 'package:moodmate/presentation/screens/home/home_state.dart';
+import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
 import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
 import 'package:moodmate/presentation/screens/loading/loading_state.dart';
 import 'package:moodmate/presentation/screens/onboading/onboading_state.dart';
@@ -24,6 +26,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AuthState()),
         ChangeNotifierProvider(create: (context) => LoadingState()),
         ChangeNotifierProvider(create: (context) => PetSelectionState()),
+        ChangeNotifierProvider(create: (context) => HomeState()),
+        ChangeNotifierProvider(
+          create: (context) => MainBottomNavigationState(),
+        ),
       ],
       builder: (context, child) {
         return MaterialApp(

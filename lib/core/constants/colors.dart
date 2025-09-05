@@ -21,5 +21,15 @@ final Color bgBrown = Color(0xff372315);
 // box color
 final Color pinkContainer = Color(0xffFFC9E9);
 final Color serachContainer = Color(0xff262135);
+
 //icon color
 final Color iconColor = Color(0xff371B34);
+
+//bottom navigation
+final Color bottomNavigatorBox = Color(0xffB9455F);
+
+//mood colors
+final Color happyColor = Color(0xffEF5DA8);
+final Color calmColor = Color(0xffAEAFF7);
+final Color relaxColor = Color(0xffF09E54);
+final Color angryColor = Color(0xffA0E3E2);

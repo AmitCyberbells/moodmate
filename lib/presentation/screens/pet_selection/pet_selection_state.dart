@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:moodmate/presentation/screens/home/home_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/fourth_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/first_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/second_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/third_pet_page.dart';
-import 'package:moodmate/presentation/screens/music/music_page.dart';
 import 'package:page_transition/page_transition.dart';
 
 class PetSelectionState extends ChangeNotifier {
@@ -17,7 +17,7 @@ class PetSelectionState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
-        child: MusicPage(),
+        child: HomePage(),
       ),
     );
   }
