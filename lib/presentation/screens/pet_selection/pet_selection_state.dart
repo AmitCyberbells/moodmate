@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/screens/main/main_page.dart';
+import 'package:moodmate/presentation/screens/main/second_main_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/fourth_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/first_pet_page.dart';
 import 'package:moodmate/presentation/screens/pet_selection/second_pet_page.dart';
@@ -17,7 +17,7 @@ class PetSelectionState extends ChangeNotifier {
       PageTransition(
         duration: Duration(seconds: 2),
         type: PageTransitionType.fade,
-        child: MainPage(),
+        child: SecondMainPage(),
       ),
       (Route<dynamic> route) => false,
     );
