@@ -3,6 +3,7 @@ import 'package:moodmate/presentation/screens/home/home_page.dart';
 import 'package:moodmate/presentation/screens/home/second_home_page.dart';
 import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
 import 'package:moodmate/presentation/screens/music/music_page.dart';
+import 'package:moodmate/presentation/screens/profile/profile_page.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_bottom_navigation_bar.dart';
 import 'package:provider/provider.dart';
@@ -23,12 +24,7 @@ class MainPage extends StatelessWidget {
           style: TextStyle(fontSize: 25, color: Colors.white),
         ),
       ),
-      Center(
-        child: Text(
-          "Tool Page",
-          style: TextStyle(fontSize: 25, color: Colors.white),
-        ),
-      ),
+      ProfilePage(),
     ];
     return Scaffold(
       body: Stack(

@@ -18,7 +18,7 @@ class TinyWinContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: bgColor.withOpacity(0.25),
+        color: bgColor,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

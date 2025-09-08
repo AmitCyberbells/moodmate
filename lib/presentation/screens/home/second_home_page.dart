@@ -264,22 +264,22 @@ class SecondHomePage extends StatelessWidget {
                   runSpacing: 10,
                   children: [
                     TinyWinContainer(
-                      bgColor: Colors.blue,
+                      bgColor: Colors.blue.withOpacity(0.25),
                       icon: "✨",
                       title: "Journaled 3 days staright",
                     ),
                     TinyWinContainer(
-                      bgColor: Colors.yellow,
+                      bgColor: Colors.yellow.withOpacity(0.25),
                       icon: "✨",
                       title: "Read Daily Affirmation",
                     ),
                     TinyWinContainer(
-                      bgColor: Colors.red,
+                      bgColor: Colors.red.withOpacity(0.25),
                       icon: "✨",
                       title: "Morning routine completed",
                     ),
                     TinyWinContainer(
-                      bgColor: Colors.green,
+                      bgColor: Colors.green.withOpacity(0.25),
                       icon: "✨",
                       title: "Practiced breathing exercise",
                     ),
@@ -287,7 +287,7 @@ class SecondHomePage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 TinyWinContainer(
-                  bgColor: softWarmWhite,
+                  bgColor: softWarmWhite.withOpacity(0.25),
                   icon: "👏 ",
                   title: "Consistency is the key, it is your superpower.",
                 ),
