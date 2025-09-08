@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/presentation/screens/home/widgets/mood_widget.dart';
+import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 
 class SecondHomePage extends StatelessWidget {
@@ -240,6 +241,60 @@ class SecondHomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: softWarmWhite.withOpacity(0.21),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Tiny Wins Tracker",
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: softWarmWhite,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Wrap(
+                  spacing: 5,
+                  runSpacing: 10,
+                  children: [
+                    TinyWinContainer(
+                      bgColor: Colors.blue,
+                      icon: "✨",
+                      title: "Journaled 3 days staright",
+                    ),
+                    TinyWinContainer(
+                      bgColor: Colors.yellow,
+                      icon: "✨",
+                      title: "Read Daily Affirmation",
+                    ),
+                    TinyWinContainer(
+                      bgColor: Colors.red,
+                      icon: "✨",
+                      title: "Morning routine completed",
+                    ),
+                    TinyWinContainer(
+                      bgColor: Colors.green,
+                      icon: "✨",
+                      title: "Practiced breathing exercise",
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                TinyWinContainer(
+                  bgColor: softWarmWhite,
+                  icon: "👏 ",
+                  title: "Consistency is the key, it is your superpower.",
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 100),
         ],
       ),
     );
