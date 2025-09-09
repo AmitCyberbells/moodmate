@@ -1,12 +1,34 @@
 class Validators {
-  static String? emailValidator(String? value) {
-    if (value == null || value.isEmpty) return "Email required";
-    if (!value.contains("@")) return "Invalid email";
+  static String? emailValidator(String value) {
+    const pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    final regExp = RegExp(pattern);
+    if (!regExp.hasMatch(value.trim())) {
+      return "Enter a valid email address";
+    }
     return null;
   }
 
   static String? passwordValidator(String? value) {
-    if (value == null || value.length < 6) return "Min 6 characters required";
+    if (value == null || value.isEmpty) {
+      return "Password is required";
+    }
+
+    if (value.length < 8) {
+      return "Password must be at least 8 characters long";
+    }
+
+    if (!value.contains(RegExp(r'[A-Z]'))) {
+      return "Password must contain at least one uppercase letter";
+    }
+
+    if (!value.contains(RegExp(r'[0-9]'))) {
+      return "Password must contain at least one number";
+    }
+
+    if (!value.contains(RegExp(r'[@$!%*?&]'))) {
+      return "Password must contain at least one special character (@\$!%*?&)";
+    }
+
     return null;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodmate/core/utils/validators.dart';
 import 'package:moodmate/domain/entities/user_entity.dart';
 import 'package:moodmate/domain/usecases/login_usecase.dart';
 import 'package:moodmate/domain/usecases/signup_usecase.dart';
@@ -16,6 +17,7 @@ class AuthProvider with ChangeNotifier {
   TextEditingController signupPasswordController = TextEditingController();
   TextEditingController signupConfirmPswController = TextEditingController();
 
+  //for login
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
 
@@ -29,9 +31,6 @@ class AuthProvider with ChangeNotifier {
     try {
       if (loginEmailController.text.isNotEmpty &&
           loginPasswordController.text.isNotEmpty) {
-        print(
-          "In Provider => email : ${loginEmailController.text}, password : ${loginPasswordController.text}",
-        );
         _user = await loginUseCase(
           loginEmailController.text,
           loginPasswordController.text,
@@ -69,10 +68,26 @@ class AuthProvider with ChangeNotifier {
           signupPasswordController.text.isNotEmpty &&
           signupConfirmPswController.text.isNotEmpty) {
         if (signupPasswordController.text == signupConfirmPswController.text) {
-          _user = await signupUseCase(
+          final isValidEmail = Validators.emailValidator(
             signupEmailController.text,
+          );
+          final isValidPassword = Validators.passwordValidator(
             signupPasswordController.text,
           );
+          if (isValidEmail != null) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(isValidEmail)));
+          } else if (isValidPassword != null) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(isValidPassword)));
+          } else {
+            _user = await signupUseCase(
+              signupEmailController.text,
+              signupPasswordController.text,
+            );
+          }
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
