@@ -104,6 +104,9 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signinTextClick(BuildContext context) {
+    emailController.clear();
+    passwordController.clear();
+    confirmPswController.clear();
     Navigator.pushReplacement(
       context,
       PageTransition(
@@ -115,6 +118,9 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signupTextClick(BuildContext context) {
+    emailController.clear();
+    passwordController.clear();
+    confirmPswController.clear();
     Navigator.pushReplacement(
       context,
       PageTransition(
