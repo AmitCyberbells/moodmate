@@ -14,16 +14,15 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final provider = context.read<AuthProvider>();
-    final bool rememberMe = true;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
           const BackgroundVideo(),
-          Positioned(
-            bottom: 0,
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+              padding: EdgeInsets.all(30),
               width: size.width,
               decoration: BoxDecoration(
                 color: softWarmWhite.withOpacity(0.21),
@@ -63,7 +62,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     CustomTextfield(
-                      controller: provider.emailController,
+                      controller: provider.loginEmailController,
                       hintTextColor: softWarmWhite,
                       textColor: softWarmWhite,
                       hintText: "food@leatsophat.me",
@@ -84,7 +83,7 @@ class LoginPage extends StatelessWidget {
                       isPassword: true,
                       hintTextColor: softWarmWhite,
                       textColor: softWarmWhite,
-                      controller: provider.passwordController,
+                      controller: provider.loginPasswordController,
                       hintText: "Enter your password...",
                     ),
                     SizedBox(height: 10),
@@ -94,11 +93,20 @@ class LoginPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Checkbox(
-                              value: rememberMe,
-                              activeColor: Colors.orange, // checkbox color
-                              onChanged: (value) {},
+                            Consumer<AuthProvider>(
+                              builder: (context, provider, child) {
+                                return Checkbox(
+                                  checkColor: charcoalGray,
+
+                                  value: provider.isRememberMe,
+                                  activeColor: softWarmWhite,
+                                  onChanged: (value) {
+                                    provider.toggleRememberMe(value!);
+                                  },
+                                );
+                              },
                             ),
+
                             Text(
                               "Remember Me",
                               style: Theme.of(
@@ -191,7 +199,7 @@ class LoginPage extends StatelessWidget {
                     SizedBox(height: 10),
                     CustomButton(
                       onPressed: () {
-                        provider.login(context);
+                        provider.signupTextClick(context);
                       },
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,

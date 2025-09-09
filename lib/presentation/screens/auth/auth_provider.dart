@@ -11,9 +11,13 @@ class AuthProvider with ChangeNotifier {
   final LoginUseCase loginUseCase;
   final SignupUseCase signupUseCase;
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPswController = TextEditingController();
+  //for signup
+  TextEditingController signupEmailController = TextEditingController();
+  TextEditingController signupPasswordController = TextEditingController();
+  TextEditingController signupConfirmPswController = TextEditingController();
+
+  TextEditingController loginEmailController = TextEditingController();
+  TextEditingController loginPasswordController = TextEditingController();
 
   UserEntity? _user;
 
@@ -23,14 +27,14 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> login(BuildContext context) async {
     try {
-      if (emailController.text.isNotEmpty &&
-          passwordController.text.isNotEmpty) {
+      if (loginEmailController.text.isNotEmpty &&
+          loginPasswordController.text.isNotEmpty) {
         print(
-          "In Provider => email : ${emailController.text}, password : ${passwordController.text}",
+          "In Provider => email : ${loginEmailController.text}, password : ${loginPasswordController.text}",
         );
         _user = await loginUseCase(
-          emailController.text,
-          passwordController.text,
+          loginEmailController.text,
+          loginPasswordController.text,
         );
       } else {
         ScaffoldMessenger.of(
@@ -48,8 +52,8 @@ class AuthProvider with ChangeNotifier {
           ),
           (Route<dynamic> route) => false,
         );
-        emailController.clear();
-        passwordController.clear();
+        loginEmailController.clear();
+        loginPasswordController.clear();
       }
     } catch (e) {
       ScaffoldMessenger.of(
@@ -61,13 +65,13 @@ class AuthProvider with ChangeNotifier {
 
   Future<void> signup(BuildContext context) async {
     try {
-      if (emailController.text.isNotEmpty &&
-          passwordController.text.isNotEmpty &&
-          confirmPswController.text.isNotEmpty) {
-        if (passwordController.text == confirmPswController.text) {
+      if (signupEmailController.text.isNotEmpty &&
+          signupPasswordController.text.isNotEmpty &&
+          signupConfirmPswController.text.isNotEmpty) {
+        if (signupPasswordController.text == signupConfirmPswController.text) {
           _user = await signupUseCase(
-            emailController.text,
-            passwordController.text,
+            signupEmailController.text,
+            signupPasswordController.text,
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -91,9 +95,9 @@ class AuthProvider with ChangeNotifier {
           ),
           (Route<dynamic> route) => false,
         );
-        emailController.clear();
-        passwordController.clear();
-        confirmPswController.clear();
+        signupEmailController.clear();
+        signupPasswordController.clear();
+        signupConfirmPswController.clear();
       }
     } catch (e) {
       ScaffoldMessenger.of(
@@ -104,9 +108,6 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signinTextClick(BuildContext context) {
-    emailController.clear();
-    passwordController.clear();
-    confirmPswController.clear();
     Navigator.pushReplacement(
       context,
       PageTransition(
@@ -115,12 +116,12 @@ class AuthProvider with ChangeNotifier {
         child: LoginPage(),
       ),
     );
+    signupEmailController.clear();
+    signupPasswordController.clear();
+    signupConfirmPswController.clear();
   }
 
   void signupTextClick(BuildContext context) {
-    emailController.clear();
-    passwordController.clear();
-    confirmPswController.clear();
     Navigator.pushReplacement(
       context,
       PageTransition(
@@ -129,6 +130,8 @@ class AuthProvider with ChangeNotifier {
         child: SignupPage(),
       ),
     );
+    loginEmailController.clear();
+    loginPasswordController.clear();
   }
 
   void navigateToSignupPage(BuildContext context) {
@@ -151,5 +154,15 @@ class AuthProvider with ChangeNotifier {
         child: LoginPage(),
       ),
     );
+  }
+
+  //Remember Me
+  bool _isRememberMe = false;
+
+  bool get isRememberMe => _isRememberMe;
+
+  void toggleRememberMe(bool value) {
+    _isRememberMe = value;
+    notifyListeners();
   }
 }

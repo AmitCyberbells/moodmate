@@ -68,12 +68,6 @@
       "languageVersion": "3.7"
     },
     {
-      "name": "flutter_animate_border",
-      "rootUri": "file:///C:/Users/RAHUL/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_animate_border-1.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "3.7"
-    },
-    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Users/RAHUL/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-5.0.0",
       "packageUri": "lib/",
@@ -94,12 +88,6 @@
     {
       "name": "fluttertoast",
       "rootUri": "file:///C:/Users/RAHUL/AppData/Local/Pub/Cache/hosted/pub.dev/fluttertoast-8.2.12",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "gap",
-      "rootUri": "file:///C:/Users/RAHUL/AppData/Local/Pub/Cache/hosted/pub.dev/gap-3.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -350,7 +338,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-09-09T06:10:33.370829Z",
+  "generated": "2025-09-09T11:09:29.269434Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///L:/flutter%20sdk/flutter",

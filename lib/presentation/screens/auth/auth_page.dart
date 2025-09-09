@@ -13,78 +13,81 @@ class AuthPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final provider = context.read<AuthProvider>();
 
-    return Stack(
-      children: [
-        const BackgroundVideo(),
-        Positioned(
-          top: 50,
-          right: 20,
-          child: Text(
-            "Skip",
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          const BackgroundVideo(),
+          Positioned(
+            top: 50,
+            right: 20,
+            child: Text(
+              "Skip",
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
+            ),
           ),
-        ),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 50, vertical: 70),
-            width: size.width,
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(90),
-                topRight: Radius.circular(90),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 70),
+              width: size.width,
+              decoration: BoxDecoration(
+                color: softWarmWhite.withOpacity(0.21),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(90),
+                  topRight: Radius.circular(90),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Do something today",
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      color: softWarmWhite,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "If you change the way you look at things, the things you look at change.",
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomButton(
+                        onPressed: () {
+                          provider.navigateToSigninPage(context);
+                        },
+                        textColor: charcoalGray,
+                        bgColor: softWarmWhite,
+                        title: "Login",
+                      ),
+                      SizedBox(width: 20),
+                      CustomButton(
+                        onPressed: () {
+                          provider.navigateToSignupPage(context);
+                        },
+                        textColor: softWarmWhite,
+                        bgColor: Colors.transparent,
+                        title: "Sign Up",
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Do something today",
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: softWarmWhite,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  "If you change the way you look at things, the things you look at change.",
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 30),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomButton(
-                      onPressed: () {
-                        provider.navigateToSigninPage(context);
-                      },
-                      textColor: charcoalGray,
-                      bgColor: softWarmWhite,
-                      title: "Login",
-                    ),
-                    SizedBox(width: 20),
-                    CustomButton(
-                      onPressed: () {
-                        provider.navigateToSignupPage(context);
-                      },
-                      textColor: softWarmWhite,
-                      bgColor: Colors.transparent,
-                      title: "Sign Up",
-                    ),
-                  ],
-                ),
-              ],
-            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

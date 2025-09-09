@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate_border/flutter_animate_border.dart';
-import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/presentation/widgets/border_painter.dart';
 
 class CustomButton extends StatelessWidget {
   final String title;
@@ -19,37 +18,33 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FlutterAnimateBorderController controller =
-        FlutterAnimateBorderController();
     return GestureDetector(
       onTap: onPressed,
-      child: FlutterAnimateBorder(
-        controller: controller,
-        lineThickness: 1,
-        lineWidth: 100,
-        linePadding: 0,
-        cornerRadius: 40,
-        gradient: RadialGradient(
-          radius: 1,
-          colors: [softWarmWhite, softWarmWhite],
-        ),
-        child: Container(
-          alignment: Alignment.center,
-          width: width,
-          margin: EdgeInsets.all(4),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(40),
-            border: Border.all(width: 1, color: Colors.white),
-          ),
-          child: Text(
-            title,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: textColor),
-          ),
-        ),
+      child: TweenAnimationBuilder(
+        tween: Tween(begin: 0.0, end: 0.85),
+        duration: const Duration(seconds: 5),
+        builder: (context, value, child) {
+          return CustomPaint(
+            painter: BorderPainter(progress: value),
+            child: Container(
+              alignment: Alignment.center,
+              width: width,
+              margin: EdgeInsets.all(5),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              decoration: BoxDecoration(
+                color: bgColor,
+                borderRadius: BorderRadius.circular(40),
+                border: Border.all(width: 1, color: Colors.white),
+              ),
+              child: Text(
+                title,
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.copyWith(color: textColor),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

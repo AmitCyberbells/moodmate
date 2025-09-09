@@ -15,14 +15,14 @@ class SignupPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final provider = context.read<AuthProvider>();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
           const BackgroundVideo(),
-          Positioned(
-            bottom: 0,
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+              padding: EdgeInsets.all(30),
               width: size.width,
               decoration: BoxDecoration(
                 color: softWarmWhite.withOpacity(0.21),
@@ -66,7 +66,7 @@ class SignupPage extends StatelessWidget {
                       hintTextColor: coolGray,
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
-                      controller: provider.emailController,
+                      controller: provider.signupEmailController,
                       hintText: "Enter your email...",
                     ),
                     SizedBox(height: 20),
@@ -84,10 +84,11 @@ class SignupPage extends StatelessWidget {
                     CustomTextfield(
                       filled: true,
                       isPassword: true,
+
                       hintTextColor: coolGray,
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
-                      controller: provider.passwordController,
+                      controller: provider.signupPasswordController,
                       hintText: "Enter your password...",
                     ),
                     SizedBox(height: 20),
@@ -106,9 +107,10 @@ class SignupPage extends StatelessWidget {
                       filled: true,
                       hintTextColor: coolGray,
                       textColor: charcoalGray,
+
                       bgColor: softWarmWhite,
                       isPassword: true,
-                      controller: provider.confirmPswController,
+                      controller: provider.signupConfirmPswController,
                       hintText: "Enter your password...",
                     ),
                     SizedBox(height: 20),

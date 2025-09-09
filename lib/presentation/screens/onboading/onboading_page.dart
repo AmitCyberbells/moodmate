@@ -19,6 +19,7 @@ class OnboadingPage extends StatelessWidget {
         }
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: softWarmWhite,
         body: Column(
           children: [

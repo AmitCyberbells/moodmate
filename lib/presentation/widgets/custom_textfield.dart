@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 
-class CustomTextfield extends StatelessWidget {
+class CustomTextfield extends StatefulWidget {
   final TextEditingController controller;
   final bool filled;
   final Color bgColor;
@@ -9,6 +9,7 @@ class CustomTextfield extends StatelessWidget {
   final String hintText;
   final Color hintTextColor;
   final Color textColor;
+
   const CustomTextfield({
     this.filled = false,
     required this.hintTextColor,
@@ -21,24 +22,42 @@ class CustomTextfield extends StatelessWidget {
   });
 
   @override
+  State<CustomTextfield> createState() => _CustomTextfieldState();
+}
+
+class _CustomTextfieldState extends State<CustomTextfield> {
+  bool _isShowPsw = false;
+
+  @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: TextField(
-        obscureText: isPassword,
-        controller: controller,
+        controller: widget.controller,
+        obscureText: widget.isPassword && !_isShowPsw,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-          color: textColor,
+          color: widget.textColor,
           fontWeight: FontWeight.w600,
         ),
         decoration: InputDecoration(
-          fillColor: bgColor,
-          filled: filled,
+          fillColor: widget.bgColor,
+          filled: widget.filled,
           suffixIcon:
-              isPassword
-                  ? Icon(Icons.remove_red_eye_rounded, color: charcoalGray)
-                  : SizedBox(width: 0, height: 0),
-
+              widget.isPassword
+                  ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _isShowPsw = !_isShowPsw;
+                      });
+                    },
+                    icon: Icon(
+                      _isShowPsw
+                          ? Icons.visibility_off
+                          : Icons.visibility_rounded,
+                      color: widget.textColor,
+                    ),
+                  )
+                  : null,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(color: softWarmWhite, width: 1),
@@ -47,9 +66,9 @@ class CustomTextfield extends StatelessWidget {
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(color: softWarmWhite, width: 1),
           ),
-          hintText: hintText,
+          hintText: widget.hintText,
           hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: hintTextColor,
+            color: widget.hintTextColor,
             fontWeight: FontWeight.w600,
           ),
         ),

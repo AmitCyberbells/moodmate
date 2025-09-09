@@ -12,6 +12,7 @@ class ThirdSplashPage extends StatelessWidget {
       context.read<SplashState>().init(context);
     });
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           const BackgroundVideo(),

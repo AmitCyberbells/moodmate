@@ -35,7 +35,6 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
           _controller.value.isInitialized
               ? FittedBox(
                 fit: BoxFit.cover,
-
                 child: SizedBox(
                   width: _controller.value.size.width,
                   height: _controller.value.size.height,

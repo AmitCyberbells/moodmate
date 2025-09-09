@@ -20,6 +20,7 @@ class ThirdOnboadingPage extends StatelessWidget {
         }
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: softWarmWhite,
         body: Column(
           children: [
