@@ -31,7 +31,6 @@ class CustomTextfield extends StatelessWidget {
           color: textColor,
           fontWeight: FontWeight.w600,
         ),
-
         decoration: InputDecoration(
           fillColor: bgColor,
           filled: filled,
@@ -41,6 +40,10 @@ class CustomTextfield extends StatelessWidget {
                   : SizedBox(width: 0, height: 0),
 
           enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40),
+            borderSide: BorderSide(color: softWarmWhite, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),
             borderSide: BorderSide(color: softWarmWhite, width: 1),
           ),

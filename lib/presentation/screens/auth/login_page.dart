@@ -1,7 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
-import 'package:moodmate/presentation/screens/auth/auth_state.dart';
+import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:moodmate/presentation/widgets/custom_text_button.dart';
@@ -14,18 +13,17 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final provider = context.read<AuthState>();
+    final provider = context.read<AuthProvider>();
     final bool rememberMe = true;
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           const BackgroundVideo(),
           Positioned(
             bottom: 0,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
               width: size.width,
               decoration: BoxDecoration(
                 color: softWarmWhite.withOpacity(0.21),
@@ -52,7 +50,7 @@ class LoginPage extends StatelessWidget {
                       ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 30),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -65,12 +63,12 @@ class LoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     CustomTextfield(
-                      controller: emailController,
+                      controller: provider.emailController,
                       hintTextColor: softWarmWhite,
                       textColor: softWarmWhite,
                       hintText: "food@leatsophat.me",
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 15),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -83,9 +81,10 @@ class LoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     CustomTextfield(
+                      isPassword: true,
                       hintTextColor: softWarmWhite,
                       textColor: softWarmWhite,
-                      controller: passwordController,
+                      controller: provider.passwordController,
                       hintText: "Enter your password...",
                     ),
                     SizedBox(height: 10),
@@ -123,16 +122,16 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     CustomButton(
                       onPressed: () {
-                        provider.signupButtonClick(context);
+                        provider.login(context);
                       },
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
                       title: "Login",
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -182,32 +181,22 @@ class LoginPage extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 10),
-                    Text.rich(
-                      TextSpan(
-                        text: "Don't have an account? ",
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: softWarmWhite,
-                          fontWeight: FontWeight.w800,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "Sign Up",
-                            style: Theme.of(
-                              context,
-                            ).textTheme.bodySmall?.copyWith(
-                              color: orange,
-                              fontWeight: FontWeight.w800,
-                            ),
-                            recognizer:
-                                TapGestureRecognizer()
-                                  ..onTap = () {
-                                    provider.signupTextClick(context);
-                                  },
-                          ),
-                        ],
+                    Text(
+                      "Don't have an account? ",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
+                    CustomButton(
+                      onPressed: () {
+                        provider.login(context);
+                      },
+                      textColor: charcoalGray,
+                      bgColor: softWarmWhite,
+                      title: "Sign Up",
+                    ),
                   ],
                 ),
               ),

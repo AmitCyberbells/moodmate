@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
-import 'package:moodmate/presentation/screens/auth/auth_state.dart';
+import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final provider = context.read<AuthState>();
+    final provider = context.read<AuthProvider>();
 
     return Stack(
       children: [
@@ -63,7 +63,7 @@ class AuthPage extends StatelessWidget {
                   children: [
                     CustomButton(
                       onPressed: () {
-                        provider.signin(context);
+                        provider.navigateToSigninPage(context);
                       },
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
@@ -72,7 +72,7 @@ class AuthPage extends StatelessWidget {
                     SizedBox(width: 20),
                     CustomButton(
                       onPressed: () {
-                        provider.signup(context);
+                        provider.navigateToSignupPage(context);
                       },
                       textColor: softWarmWhite,
                       bgColor: Colors.transparent,

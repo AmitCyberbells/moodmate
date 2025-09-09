@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate_border/flutter_animate_border.dart';
+import 'package:moodmate/core/constants/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String title;
@@ -17,12 +19,19 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FlutterAnimateBorderController controller =
+        FlutterAnimateBorderController();
     return GestureDetector(
       onTap: onPressed,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          border: Border.all(width: 1, color: Colors.white),
+      child: FlutterAnimateBorder(
+        controller: controller,
+        lineThickness: 1,
+        lineWidth: 100,
+        linePadding: 0,
+        cornerRadius: 40,
+        gradient: RadialGradient(
+          radius: 1,
+          colors: [softWarmWhite, softWarmWhite],
         ),
         child: Container(
           alignment: Alignment.center,

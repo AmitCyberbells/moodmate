@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moodmate/config/provider_setup.dart';
 import 'package:moodmate/core/themes/app_theme.dart';
-import 'package:moodmate/presentation/screens/auth/auth_state.dart';
-import 'package:moodmate/presentation/screens/home/home_state.dart';
-import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
-import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
-import 'package:moodmate/presentation/screens/loading/loading_state.dart';
-import 'package:moodmate/presentation/screens/onboading/onboading_state.dart';
-import 'package:moodmate/presentation/screens/profile/profile_state.dart';
-import 'package:moodmate/presentation/screens/splash/splash_state.dart';
 import 'package:moodmate/presentation/screens/splash/third_splash_page.dart';
 import 'package:provider/provider.dart';
 
@@ -21,18 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => SplashState()),
-        ChangeNotifierProvider(create: (context) => OnboadingState()),
-        ChangeNotifierProvider(create: (context) => AuthState()),
-        ChangeNotifierProvider(create: (context) => LoadingState()),
-        ChangeNotifierProvider(create: (context) => PetSelectionState()),
-        ChangeNotifierProvider(create: (context) => HomeState()),
-        ChangeNotifierProvider(create: (context) => ProfileState()),
-        ChangeNotifierProvider(
-          create: (context) => MainBottomNavigationState(),
-        ),
-      ],
+      providers: providers,
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,

@@ -27,13 +27,14 @@ class CustomTextButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         margin: EdgeInsets.all(4),
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(width: 1, color: borderColor ?? textColor),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             isIcon ? Image.asset(img!, width: size, height: size) : Container(),
             isIcon ? SizedBox(width: 5) : Container(),
