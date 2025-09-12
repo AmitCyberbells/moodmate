@@ -107,7 +107,7 @@ class JournalPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Align(
-                  alignment: Alignment.center,
+                  alignment: Alignment.centerLeft,
                   child: CustomButton(
                     onPressed: () {},
                     width: 180,

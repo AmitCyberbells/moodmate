@@ -8,7 +8,7 @@ class LoadingState extends ChangeNotifier {
       Navigator.push(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 100),
+          duration: Duration(milliseconds: 700),
           type: PageTransitionType.rightToLeft,
           child: FirstPetPage(),
         ),

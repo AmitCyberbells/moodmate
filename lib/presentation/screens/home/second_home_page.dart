@@ -209,6 +209,7 @@ class SecondHomePage extends StatelessWidget {
           SizedBox(height: 20),
           BgCard(
             bgcolor: softWarmWhite.withOpacity(0.22),
+            bgImg: "assets/images/professional_support_bg.png",
             widget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

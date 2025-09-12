@@ -15,8 +15,8 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushAndRemoveUntil(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
-        type: PageTransitionType.fade,
+        duration: Duration(milliseconds: 700),
+        type: PageTransitionType.rightToLeft,
         child: SecondMainPage(),
       ),
       (Route<dynamic> route) => false,
@@ -27,7 +27,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.rightToLeft,
         child: SecondPetPage(),
       ),
@@ -38,7 +38,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.leftToRight,
         child: FourthPetPage(),
       ),
@@ -49,7 +49,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.rightToLeft,
         child: ThirdPetPage(),
       ),
@@ -60,7 +60,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.leftToRight,
         child: FirstPetPage(),
       ),
@@ -71,7 +71,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.rightToLeft,
         child: FourthPetPage(),
       ),
@@ -82,7 +82,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.leftToRight,
         child: SecondPetPage(),
       ),
@@ -93,7 +93,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.rightToLeft,
         child: FirstPetPage(),
       ),
@@ -104,7 +104,7 @@ class PetSelectionState extends ChangeNotifier {
     Navigator.pushReplacement(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.leftToRight,
         child: ThirdPetPage(),
       ),

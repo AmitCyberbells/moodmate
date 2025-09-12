@@ -46,7 +46,7 @@ class AuthProvider with ChangeNotifier {
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(milliseconds: 100),
+            duration: Duration(seconds: 1),
             type: PageTransitionType.fade,
             child: LoadingPage(),
           ),
@@ -97,7 +97,7 @@ class AuthProvider with ChangeNotifier {
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(milliseconds: 100),
+            duration: Duration(seconds: 1),
             type: PageTransitionType.rightToLeft,
             child: LoadingPage(),
           ),
@@ -118,7 +118,7 @@ class AuthProvider with ChangeNotifier {
       Navigator.pushReplacement(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 100),
+          duration: Duration(milliseconds: 500),
           type: PageTransitionType.rightToLeft,
           child: LoginPage(),
         ),
@@ -135,7 +135,7 @@ class AuthProvider with ChangeNotifier {
       Navigator.pushAndRemoveUntil(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 100),
+          duration: Duration(milliseconds: 700),
           type: PageTransitionType.rightToLeft,
           child: LoadingPage(),
         ),
@@ -149,11 +149,11 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signupTextClick(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 700), () {
       Navigator.pushReplacement(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 100),
+          duration: Duration(milliseconds: 500),
           type: PageTransitionType.rightToLeft,
           child: SignupPage(),
         ),
@@ -164,11 +164,11 @@ class AuthProvider with ChangeNotifier {
   }
 
   void navigateToSignupPage(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 700), () {
       Navigator.push(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 100),
+          duration: Duration(milliseconds: 500),
           type: PageTransitionType.rightToLeft,
           child: SignupPage(),
         ),
@@ -177,11 +177,11 @@ class AuthProvider with ChangeNotifier {
   }
 
   void navigateToSigninPage(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(milliseconds: 700), () {
       Navigator.push(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 100),
+          duration: Duration(milliseconds: 500),
           type: PageTransitionType.rightToLeft,
           child: LoginPage(),
         ),
