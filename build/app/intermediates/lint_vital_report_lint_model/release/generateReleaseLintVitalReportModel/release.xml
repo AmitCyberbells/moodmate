@@ -1,8 +1,8 @@
 <variant
     name="release"
     package="com.example.moodmate"
-    minSdkVersion="23"
-    targetSdkVersion="35"
+    minSdkVersion="24"
+    targetSdkVersion="36"
     shrinking="true"
     mergedManifest="L:\flutter Projects\moodmate\moodmate\build\app\intermediates\merged_manifest\release\processReleaseMainManifest\AndroidManifest.xml"
     manifestMergeReport="L:\flutter Projects\moodmate\moodmate\build\app\outputs\logs\manifest-merger-release-report.txt"
@@ -32,6 +32,6 @@
       applicationId="com.example.moodmate"
       generatedSourceFolders="L:\flutter Projects\moodmate\moodmate\build\app\generated\ap_generated_sources\release\out"
       generatedResourceFolders="L:\flutter Projects\moodmate\moodmate\build\app\generated\res\resValues\release"
-      desugaredMethodsFiles="C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\8e5128ff07917062db2c50969792e583\transformed\D8BackportedDesugaredMethods.txt">
+      desugaredMethodsFiles="C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\d96646f94f37cda960e3bc3267d3cd21\transformed\D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

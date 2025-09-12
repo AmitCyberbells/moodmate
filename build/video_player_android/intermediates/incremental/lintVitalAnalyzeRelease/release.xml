@@ -6,7 +6,7 @@
     mergedManifest="L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\merged_manifest\release\processReleaseManifest\AndroidManifest.xml"
     proguardFiles="L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\default_proguard_files\global\proguard-android.txt-8.7.0"
     partialResultsDir="L:\flutter Projects\moodmate\moodmate\build\video_player_android\intermediates\lint_vital_partial_results\release\lintVitalAnalyzeRelease\out"
-    desugaredMethodsFiles="C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\7f66021954626c8425a65e35f28c3c94\transformed\D8BackportedDesugaredMethods.txt">
+    desugaredMethodsFiles="C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\0fe189446d887a974b0db11c7fd30877\transformed\D8BackportedDesugaredMethods.txt">
   <buildFeatures
       namespacing="REQUIRED"/>
   <sourceProviders>
@@ -26,6 +26,6 @@
       applicationId="io.flutter.plugins.videoplayer"
       generatedSourceFolders="L:\flutter Projects\moodmate\moodmate\build\video_player_android\generated\ap_generated_sources\release\out"
       generatedResourceFolders="L:\flutter Projects\moodmate\moodmate\build\video_player_android\generated\res\resValues\release"
-      desugaredMethodsFiles="C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\7f66021954626c8425a65e35f28c3c94\transformed\D8BackportedDesugaredMethods.txt">
+      desugaredMethodsFiles="C:\Users\RAHUL\.gradle\caches\8.10.2\transforms\0fe189446d887a974b0db11c7fd30877\transformed\D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

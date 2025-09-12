@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class CustomTextfield extends StatefulWidget {
   final TextEditingController controller;
@@ -9,8 +10,9 @@ class CustomTextfield extends StatefulWidget {
   final String hintText;
   final Color hintTextColor;
   final Color textColor;
-
+  final String prefixIcon;
   const CustomTextfield({
+    required this.prefixIcon,
     this.filled = false,
     required this.hintTextColor,
     required this.textColor,
@@ -35,13 +37,15 @@ class _CustomTextfieldState extends State<CustomTextfield> {
       child: TextField(
         controller: widget.controller,
         obscureText: widget.isPassword && !_isShowPsw,
-        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-          color: widget.textColor,
-          fontWeight: FontWeight.w600,
+        style: nunito(
+          fontSize: mediumBody,
+          color: softWarmWhite,
+          fontWeight: FontWeight.w700,
         ),
         decoration: InputDecoration(
           fillColor: widget.bgColor,
           filled: widget.filled,
+          prefixIcon: Image.asset(widget.prefixIcon),
           suffixIcon:
               widget.isPassword
                   ? IconButton(
@@ -50,10 +54,10 @@ class _CustomTextfieldState extends State<CustomTextfield> {
                         _isShowPsw = !_isShowPsw;
                       });
                     },
-                    icon: Icon(
+                    icon: Image.asset(
                       _isShowPsw
-                          ? Icons.visibility_off
-                          : Icons.visibility_rounded,
+                          ? "assets/icons/show_password.png"
+                          : "assets/icons/show_password.png",
                       color: widget.textColor,
                     ),
                   )
@@ -67,9 +71,10 @@ class _CustomTextfieldState extends State<CustomTextfield> {
             borderSide: BorderSide(color: softWarmWhite, width: 1),
           ),
           hintText: widget.hintText,
-          hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: widget.hintTextColor,
-            fontWeight: FontWeight.w600,
+          hintStyle: nunito(
+            fontSize: mediumBody,
+            color: textfieldHintColor,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),

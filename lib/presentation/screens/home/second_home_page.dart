@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/home/widgets/mood_widget.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
+import 'package:moodmate/presentation/widgets/bg_card.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 
 class SecondHomePage extends StatelessWidget {
@@ -9,6 +11,7 @@ class SecondHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.only(top: 20, left: 20, right: 20),
       child: ListView(
@@ -19,20 +22,36 @@ class SecondHomePage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Hi!, Siya",
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: softWarmWhite,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                  Text.rich(
+                    TextSpan(
+                      text: "Hi! ",
+                      style: nunito(
+                        fontSize: smallTitle,
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "Siya",
+                          style: nunito(
+                            decoration: TextDecoration.none,
+                            fontSize: smallTitle,
+                            color: softWarmWhite,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+
                   Text(
-                    "Your feelings are valid and important.",
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    "Your feelings are valid \nand important.",
+                    style: nunito(
+                      fontSize: smallBody,
                       color: softWarmWhite,
-                      fontSize: 12,
                       fontWeight: FontWeight.w600,
+                      decoration: TextDecoration.none,
                     ),
                   ),
                 ],
@@ -42,7 +61,7 @@ class SecondHomePage extends StatelessWidget {
                 height: 50,
                 padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  color: pinkContainer,
+                  color: profileImageContainer,
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Row(
@@ -75,20 +94,66 @@ class SecondHomePage extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset("assets/images/pet1.png", height: 120),
+              SizedBox(width: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text.rich(
+                    TextSpan(
+                      text: "Hi! ",
+                      style: nunito(
+                        fontSize: smallTitle,
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "I am Oreo",
+                          style: nunito(
+                            decoration: TextDecoration.none,
+                            fontSize: smallTitle,
+                            color: softWarmWhite,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width / 1.7,
+                    child: Text(
+                      "I'm here to support your mental health, ready to listen to everything you want to share.",
+                      style: atkinsonHyperlegible(
+                        decoration: TextDecoration.none,
+                        fontSize: mediumBody,
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 30),
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "How are feeling today?",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  style: nunito(
+                    decoration: TextDecoration.none,
+                    fontSize: extraLargeBody,
                     color: softWarmWhite,
-                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -97,32 +162,32 @@ class SecondHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MoodWidget(
-                      img: "assets/images/happy.png",
+                      img: "assets/icons/happy.png",
                       title: "Happy",
                       bgColor: happyColor,
                     ),
                     MoodWidget(
-                      img: "assets/images/calm.png",
+                      img: "assets/icons/calm.png",
                       title: "Calm",
                       bgColor: calmColor,
                     ),
                     MoodWidget(
-                      img: "assets/images/relax.png",
+                      img: "assets/icons/relax.png",
                       title: "Relax",
                       bgColor: relaxColor,
                     ),
                     MoodWidget(
-                      img: "assets/images/angry.png",
+                      img: "assets/icons/angry.png",
                       title: "Angry",
                       bgColor: angryColor,
                     ),
                     MoodWidget(
-                      img: "assets/images/sad.png",
+                      img: "assets/icons/sad.png",
                       title: "Sad",
                       bgColor: sadColor,
                     ),
                     MoodWidget(
-                      img: "assets/images/anxious.png",
+                      img: "assets/icons/anxious.png",
                       title: "Anxious",
                       bgColor: anxiousColor,
                     ),
@@ -142,43 +207,42 @@ class SecondHomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "How are feeling today?",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  "Professional support",
+                  style: nunito(
+                    decoration: TextDecoration.none,
+                    fontSize: extraLargeBody,
                     color: softWarmWhite,
-                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: 20),
                 Text(
                   "Support is here if you need it",
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  style: alegreyaSans(
+                    decoration: TextDecoration.none,
+                    fontSize: smallBody,
                     color: softWarmWhite,
-
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 Text(
                   "3 Therapists available now to talk",
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  style: alegreyaSans(
+                    decoration: TextDecoration.none,
+                    fontSize: smallBody,
                     color: softWarmWhite,
-
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(height: 20),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CustomButton(
                       onPressed: () {},
@@ -200,30 +264,28 @@ class SecondHomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Affirmation for the Day",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  style: nunito(
+                    decoration: TextDecoration.none,
+                    fontSize: extraLargeBody,
                     color: softWarmWhite,
-                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: 20),
                 Text(
                   "I am capable of handling whatever comes my way today.",
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  style: alegreyaSans(
+                    decoration: TextDecoration.none,
+                    fontSize: smallBody,
                     color: softWarmWhite,
-
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(height: 20),
@@ -241,20 +303,17 @@ class SecondHomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Tiny Wins Tracker",
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  style: nunito(
+                    decoration: TextDecoration.none,
+                    fontSize: extraLargeBody,
                     color: softWarmWhite,
-                    fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -294,7 +353,7 @@ class SecondHomePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 100),
+          SizedBox(height: 120),
         ],
       ),
     );

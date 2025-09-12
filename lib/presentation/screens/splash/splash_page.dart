@@ -21,7 +21,7 @@ class SplashPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text("MoodMate", style: Theme.of(context).textTheme.titleLarge),
+          Text("Mindnest", style: Theme.of(context).textTheme.titleLarge),
           Image.asset("assets/images/splash_image.png", fit: BoxFit.fitWidth),
         ],
       ),

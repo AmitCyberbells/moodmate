@@ -21,7 +21,7 @@ class ThirdSplashPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Image.asset("assets/images/logomark.png"),
-                Text("MoodMate", style: Theme.of(context).textTheme.titleLarge),
+                Text("Mindnest", style: Theme.of(context).textTheme.titleLarge),
                 SizedBox(height: 50),
                 Image.asset(
                   "assets/images/splash_image2.png",

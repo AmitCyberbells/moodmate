@@ -5,29 +5,38 @@ import '../models/user_model.dart';
 
 class AuthRemoteDataSource {
   Future<UserModel> login(String email, String password) async {
-    print("email: $email, password: $password");
     final response = await http.post(
       Uri.parse(ApiConstants.login),
       body: {"email": email, "password": password},
     );
 
     if (response.statusCode == 200) {
-      print("Response Body : ${response.body}");
       return UserModel.fromJson(jsonDecode(response.body));
+    } else if (response.statusCode == 400) {
+      final data = jsonDecode(response.body);
+      String message = data["message"];
+      throw Exception(message);
     } else {
       throw Exception("Login failed");
     }
   }
 
-  Future<UserModel> signup(String email, String password) async {
+  Future<UserModel> signup(
+    String username,
+    String email,
+    String password,
+  ) async {
     final response = await http.post(
       Uri.parse(ApiConstants.signup),
-      body: {"email": email, "password": password},
+      body: {"username": username, "email": email, "password": password},
     );
 
     if (response.statusCode == 200) {
-      print("Response Body : ${response.body}");
       return UserModel.fromJson(jsonDecode(response.body));
+    } else if (response.statusCode == 400) {
+      final data = jsonDecode(response.body);
+      String message = data["message"];
+      throw Exception(message);
     } else {
       throw Exception("Signup failed");
     }

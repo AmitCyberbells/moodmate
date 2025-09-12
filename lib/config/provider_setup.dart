@@ -1,4 +1,5 @@
 import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
+import 'package:moodmate/presentation/screens/caretool/caretool_provider.dart';
 import 'package:moodmate/presentation/screens/home/home_state.dart';
 import 'package:moodmate/presentation/screens/loading/loading_state.dart';
 import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
@@ -31,4 +32,5 @@ List<SingleChildWidget> providers = [
   ChangeNotifierProvider(create: (context) => HomeState()),
   ChangeNotifierProvider(create: (context) => ProfileState()),
   ChangeNotifierProvider(create: (context) => MainBottomNavigationState()),
+  ChangeNotifierProvider(create: (context) => CaretoolProvider()),
 ];

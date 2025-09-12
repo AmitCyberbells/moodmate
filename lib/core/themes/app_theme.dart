@@ -8,28 +8,16 @@ class AppTheme {
       primaryColor: Colors.white,
       scaffoldBackgroundColor: Color(0xff1b2020),
       textTheme: TextTheme(
-        titleMedium: nunito(
-          fontSize: mediumTitle,
-          color: charcoalGray,
-          fontWeight: FontWeight.w600,
-        ),
-        titleSmall: nunito(
-          fontSize: smallTitle,
-          color: charcoalGray,
-          fontWeight: FontWeight.w600,
-        ),
-        titleLarge: karantina(
-          fontSize: largeTitle,
-          color: softWarmWhite,
-          fontWeight: FontWeight.w500,
-        ),
-        bodySmall: alegreyaSans(fontSize: smallBody, color: coolGray),
-        bodyMedium: inter(
+        titleMedium: nunito(fontSize: mediumTitle, fontWeight: FontWeight.w600),
+        titleSmall: nunito(fontSize: smallTitle, fontWeight: FontWeight.w600),
+        titleLarge: nunito(fontSize: largeTitle, fontWeight: FontWeight.w700),
+        bodySmall: nunito(fontSize: smallBody, color: coolGray),
+        bodyMedium: nunito(
           fontSize: mediumBody,
           color: charcoalGray,
           fontWeight: FontWeight.w500,
         ),
-        bodyLarge: alegreya(fontSize: largeBody, color: charcoalGray),
+        bodyLarge: atkinsonHyperlegible(fontSize: largeBody),
       ),
     );
   }

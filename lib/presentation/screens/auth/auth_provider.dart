@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:moodmate/core/utils/validators.dart';
 import 'package:moodmate/domain/entities/user_entity.dart';
 import 'package:moodmate/domain/usecases/login_usecase.dart';
@@ -13,6 +14,7 @@ class AuthProvider with ChangeNotifier {
   final SignupUseCase signupUseCase;
 
   //for signup
+  TextEditingController signupNameController = TextEditingController();
   TextEditingController signupEmailController = TextEditingController();
   TextEditingController signupPasswordController = TextEditingController();
   TextEditingController signupConfirmPswController = TextEditingController();
@@ -36,16 +38,15 @@ class AuthProvider with ChangeNotifier {
           loginPasswordController.text,
         );
       } else {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text("All Fields are required.")));
+        Fluttertoast.showToast(msg: "All Fields are required.");
       }
 
       if (_user != null) {
+        Fluttertoast.showToast(msg: "Login Successfull.");
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(seconds: 2),
+            duration: Duration(milliseconds: 100),
             type: PageTransitionType.fade,
             child: LoadingPage(),
           ),
@@ -55,16 +56,14 @@ class AuthProvider with ChangeNotifier {
         loginPasswordController.clear();
       }
     } catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Login failed: $e")));
-      print("Error :$e");
+      Fluttertoast.showToast(msg: "Login failed Because Of $e");
     }
   }
 
   Future<void> signup(BuildContext context) async {
     try {
-      if (signupEmailController.text.isNotEmpty &&
+      if (signupNameController.text.isNotEmpty &&
+          signupEmailController.text.isNotEmpty &&
           signupPasswordController.text.isNotEmpty &&
           signupConfirmPswController.text.isNotEmpty) {
         if (signupPasswordController.text == signupConfirmPswController.text) {
@@ -75,100 +74,119 @@ class AuthProvider with ChangeNotifier {
             signupPasswordController.text,
           );
           if (isValidEmail != null) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(isValidEmail)));
+            Fluttertoast.showToast(msg: isValidEmail);
           } else if (isValidPassword != null) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(isValidPassword)));
+            Fluttertoast.showToast(msg: isValidPassword);
           } else {
             _user = await signupUseCase(
+              signupNameController.text,
               signupEmailController.text,
               signupPasswordController.text,
             );
           }
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text("Password and Confirm Password should be same."),
-            ),
+          Fluttertoast.showToast(
+            msg: "Password and Confirm Password should be same.",
           );
         }
       } else {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text("All Fields are required.")));
+        Fluttertoast.showToast(msg: "All Fields are required.");
       }
       if (_user != null) {
+        Fluttertoast.showToast(msg: "Signup Successfull.");
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(seconds: 2),
-            type: PageTransitionType.fade,
+            duration: Duration(milliseconds: 100),
+            type: PageTransitionType.rightToLeft,
             child: LoadingPage(),
           ),
           (Route<dynamic> route) => false,
         );
+        signupNameController.clear();
         signupEmailController.clear();
         signupPasswordController.clear();
         signupConfirmPswController.clear();
       }
     } catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Signup failed: $e")));
-      print("Error :$e");
+      Fluttertoast.showToast(msg: "Signup failed. $e");
     }
   }
 
   void signinTextClick(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(seconds: 2),
-        type: PageTransitionType.fade,
-        child: LoginPage(),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+        context,
+        PageTransition(
+          duration: Duration(milliseconds: 100),
+          type: PageTransitionType.rightToLeft,
+          child: LoginPage(),
+        ),
+      );
+    });
+    signupNameController.clear();
+    signupEmailController.clear();
+    signupPasswordController.clear();
+    signupConfirmPswController.clear();
+  }
+
+  void skip(BuildContext context) {
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.pushAndRemoveUntil(
+        context,
+        PageTransition(
+          duration: Duration(milliseconds: 100),
+          type: PageTransitionType.rightToLeft,
+          child: LoadingPage(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+    });
+    signupNameController.clear();
     signupEmailController.clear();
     signupPasswordController.clear();
     signupConfirmPswController.clear();
   }
 
   void signupTextClick(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(seconds: 2),
-        type: PageTransitionType.fade,
-        child: SignupPage(),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+        context,
+        PageTransition(
+          duration: Duration(milliseconds: 100),
+          type: PageTransitionType.rightToLeft,
+          child: SignupPage(),
+        ),
+      );
+    });
     loginEmailController.clear();
     loginPasswordController.clear();
   }
 
   void navigateToSignupPage(BuildContext context) {
-    Navigator.push(
-      context,
-      PageTransition(
-        duration: Duration(seconds: 2),
-        type: PageTransitionType.fade,
-        child: SignupPage(),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.push(
+        context,
+        PageTransition(
+          duration: Duration(milliseconds: 100),
+          type: PageTransitionType.rightToLeft,
+          child: SignupPage(),
+        ),
+      );
+    });
   }
 
   void navigateToSigninPage(BuildContext context) {
-    Navigator.push(
-      context,
-      PageTransition(
-        duration: Duration(seconds: 2),
-        type: PageTransitionType.fade,
-        child: LoginPage(),
-      ),
-    );
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.push(
+        context,
+        PageTransition(
+          duration: Duration(milliseconds: 100),
+          type: PageTransitionType.rightToLeft,
+          child: LoginPage(),
+        ),
+      );
+    });
   }
 
   //Remember Me

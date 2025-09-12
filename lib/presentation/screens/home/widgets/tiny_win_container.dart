@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class TinyWinContainer extends StatelessWidget {
   final String title;
@@ -27,10 +28,11 @@ class TinyWinContainer extends StatelessWidget {
           SizedBox(width: 3),
           Text(
             title,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
+            style: alegreyaSans(
+              decoration: TextDecoration.none,
+              fontSize: smallBody,
               color: softWarmWhite,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ],

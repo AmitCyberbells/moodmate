@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class SecondCustomBottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -25,18 +26,49 @@ class SecondCustomBottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildNavItem(Icons.home, "Home", 0, context),
-          _buildNavItem(Icons.book, "Journal", 1, context),
-          _buildNavItem(Icons.music_note_rounded, "Music", 2, context),
-          _buildNavItem(Icons.person, "Community", 3, context),
-          _buildNavItem(Icons.settings_outlined, "Tool", 4, context),
+          _buildNavItem(
+            "assets/icons/home.png",
+            "assets/icons/selected_home.png",
+            "Home",
+            0,
+            context,
+          ),
+          _buildNavItem(
+            "assets/icons/journal.png",
+            "assets/icons/selected_journal.png",
+            "Journal",
+            1,
+            context,
+          ),
+          _buildNavItem(
+            "assets/icons/community.png",
+            "assets/icons/selected_community.png",
+            "Community",
+            2,
+            context,
+          ),
+          _buildNavItem(
+            "assets/icons/caretool.png",
+            "assets/icons/selected_caretool.png",
+            "Care tool",
+            3,
+            context,
+          ),
+          _buildNavItem(
+            "assets/icons/profile.png",
+            "assets/icons/selected_profile.png",
+            "Profile",
+            4,
+            context,
+          ),
         ],
       ),
     );
   }
 
   Widget _buildNavItem(
-    IconData icon,
+    String image,
+    String selectedImage,
     String label,
     int index,
     BuildContext context,
@@ -57,7 +89,19 @@ class SecondCustomBottomNavBar extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, size: isSelected ? 35 : 25, color: softWarmWhite),
+                isSelected
+                    ? Image.asset(
+                      selectedImage,
+                      width: 35,
+                      height: 35,
+                      filterQuality: FilterQuality.high,
+                    )
+                    : Image.asset(
+                      image,
+                      width: 25,
+                      height: 25,
+                      filterQuality: FilterQuality.high,
+                    ),
                 isSelected
                     ? CircleAvatar(backgroundColor: softWarmWhite, radius: 2)
                     : Container(),
@@ -66,9 +110,11 @@ class SecondCustomBottomNavBar extends StatelessWidget {
           ),
           Text(
             label,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w500,
+            style: alegreyaSans(
+              decoration: TextDecoration.none,
+              fontSize: smallBody,
               color: softWarmWhite,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],

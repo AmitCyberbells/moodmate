@@ -22,11 +22,11 @@ class BorderPainter extends CustomPainter {
 
     final path = Path()..addRRect(rRect);
 
-    final pathMetrics = path.computeMetrics().first;
-    final extractLength = pathMetrics.length * progress;
-    final animatedPath = pathMetrics.extractPath(40, extractLength);
-
-    canvas.drawPath(animatedPath, paint);
+    for (final pathMetrics in path.computeMetrics()) {
+      final extractLength = pathMetrics.length * progress;
+      final animatedPath = pathMetrics.extractPath(100, extractLength);
+      canvas.drawPath(animatedPath, paint);
+    }
   }
 
   @override

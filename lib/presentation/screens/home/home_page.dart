@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                 height: 50,
                 padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  color: pinkContainer,
+                  color: profileImageContainer,
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Row(

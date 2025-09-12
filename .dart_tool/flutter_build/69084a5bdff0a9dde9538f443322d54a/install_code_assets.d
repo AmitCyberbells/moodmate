@@ -1,0 +1,1 @@
+ L:\\flutter\ Projects\\moodmate\\moodmate\\.dart_tool\\flutter_build\\69084a5bdff0a9dde9538f443322d54a\\native_assets.json: 

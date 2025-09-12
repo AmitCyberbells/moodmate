@@ -1,8 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
-import 'package:moodmate/presentation/widgets/background_video.dart';
-import 'package:moodmate/presentation/widgets/custom_button.dart';
+import 'package:moodmate/presentation/widgets/custom_animated_button.dart';
 import 'package:moodmate/presentation/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +19,14 @@ class FourthPetPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const BackgroundVideo(),
+          Transform.rotate(
+            angle: math.pi,
+            child: Image.asset(
+              "assets/images/auth_bg.png",
+              fit: BoxFit.fitWidth,
+              width: size.width,
+            ),
+          ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             child: ListView(
@@ -37,9 +46,10 @@ class FourthPetPage extends StatelessWidget {
                     SizedBox(width: 20),
                     Text(
                       "Select your virtual pet",
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      style: nunito(
+                        fontSize: smallTitle,
                         color: softWarmWhite,
-                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -63,16 +73,16 @@ class FourthPetPage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/pet4.png",
-                          width: size.width / 2.2,
+                          width: 214,
+                          height: 314,
                         ),
                         SizedBox(height: 20),
                         Text(
                           "Hi, I am Bellie",
-                          style: Theme.of(
-                            context,
-                          ).textTheme.titleSmall?.copyWith(
+                          style: nunito(
+                            fontSize: smallTitle,
                             color: softWarmWhite,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
@@ -93,16 +103,18 @@ class FourthPetPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   "Bellie isn’t just any pup—she’s your shadow, your cuddle-bug, and your personal cheerleader all wrapped up in a wagging tail.\n\nShe tilts her head like she really gets you, sneaks in soft nuzzles when you’re sad, and does her little “happy dance” whenever you smile.\n\nBellie’s not just here to guard your world—she’s here to fill it with warmth, wiggles, and unconditional love. Basically, she’s the definition of “good girl energy.",
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  style: atkinsonHyperlegible(
+                    fontSize: mediumBody,
                     color: softWarmWhite,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(height: 20),
-                CustomButton(
+                CustomAnimatedButton(
                   onPressed: () {
                     provider.pushToHomepage(context);
                   },
+                  width: size.width,
                   textColor: charcoalGray,
                   bgColor: softWarmWhite,
                   title: "Pick Your Buddy",

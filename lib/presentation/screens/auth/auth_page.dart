@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
-import 'package:moodmate/presentation/widgets/custom_button.dart';
+import 'package:moodmate/presentation/widgets/custom_animated_button.dart';
 import 'package:provider/provider.dart';
 
 class AuthPage extends StatelessWidget {
@@ -63,7 +63,7 @@ class AuthPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CustomButton(
+                      CustomAnimatedButton(
                         onPressed: () {
                           provider.navigateToSigninPage(context);
                         },
@@ -72,7 +72,7 @@ class AuthPage extends StatelessWidget {
                         title: "Login",
                       ),
                       SizedBox(width: 20),
-                      CustomButton(
+                      CustomAnimatedButton(
                         onPressed: () {
                           provider.navigateToSignupPage(context);
                         },

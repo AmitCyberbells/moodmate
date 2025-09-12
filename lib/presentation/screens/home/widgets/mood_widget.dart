@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class MoodWidget extends StatelessWidget {
   final String title;
@@ -29,9 +30,11 @@ class MoodWidget extends StatelessWidget {
         SizedBox(height: 5),
         Text(
           title,
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+          style: alegreyaSans(
+            decoration: TextDecoration.none,
+            fontSize: smallBody,
             color: softWarmWhite,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ],

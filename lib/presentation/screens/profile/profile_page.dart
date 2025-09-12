@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
 import 'package:moodmate/presentation/screens/profile/profile_state.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/achievement_container.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/setting_list_item.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/your_journey_container.dart';
+import 'package:moodmate/presentation/widgets/bg_card.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -12,7 +14,30 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final provider = context.read<ProfileState>();
+    final List<Map<String, dynamic>> achievements = [
+      {"title": "First Steps", "desc": "Completed your first mood check-in"},
+      {"title": "Journaling Steak", "desc": "7 days of consistent Journaling"},
+      {
+        "title": "Community Helper",
+        "desc": "Completed your first mood check-in",
+      },
+      {
+        "title": "Self-care Champion",
+        "desc": "7 days of consistent Journaling",
+      },
+    ];
+    final List<Map<String, dynamic>> yourJourney = [
+      {"days": 47, "icon": Icons.calendar_month_outlined, "title": "Check-ins"},
+      {
+        "days": 47,
+        "icon": Icons.center_focus_strong,
+        "title": "Journal Entires",
+      },
+      {"days": 47, "icon": Icons.trending_up_outlined, "title": "Streak Days"},
+    ];
+
     return Padding(
       padding: EdgeInsets.all(20),
       child: ListView(
@@ -26,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                 height: 50,
                 padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  color: pinkContainer,
+                  color: profileImageContainer,
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Row(
@@ -59,13 +84,9 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset("assets/images/pet1.png", height: 120),
@@ -76,18 +97,20 @@ class ProfilePage extends StatelessWidget {
                     Text.rich(
                       TextSpan(
                         text: "Hi! ",
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        style: nunito(
+                          fontSize: smallTitle,
                           color: softWarmWhite,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.none,
                         ),
                         children: [
                           TextSpan(
                             text: "Siya",
-                            style: Theme.of(
-                              context,
-                            ).textTheme.titleSmall?.copyWith(
+                            style: nunito(
+                              fontSize: smallTitle,
                               color: softWarmWhite,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w700,
+                              decoration: TextDecoration.none,
                             ),
                           ),
                         ],
@@ -95,10 +118,11 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Text(
                       "Moodmate member since may 2025",
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      style: alegreyaSans(
+                        fontSize: smallBody,
                         color: softWarmWhite,
                         fontWeight: FontWeight.w400,
-                        fontSize: 12,
+                        decoration: TextDecoration.none,
                       ),
                     ),
                     SizedBox(height: 40),
@@ -115,86 +139,81 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 20),
           Text(
             "Your Journey",
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            style: alegreyaSans(
+              fontSize: extraLargeBody,
               color: softWarmWhite,
               fontWeight: FontWeight.w600,
-              fontSize: 20,
+              decoration: TextDecoration.none,
             ),
           ),
           SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              YourJourneyContainer(
-                days: 47,
-                icon: Icons.calendar_month_outlined,
-                title: "Check-ins",
-              ),
-              YourJourneyContainer(
-                days: 47,
-                icon: Icons.center_focus_strong,
-                title: "Journal Entires",
-              ),
-              YourJourneyContainer(
-                days: 47,
-                icon: Icons.trending_up_outlined,
-                title: "Streak Days",
-              ),
-            ],
+          SizedBox(
+            height: 100,
+            width: size.width,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: yourJourney.length,
+
+              itemBuilder: (context, index) {
+                final data = yourJourney[index];
+                return YourJourneyContainer(
+                  days: data["days"],
+                  icon: data["icon"],
+                  title: data["title"],
+                );
+              },
+            ),
           ),
+
           SizedBox(height: 20),
           Text(
             "Achievements",
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            style: nunito(
+              fontSize: extraLargeBody,
               color: softWarmWhite,
               fontWeight: FontWeight.w600,
-              fontSize: 20,
+              decoration: TextDecoration.none,
             ),
           ),
           SizedBox(height: 10),
-          Wrap(
-            spacing: 10,
-            runSpacing: 10,
+          Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              AchievementContainer(
-                desc: "Completed your first mood check-in",
-
-                title: "First Steps",
-              ),
-              AchievementContainer(
-                desc: "7 days of consistent Journaling",
-
-                title: "Journaling Steak",
-              ),
-              AchievementContainer(
-                desc: "Completed your first mood check-in",
-
-                title: "Community Helper",
-              ),
-              AchievementContainer(
-                desc: "7 days of consistent Journaling",
-
-                title: "Self-care Champion",
+              GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: achievements.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                  childAspectRatio: 1.5,
+                ),
+                itemBuilder: (context, index) {
+                  final data = achievements[index];
+                  return AchievementContainer(
+                    title: data["title"]!,
+                    desc: data["desc"]!,
+                  );
+                },
               ),
             ],
           ),
           SizedBox(height: 20),
           Text(
             "Quick Links",
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+            style: nunito(
+              fontSize: extraLargeBody,
               color: softWarmWhite,
               fontWeight: FontWeight.w600,
-              fontSize: 20,
+              decoration: TextDecoration.none,
             ),
           ),
           SizedBox(height: 10),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               children: [
                 SettingListItem(
                   onTap: () {},
@@ -231,13 +250,9 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               children: [
                 SettingListItem(
                   onTap: () {},
@@ -272,13 +287,9 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: softWarmWhite.withOpacity(0.21),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
+          BgCard(
+            bgcolor: softWarmWhite.withOpacity(0.22),
+            widget: Column(
               children: [
                 SettingListItem(
                   onTap: () {},
@@ -300,7 +311,7 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 80),
+          SizedBox(height: 120),
         ],
       ),
     );

@@ -4,7 +4,7 @@
             "outputFile": "io.flutter.plugins.videoplayer.video_player_android-release-26:/values-ja/values-ja.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\709b7f236d1961021a74b8d31ec28ad0\\transformed\\jetified-media3-exoplayer-1.5.1\\res\\values-ja\\values-ja.xml",
+                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\0248115e6c1fc427dac82f43bd1b5980\\transformed\\jetified-media3-exoplayer-1.5.1\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\731cd9948a7dde4822052c6be439a4c3\\transformed\\core-1.13.1\\res\\values-ja\\values-ja.xml",
+                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\4dd8753ac423c2de00b37ca1818d1026\\transformed\\core-1.13.1\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -43,7 +43,7 @@
             "outputFile": "io.flutter.plugins.videoplayer.video_player_android-mergeReleaseResources-24:/values-ja/values-ja.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\709b7f236d1961021a74b8d31ec28ad0\\transformed\\jetified-media3-exoplayer-1.5.1\\res\\values-ja\\values-ja.xml",
+                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\0248115e6c1fc427dac82f43bd1b5980\\transformed\\jetified-media3-exoplayer-1.5.1\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -60,7 +60,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\731cd9948a7dde4822052c6be439a4c3\\transformed\\core-1.13.1\\res\\values-ja\\values-ja.xml",
+                    "source": "C:\\Users\\RAHUL\\.gradle\\caches\\8.10.2\\transforms\\4dd8753ac423c2de00b37ca1818d1026\\transformed\\core-1.13.1\\res\\values-ja\\values-ja.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

@@ -18,6 +18,7 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
       ..initialize().then((_) {
         setState(() {});
         _controller.play();
+        _controller.setPlaybackSpeed(0.02);
         _controller.setLooping(true);
       });
   }

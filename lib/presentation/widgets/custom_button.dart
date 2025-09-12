@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moodmate/presentation/widgets/border_painter.dart';
+import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class CustomButton extends StatelessWidget {
   final String title;
@@ -7,12 +8,14 @@ class CustomButton extends StatelessWidget {
   final Color textColor;
   final VoidCallback onPressed;
   final double width;
+  final Color? borderColor;
   const CustomButton({
-    this.width = 110,
+    this.borderColor,
+    required this.bgColor,
     required this.onPressed,
     required this.textColor,
-    required this.bgColor,
     required this.title,
+    this.width = 110,
     super.key,
   });
 
@@ -20,31 +23,34 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: TweenAnimationBuilder(
-        tween: Tween(begin: 0.0, end: 0.85),
-        duration: const Duration(seconds: 5),
-        builder: (context, value, child) {
-          return CustomPaint(
-            painter: BorderPainter(progress: value),
-            child: Container(
-              alignment: Alignment.center,
-              width: width,
-              margin: EdgeInsets.all(5),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                color: bgColor,
-                borderRadius: BorderRadius.circular(40),
-                border: Border.all(width: 1, color: Colors.white),
-              ),
-              child: Text(
-                title,
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyMedium?.copyWith(color: textColor),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(width: 1, color: borderColor ?? softWarmWhite),
+        ),
+        child: Container(
+          child: Container(
+            alignment: Alignment.center,
+            width: width,
+            margin: EdgeInsets.all(5),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            decoration: BoxDecoration(
+              color: bgColor,
+              borderRadius: BorderRadius.circular(40),
+              border: Border.all(width: 1, color: softWarmWhite),
+            ),
+            child: Text(
+              title,
+              style: atkinsonHyperlegible(
+                decoration: TextDecoration.none,
+                fontSize: mediumBody,
+                color: textColor,
+                fontWeight: FontWeight.w400,
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }

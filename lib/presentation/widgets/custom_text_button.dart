@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class CustomTextButton extends StatelessWidget {
   final String title;
@@ -38,7 +39,15 @@ class CustomTextButton extends StatelessWidget {
           children: [
             isIcon ? Image.asset(img!, width: size, height: size) : Container(),
             isIcon ? SizedBox(width: 5) : Container(),
-            Text(title, style: Theme.of(context).textTheme.bodyMedium),
+            Text(
+              title,
+              style: atkinsonHyperlegible(
+                decoration: TextDecoration.none,
+                fontSize: mediumBody,
+                color: textColor,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
           ],
         ),
       ),

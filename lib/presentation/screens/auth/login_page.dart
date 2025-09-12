@@ -1,9 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
-import 'package:moodmate/presentation/widgets/background_video.dart';
+import 'package:moodmate/presentation/screens/auth/widgets/icon_container.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
-import 'package:moodmate/presentation/widgets/custom_text_button.dart';
 import 'package:moodmate/presentation/widgets/custom_textfield.dart';
 import 'package:provider/provider.dart';
 
@@ -17,76 +18,90 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Stack(
+        alignment: Alignment.center,
         children: [
-          const BackgroundVideo(),
+          Image.asset(
+            "assets/images/auth_bg.png",
+            fit: BoxFit.fitWidth,
+            width: size.width,
+          ),
+
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              padding: EdgeInsets.all(30),
+              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 50),
               width: size.width,
+              height: size.height / 1.1,
               decoration: BoxDecoration(
                 color: softWarmWhite.withOpacity(0.21),
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(90),
-                  topRight: Radius.circular(90),
+                  topLeft: Radius.circular(55),
+                  topRight: Radius.circular(55),
                 ),
               ),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Text(
-                      "Login here",
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      "Login",
+                      style: nunito(
+                        fontSize: mediumTitle,
                         color: softWarmWhite,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     Text(
-                      "Hi Again, You have been missed!",
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium?.copyWith(color: softWarmWhite),
+                      "You showed up again, and that’s already a win.",
+                      style: atkinsonHyperlegible(
+                        fontSize: mediumBody,
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w400,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 30),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Phone or email",
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        "Email Address",
+                        style: nunito(
+                          fontSize: smallBody,
                           color: softWarmWhite,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                     SizedBox(height: 5),
                     CustomTextfield(
                       controller: provider.loginEmailController,
-                      hintTextColor: softWarmWhite,
+                      hintTextColor: textfieldHintColor,
                       textColor: softWarmWhite,
-                      hintText: "food@leatsophat.me",
+                      prefixIcon: "assets/icons/email.png",
+                      hintText: "Enter your email...",
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 20),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Password",
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        style: nunito(
+                          fontSize: smallBody,
                           color: softWarmWhite,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
                     SizedBox(height: 5),
                     CustomTextfield(
                       isPassword: true,
-                      hintTextColor: softWarmWhite,
+                      hintTextColor: textfieldHintColor,
                       textColor: softWarmWhite,
+                      prefixIcon: "assets/icons/password.png",
                       controller: provider.loginPasswordController,
                       hintText: "Enter your password...",
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -97,8 +112,11 @@ class LoginPage extends StatelessWidget {
                               builder: (context, provider, child) {
                                 return Checkbox(
                                   checkColor: charcoalGray,
-
                                   value: provider.isRememberMe,
+                                  side: BorderSide(
+                                    color: softWarmWhite,
+                                    width: 1,
+                                  ),
                                   activeColor: softWarmWhite,
                                   onChanged: (value) {
                                     provider.toggleRememberMe(value!);
@@ -106,104 +124,85 @@ class LoginPage extends StatelessWidget {
                                 );
                               },
                             ),
-
                             Text(
                               "Remember Me",
-                              style: Theme.of(
-                                context,
-                              ).textTheme.bodySmall?.copyWith(
+                              style: nunito(
+                                fontSize: smallBody,
                                 color: softWarmWhite,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ],
                         ),
                         Text(
                           "Forgot Password?",
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodySmall?.copyWith(
+                          style: nunito(
+                            fontSize: smallBody,
                             color: softWarmWhite,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
                     ),
-
-                    SizedBox(height: 10),
+                    SizedBox(height: 30),
                     CustomButton(
+                      width: size.width - 100,
                       onPressed: () {
                         provider.login(context);
                       },
+                      borderColor: softWarmWhite,
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
                       title: "Login",
                     ),
-                    SizedBox(height: 10),
+
+                    SizedBox(height: 30),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          color: softWarmWhite,
-                          width: size.width / 3,
-                          height: 1,
+                        IconContainer(img: "assets/icons/fb_icon.png"),
+                        SizedBox(width: 10),
+                        IconContainer(img: "assets/icons/google_icon.png"),
+                        SizedBox(width: 10),
+                        IconContainer(img: "assets/icons/insta_icon.png"),
+                      ],
+                    ),
+                    SizedBox(height: 30),
+                    Text.rich(
+                      TextSpan(
+                        text: "Don’t have an account? ",
+                        style: nunito(
+                          fontSize: smallBody,
+                          color: charcoalGray,
+                          fontWeight: FontWeight.w500,
                         ),
-                        Text(
-                          "Or",
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodySmall?.copyWith(
-                            color: softWarmWhite,
-                            fontWeight: FontWeight.w600,
+                        children: [
+                          TextSpan(
+                            text: "Sign Up",
+                            style: nunito(
+                              fontSize: smallBody,
+                              color: softWarmWhite,
+                              fontWeight: FontWeight.w700,
+                            ),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap = () {
+                                    provider.signupTextClick(context);
+                                  },
                           ),
-                        ),
-                        Container(
-                          color: softWarmWhite,
-                          width: size.width / 3,
-                          height: 1,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CustomTextButton(
-                          onPressed: () {},
-                          textColor: charcoalGray,
-                          bgColor: softWarmWhite,
-                          title: "Google",
-                          isIcon: true,
-                          img: "assets/images/google_logo.png",
-                          borderColor: softWarmWhite,
-                        ),
-                        CustomTextButton(
-                          onPressed: () {},
-                          textColor: charcoalGray,
-                          bgColor: softWarmWhite,
-                          title: "Phone",
-                          isIcon: true,
-                          img: "assets/images/phone_logo.png",
-                          borderColor: softWarmWhite,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "Don't have an account? ",
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: softWarmWhite,
-                        fontWeight: FontWeight.w800,
+                        ],
                       ),
                     ),
-                    SizedBox(height: 10),
-                    CustomButton(
-                      onPressed: () {
-                        provider.signupTextClick(context);
-                      },
-                      textColor: charcoalGray,
-                      bgColor: softWarmWhite,
-                      title: "Sign Up",
+                    SizedBox(height: 50),
+
+                    Text(
+                      "Made with 💜 for Gen-Z mental wellness",
+                      style: nunito(
+                        fontSize: mediumBody,
+                        color: softWarmWhite,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),

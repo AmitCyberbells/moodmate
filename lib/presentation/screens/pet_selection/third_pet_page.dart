@@ -1,8 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
-import 'package:moodmate/presentation/widgets/background_video.dart';
-import 'package:moodmate/presentation/widgets/custom_button.dart';
+import 'package:moodmate/presentation/widgets/custom_animated_button.dart';
 import 'package:moodmate/presentation/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +19,14 @@ class ThirdPetPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const BackgroundVideo(),
+          Transform.rotate(
+            angle: math.pi,
+            child: Image.asset(
+              "assets/images/auth_bg.png",
+              fit: BoxFit.fitWidth,
+              width: size.width,
+            ),
+          ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             child: ListView(
@@ -37,9 +46,10 @@ class ThirdPetPage extends StatelessWidget {
                     SizedBox(width: 20),
                     Text(
                       "Select your virtual pet",
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      style: nunito(
+                        fontSize: smallTitle,
                         color: softWarmWhite,
-                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -63,16 +73,16 @@ class ThirdPetPage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/pet3.png",
-                          width: size.width / 2.2,
+                          width: 214,
+                          height: 314,
                         ),
                         SizedBox(height: 20),
                         Text(
                           "Hi, I am Pip",
-                          style: Theme.of(
-                            context,
-                          ).textTheme.titleSmall?.copyWith(
+                          style: nunito(
+                            fontSize: smallTitle,
                             color: softWarmWhite,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
@@ -93,13 +103,15 @@ class ThirdPetPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   "Pip is a little ducky with a big heart and even bigger curiosity. Always waddling around with cheerful energy, Pip brings sunshine to your cloudy days.\n\nWhether it’s celebrating your wins or splashing away your worries, this tiny feathered friend is here to remind you: it’s okay to take things one small step (or waddle) at a time.\n\nWith Pip around, life feels lighter, warmer, and a lot more fun.",
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  style: atkinsonHyperlegible(
+                    fontSize: mediumBody,
                     color: softWarmWhite,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 SizedBox(height: 20),
-                CustomButton(
+                CustomAnimatedButton(
+                  width: size.width,
                   onPressed: () {
                     provider.pushToHomepage(context);
                   },

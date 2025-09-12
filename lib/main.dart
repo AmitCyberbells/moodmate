@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/config/provider_setup.dart';
 import 'package:moodmate/core/themes/app_theme.dart';
-import 'package:moodmate/presentation/screens/splash/third_splash_page.dart';
+import 'package:moodmate/presentation/screens/splash/fourth_spalsh_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
-          home: ThirdSplashPage(),
+          home: FourthSpalshPage(),
         );
       },
     );

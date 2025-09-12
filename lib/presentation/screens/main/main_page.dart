@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:moodmate/presentation/screens/community/community_page.dart';
 import 'package:moodmate/presentation/screens/home/home_page.dart';
-import 'package:moodmate/presentation/screens/home/second_home_page.dart';
+import 'package:moodmate/presentation/screens/journal/journal_page.dart';
 import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
 import 'package:moodmate/presentation/screens/music/music_page.dart';
 import 'package:moodmate/presentation/screens/profile/profile_page.dart';
@@ -16,14 +17,9 @@ class MainPage extends StatelessWidget {
     final navigationProvider = Provider.of<MainBottomNavigationState>(context);
     final List<Widget> _pages = const [
       HomePage(),
-      SecondHomePage(),
+      JournalPage(),
+      CommunityPage(),
       MusicPage(),
-      Center(
-        child: Text(
-          "Community Page",
-          style: TextStyle(fontSize: 25, color: Colors.white),
-        ),
-      ),
       ProfilePage(),
     ];
     return Scaffold(

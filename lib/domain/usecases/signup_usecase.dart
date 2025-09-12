@@ -6,7 +6,7 @@ class SignupUseCase {
 
   SignupUseCase(this.repository);
 
-  Future<UserEntity> call(String email, String password) {
-    return repository.signup(email, password);
+  Future<UserEntity> call(String username, String email, String password) {
+    return repository.signup(username, email, password);
   }
 }

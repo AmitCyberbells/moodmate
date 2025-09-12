@@ -1,8 +1,9 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
-import 'package:moodmate/presentation/widgets/background_video.dart';
-import 'package:moodmate/presentation/widgets/custom_button.dart';
+import 'package:moodmate/presentation/widgets/custom_animated_button.dart';
 import 'package:moodmate/presentation/widgets/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,14 @@ class FirstPetPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const BackgroundVideo(),
+          Transform.rotate(
+            angle: math.pi,
+            child: Image.asset(
+              "assets/images/auth_bg.png",
+              fit: BoxFit.fitWidth,
+              width: size.width,
+            ),
+          ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             child: ListView(
@@ -36,9 +44,10 @@ class FirstPetPage extends StatelessWidget {
                     SizedBox(width: 20),
                     Text(
                       "Select your virtual pet",
-                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      style: nunito(
+                        fontSize: smallTitle,
                         color: softWarmWhite,
-                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -62,16 +71,16 @@ class FirstPetPage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/pet1.png",
-                          width: size.width / 2.2,
+                          width: 214,
+                          height: 314,
                         ),
                         SizedBox(height: 20),
                         Text(
                           "Hi, I am Oreo",
-                          style: Theme.of(
-                            context,
-                          ).textTheme.titleSmall?.copyWith(
+                          style: nunito(
+                            fontSize: smallTitle,
                             color: softWarmWhite,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
                       ],
@@ -92,16 +101,18 @@ class FirstPetPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Text(
                   "Oreo is your quiet little guardian. He doesn’t talk much, but he sees everything—especially the things you try to hide from yourself. \n\nWhen your mind feels heavy, Oreo just sits beside you, blinking slowly, reminding you that it’s okay to pause. He knows how long nights can feel, and that’s why he stays awake with you.\n\nYou’ll notice he never judges, never hurries you—he just waits until you’re ready. With Oreo, you’re never really alone in the dark.",
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  style: atkinsonHyperlegible(
+                    fontSize: mediumBody,
                     color: softWarmWhite,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 20),
-                CustomButton(
+                SizedBox(height: 30),
+                CustomAnimatedButton(
                   onPressed: () {
                     provider.pushToHomepage(context);
                   },
+                  width: size.width,
                   textColor: charcoalGray,
                   bgColor: softWarmWhite,
                   title: "Pick Your Buddy",

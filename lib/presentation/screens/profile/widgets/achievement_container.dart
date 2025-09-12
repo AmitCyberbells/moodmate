@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class AchievementContainer extends StatelessWidget {
   final String title;
@@ -7,7 +8,6 @@ class AchievementContainer extends StatelessWidget {
 
   const AchievementContainer({
     required this.desc,
-
     required this.title,
     super.key,
   });
@@ -32,12 +32,14 @@ class AchievementContainer extends StatelessWidget {
             children: [
               SizedBox(
                 width: (size.width / 2.2) / 2,
+
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                  style: nunito(
+                    fontSize: mediumBody,
                     color: softWarmWhite,
+                    fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.none,
                   ),
                 ),
               ),
@@ -51,10 +53,11 @@ class AchievementContainer extends StatelessWidget {
           SizedBox(height: 5),
           Text(
             desc,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w400,
+            style: alegreyaSans(
+              fontSize: smallBody,
               color: softWarmWhite,
-              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              decoration: TextDecoration.none,
             ),
           ),
         ],

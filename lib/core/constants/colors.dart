@@ -10,23 +10,25 @@ final Color lavenderMist = Color(0xffC9C8F9);
 final Color blushPink = Color(0xffF6D5E5);
 final Color sunshineYellow = Color(0xffFFEBA1);
 
+final Color textfieldHintColor = Color(0xffC9C7C5);
+
 //Text & Contrast
 final Color charcoalGray = Color(0xff333333);
 final Color coolGray = Color(0xff666666);
-final Color orange = Color(0xffED7E1C);
+final Color softWarmWhiteorange = Color(0xffED7E1C);
 
 //text input bg
 final Color bgBrown = Color(0xff372315);
 
 // box color
-final Color pinkContainer = Color(0xffFFC9E9);
+final Color profileImageContainer = Color(0xffC2F7F3);
 final Color serachContainer = Color(0xff262135);
 
 //icon color
 final Color iconColor = Color(0xff371B34);
 
 //bottom navigation
-final Color bottomNavigatorBox = Color(0xffB9455F);
+final Color bottomNavigatorBox = Color(0xff456C69);
 
 //mood colors
 final Color happyColor = Color(0xffEF5DA8);
@@ -35,3 +37,20 @@ final Color relaxColor = Color(0xffF09E54);
 final Color angryColor = Color(0xffA0E3E2);
 final Color sadColor = Color(0xffFF4C6B);
 final Color anxiousColor = Color(0xffFF8B83);
+
+// category List container
+final Color categoryListContainer = Color(0xff498CE4).withOpacity(.35);
+
+//days text color (journal page)
+final Color daysTextColor = Color(0xffFF5E86);
+
+// small container box in journal page at last
+final Color lightContainerColor = Color(0xffF0F6FE);
+final Color cardBgColor = Color(0xffB9455F);
+
+// id icon text color
+final Color idIconTextColor = Color(0xffF59692);
+
+// button color
+final Color onBoadingDotColor = Color(0xff547874);
+final Color onBoadingButtonColor = Color(0xff719088);

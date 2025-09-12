@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class SettingListItem extends StatelessWidget {
   final VoidCallback onTap;
@@ -31,9 +32,11 @@ class SettingListItem extends StatelessWidget {
               SizedBox(width: 10),
               Text(
                 title,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                style: alegreyaSans(
+                  fontSize: mediumBody,
                   color: softWarmWhite,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w400,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ],

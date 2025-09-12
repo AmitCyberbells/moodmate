@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
 import 'package:moodmate/presentation/widgets/background_video.dart';
-import 'package:moodmate/presentation/widgets/custom_button.dart'
-    show CustomButton;
+import 'package:moodmate/presentation/widgets/custom_animated_button.dart';
 import 'package:provider/provider.dart';
 
 class SecondAuthPage extends StatelessWidget {
@@ -30,7 +29,7 @@ class SecondAuthPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Moodmate",
+                      "Mindnest",
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: softWarmWhite,
                         fontWeight: FontWeight.w400,
@@ -65,7 +64,7 @@ class SecondAuthPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomButton(
+                    CustomAnimatedButton(
                       onPressed: () {
                         provider.navigateToSigninPage(context);
                       },
@@ -74,7 +73,7 @@ class SecondAuthPage extends StatelessWidget {
                       title: "Login",
                     ),
                     SizedBox(width: 20),
-                    CustomButton(
+                    CustomAnimatedButton(
                       onPressed: () {
                         provider.navigateToSignupPage(context);
                       },
@@ -91,7 +90,11 @@ class SecondAuthPage extends StatelessWidget {
         SizedBox(height: 20),
         Positioned(
           bottom: -20,
-          child: Image.asset("assets/images/auth.png", width: size.width),
+          child: Image.asset(
+            "assets/images/auth.png",
+            width: size.width,
+            fit: BoxFit.fitWidth,
+          ),
         ),
       ],
     );

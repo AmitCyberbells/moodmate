@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
+import 'package:moodmate/core/constants/fonts.dart';
 
 class YourJourneyContainer extends StatelessWidget {
   final IconData icon;
@@ -15,9 +16,10 @@ class YourJourneyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 90,
+      width: 120,
+      height: 100,
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+      margin: EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         color: softWarmWhite.withOpacity(0.21),
         borderRadius: BorderRadius.circular(20),
@@ -33,20 +35,23 @@ class YourJourneyContainer extends StatelessWidget {
               Icon(icon, color: softWarmWhite, size: 20),
               Text(
                 days.toString(),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
+                style: nunito(
+                  fontSize: extraLargeBody,
                   color: softWarmWhite,
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.none,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           Text(
             title,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w400,
+            style: alegreyaSans(
+              fontSize: smallBody,
               color: softWarmWhite,
-              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              decoration: TextDecoration.none,
             ),
           ),
         ],
