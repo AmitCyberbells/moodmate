@@ -68,7 +68,7 @@ class OnboadingPage extends StatelessWidget {
                   Text(
                     "Track your moods and journal your thoughts.",
                     style: nunito(
-                      fontSize: mediumTitle,
+                      fontSize: lessMediumTitle,
                       color: charcoalGray,
                       fontWeight: FontWeight.w600,
                     ),

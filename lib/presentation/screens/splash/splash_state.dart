@@ -4,7 +4,7 @@ import 'package:page_transition/page_transition.dart';
 
 class SplashState with ChangeNotifier {
   void init(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
         PageTransition(

@@ -45,7 +45,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         decoration: InputDecoration(
           fillColor: widget.bgColor,
           filled: widget.filled,
-          prefixIcon: Image.asset(widget.prefixIcon),
+          prefixIcon: Image.asset(widget.prefixIcon, scale: 3),
           suffixIcon:
               widget.isPassword
                   ? IconButton(
@@ -59,6 +59,8 @@ class _CustomTextfieldState extends State<CustomTextfield> {
                           ? "assets/icons/show_password.png"
                           : "assets/icons/show_password.png",
                       color: widget.textColor,
+                      width: 20,
+                      height: 20,
                     ),
                   )
                   : null,

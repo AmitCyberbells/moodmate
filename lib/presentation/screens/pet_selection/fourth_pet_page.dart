@@ -39,7 +39,7 @@ class FourthPetPage extends StatelessWidget {
                       icon: Icons.arrow_back_ios_new_sharp,
                       bgColor: Colors.transparent,
                       onPressed: () {
-                        provider.pop(context);
+                        provider.pushToHomepage(context);
                       },
                       iconColor: softWarmWhite,
                     ),
@@ -114,11 +114,12 @@ class FourthPetPage extends StatelessWidget {
                   onPressed: () {
                     provider.pushToHomepage(context);
                   },
-                  width: size.width,
+                  width: size.width - 20,
                   textColor: charcoalGray,
                   bgColor: softWarmWhite,
                   title: "Pick Your Buddy",
                 ),
+                SizedBox(height: 20),
               ],
             ),
           ),

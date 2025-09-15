@@ -28,7 +28,7 @@ class FourthSpalshPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: size.height / 6),
-            Image.asset("assets/icons/logomark.png"),
+            Image.asset("assets/icons/logomark.png", scale: 3),
             Text(
               "Mindnest",
               style: nunito(

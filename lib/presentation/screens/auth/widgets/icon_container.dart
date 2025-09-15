@@ -16,7 +16,7 @@ class IconContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         border: Border.all(width: 1, color: softWarmWhite),
       ),
-      child: Image.asset(img, width: 35, height: 35),
+      child: Image.asset(img, width: 25, height: 25),
     );
   }
 }

@@ -80,8 +80,8 @@ class SecondCustomBottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: isSelected ? 40 : 30,
-            height: isSelected ? 40 : 30,
+            width: 40,
+            height: 40,
             decoration: BoxDecoration(
               color: softWarmWhite.withOpacity(0.12),
               borderRadius: BorderRadius.circular(100),
@@ -89,19 +89,14 @@ class SecondCustomBottomNavBar extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                isSelected
-                    ? Image.asset(
-                      selectedImage,
-                      width: 35,
-                      height: 35,
-                      filterQuality: FilterQuality.high,
-                    )
-                    : Image.asset(
-                      image,
-                      width: 25,
-                      height: 25,
-                      filterQuality: FilterQuality.high,
-                    ),
+                Image.asset(
+                  isSelected ? selectedImage : image,
+                  width: 25,
+                  height: 25,
+                  scale: 3,
+                  filterQuality: FilterQuality.high,
+                ),
+
                 isSelected
                     ? CircleAvatar(backgroundColor: softWarmWhite, radius: 2)
                     : Container(),

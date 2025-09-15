@@ -13,9 +13,7 @@ class CaretoolsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
-      width: size.width / 2.4,
       height: 125,
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
       decoration: BoxDecoration(
@@ -26,16 +24,13 @@ class CaretoolsContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            width: (size.width / 2.2) / 2,
-            child: Text(
-              title,
-              style: nunito(
-                fontSize: mediumBody,
-                color: softWarmWhite,
-                fontWeight: FontWeight.w600,
-                decoration: TextDecoration.none,
-              ),
+          Text(
+            title,
+            style: nunito(
+              fontSize: mediumBody,
+              color: softWarmWhite,
+              fontWeight: FontWeight.w600,
+              decoration: TextDecoration.none,
             ),
           ),
 

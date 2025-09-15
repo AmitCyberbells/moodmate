@@ -6,11 +6,11 @@ import 'package:page_transition/page_transition.dart';
 
 class OnboadingState extends ChangeNotifier {
   void skip(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushAndRemoveUntil(
         context,
         PageTransition(
-          duration: Duration(seconds: 1),
+          duration: Duration(milliseconds: 500),
           type: PageTransitionType.rightToLeft,
           child: LoginPage(),
         ),

@@ -25,7 +25,7 @@ class MoodWidget extends StatelessWidget {
             color: bgColor,
             borderRadius: BorderRadius.circular(100),
           ),
-          child: Image.asset(img, scale: 1.5),
+          child: Image.asset(img, scale: 3),
         ),
         SizedBox(height: 5),
         Text(

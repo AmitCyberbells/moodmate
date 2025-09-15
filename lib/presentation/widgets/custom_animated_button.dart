@@ -7,9 +7,9 @@ class CustomAnimatedButton extends StatelessWidget {
   final Color bgColor;
   final Color textColor;
   final VoidCallback onPressed;
-  final double width;
+  final double? width;
   const CustomAnimatedButton({
-    this.width = 110,
+    this.width,
     required this.onPressed,
     required this.textColor,
     required this.bgColor,

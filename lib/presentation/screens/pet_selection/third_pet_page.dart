@@ -39,7 +39,7 @@ class ThirdPetPage extends StatelessWidget {
                       icon: Icons.arrow_back_ios_new_sharp,
                       bgColor: Colors.transparent,
                       onPressed: () {
-                        provider.pop(context);
+                        provider.pushToHomepage(context);
                       },
                       iconColor: softWarmWhite,
                     ),
@@ -73,8 +73,8 @@ class ThirdPetPage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/pet3.png",
-                          width: 214,
-                          height: 314,
+                          width: 174,
+                          height: 274,
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -111,7 +111,7 @@ class ThirdPetPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 CustomAnimatedButton(
-                  width: size.width,
+                  width: size.width - 20,
                   onPressed: () {
                     provider.pushToHomepage(context);
                   },
@@ -119,6 +119,7 @@ class ThirdPetPage extends StatelessWidget {
                   bgColor: softWarmWhite,
                   title: "Pick Your Buddy",
                 ),
+                SizedBox(height: 20),
               ],
             ),
           ),

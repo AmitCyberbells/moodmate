@@ -10,7 +10,7 @@ class BorderPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     const strokeWidth = 2.0;
 
-    final rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    final rect = Rect.fromLTWH(-1, 0, size.width, size.height);
 
     final rRect = RRect.fromRectAndRadius(rect, const Radius.circular(40));
 

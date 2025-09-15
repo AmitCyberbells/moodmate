@@ -75,10 +75,9 @@ class SecondHomePage extends StatelessWidget {
                         color: serachContainer,
                         borderRadius: BorderRadius.circular(100),
                       ),
-                      child: Icon(
-                        Icons.search_rounded,
-                        size: 18,
-                        color: softWarmWhite,
+                      child: Image.asset(
+                        "assets/icons/search_Icon.png",
+                        scale: 4,
                       ),
                     ),
                     CircleAvatar(

@@ -57,7 +57,7 @@ class SecondOnboadingPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45),
             child: Column(
@@ -66,13 +66,12 @@ class SecondOnboadingPage extends StatelessWidget {
                 Text(
                   "Discover tools made for your wellbeing.",
                   style: nunito(
-                    fontSize: mediumTitle,
+                    fontSize: lessMediumTitle,
                     color: charcoalGray,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(height: 10),
-
                 Text(
                   "Personalized strategies to help you through tough moments.",
                   style: atkinsonHyperlegible(
@@ -81,7 +80,7 @@ class SecondOnboadingPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
                 CustomButton(
                   width: size.width,
                   borderColor: onBoadingButtonColor,

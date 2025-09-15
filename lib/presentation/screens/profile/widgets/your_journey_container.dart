@@ -3,12 +3,12 @@ import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
 
 class YourJourneyContainer extends StatelessWidget {
-  final IconData icon;
+  final String img;
   final int days;
   final String title;
   const YourJourneyContainer({
     required this.days,
-    required this.icon,
+    required this.img,
     required this.title,
     super.key,
   });
@@ -32,7 +32,7 @@ class YourJourneyContainer extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(icon, color: softWarmWhite, size: 20),
+              Image.asset(img, scale: 4),
               Text(
                 days.toString(),
                 style: nunito(

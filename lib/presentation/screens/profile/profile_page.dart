@@ -18,24 +18,28 @@ class ProfilePage extends StatelessWidget {
     final provider = context.read<ProfileState>();
     final List<Map<String, dynamic>> achievements = [
       {"title": "First Steps", "desc": "Completed your first mood check-in"},
-      {"title": "Journaling Steak", "desc": "7 days of consistent Journaling"},
+      {"title": "Journaling\nSteak", "desc": "7 days of consistent Journaling"},
       {
-        "title": "Community Helper",
+        "title": "Community\nHelper",
         "desc": "Completed your first mood check-in",
       },
       {
-        "title": "Self-care Champion",
+        "title": "Self-care\nChampion",
         "desc": "7 days of consistent Journaling",
       },
     ];
     final List<Map<String, dynamic>> yourJourney = [
-      {"days": 47, "icon": Icons.calendar_month_outlined, "title": "Check-ins"},
+      {"days": 47, "img": "assets/icons/calender.png", "title": "Check-ins"},
       {
         "days": 47,
-        "icon": Icons.center_focus_strong,
+        "img": "assets/icons/target.png",
         "title": "Journal Entires",
       },
-      {"days": 47, "icon": Icons.trending_up_outlined, "title": "Streak Days"},
+      {
+        "days": 47,
+        "img": "assets/icons/streak_days.png",
+        "title": "Streak Days",
+      },
     ];
 
     return Padding(
@@ -65,10 +69,9 @@ class ProfilePage extends StatelessWidget {
                         color: serachContainer,
                         borderRadius: BorderRadius.circular(100),
                       ),
-                      child: Icon(
-                        Icons.search_rounded,
-                        size: 18,
-                        color: softWarmWhite,
+                      child: Image.asset(
+                        "assets/icons/search_Icon.png",
+                        scale: 4,
                       ),
                     ),
                     CircleAvatar(
@@ -159,7 +162,7 @@ class ProfilePage extends StatelessWidget {
                 final data = yourJourney[index];
                 return YourJourneyContainer(
                   days: data["days"],
-                  icon: data["icon"],
+                  img: data["img"],
                   title: data["title"],
                 );
               },
@@ -217,7 +220,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.person_2_outlined,
+                  img: "assets/icons/account.png",
                   title: "Account",
                 ),
                 SizedBox(height: 5),
@@ -226,7 +229,7 @@ class ProfilePage extends StatelessWidget {
                 SettingListItem(
                   onTap: () {},
                   isSwitch: true,
-                  icon: Icons.notifications_outlined,
+                  img: "assets/icons/notifications.png",
                   title: "Notifications",
                 ),
                 SizedBox(height: 5),
@@ -235,7 +238,7 @@ class ProfilePage extends StatelessWidget {
                 SettingListItem(
                   onTap: () {},
                   isSwitch: true,
-                  icon: Icons.light_mode_outlined,
+                  img: "assets/icons/light_mode.png",
                   title: "Light Mode",
                 ),
                 SizedBox(height: 5),
@@ -243,7 +246,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 10),
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.language_outlined,
+                  img: "assets/icons/language.png",
                   title: "Language",
                 ),
               ],
@@ -256,7 +259,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.security_outlined,
+                  img: "assets/icons/security.png",
                   title: "Security",
                 ),
                 SizedBox(height: 5),
@@ -264,7 +267,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 10),
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.note_sharp,
+                  img: "assets/icons/terms_conditions.png",
                   title: "Terms & Conditions",
                 ),
                 SizedBox(height: 5),
@@ -272,7 +275,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 10),
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.lock_outline,
+                  img: "assets/icons/privacy_policy.png",
                   title: "Privacy Policy",
                 ),
                 SizedBox(height: 5),
@@ -280,7 +283,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 10),
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.info_outline,
+                  img: "assets/icons/help.png",
                   title: "Help",
                 ),
               ],
@@ -293,7 +296,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 SettingListItem(
                   onTap: () {},
-                  icon: Icons.person_add_alt,
+                  img: "assets/icons/invite_friend.png",
                   title: "Invite a friend",
                 ),
                 SizedBox(height: 5),
@@ -304,7 +307,7 @@ class ProfilePage extends StatelessWidget {
                     provider.logoutButton(context);
                   },
                   isLogout: true,
-                  icon: Icons.logout_outlined,
+                  img: "assets/icons/logout.png",
                   title: "Logout",
                 ),
                 SizedBox(height: 5),

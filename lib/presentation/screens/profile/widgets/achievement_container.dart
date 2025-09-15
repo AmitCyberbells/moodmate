@@ -14,43 +14,33 @@ class AchievementContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
-      width: size.width / 2.4,
-      height: 125,
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+      height: 150,
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: softWarmWhite.withOpacity(0.21),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(
-                width: (size.width / 2.2) / 2,
-
-                child: Text(
-                  title,
-                  style: nunito(
-                    fontSize: mediumBody,
-                    color: softWarmWhite,
-                    fontWeight: FontWeight.w500,
-                    decoration: TextDecoration.none,
-                  ),
+              Text(
+                title,
+                style: nunito(
+                  fontSize: mediumBody,
+                  color: softWarmWhite,
+                  fontWeight: FontWeight.w500,
+                  decoration: TextDecoration.none,
                 ),
               ),
-              Icon(
-                Icons.calendar_month_outlined,
-                color: softWarmWhite,
-                size: 20,
-              ),
+              Image.asset("assets/icons/calender.png", scale: 4),
             ],
           ),
-          SizedBox(height: 5),
+
           Text(
             desc,
             style: alegreyaSans(

@@ -4,7 +4,7 @@ import 'package:moodmate/core/constants/fonts.dart';
 
 class SettingListItem extends StatelessWidget {
   final VoidCallback onTap;
-  final IconData icon;
+  final String img;
   final String title;
   final bool isSwitch;
   final bool isLogout;
@@ -12,7 +12,7 @@ class SettingListItem extends StatelessWidget {
     required this.onTap,
     this.isSwitch = false,
     this.isLogout = false,
-    required this.icon,
+    required this.img,
     required this.title,
     super.key,
   });
@@ -28,7 +28,7 @@ class SettingListItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, size: 25, color: softWarmWhite),
+              Image.asset(img, scale: 3),
               SizedBox(width: 10),
               Text(
                 title,

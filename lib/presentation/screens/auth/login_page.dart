@@ -110,17 +110,23 @@ class LoginPage extends StatelessWidget {
                           children: [
                             Consumer<AuthProvider>(
                               builder: (context, provider, child) {
-                                return Checkbox(
-                                  checkColor: charcoalGray,
-                                  value: provider.isRememberMe,
-                                  side: BorderSide(
-                                    color: softWarmWhite,
-                                    width: 1,
+                                return Transform.translate(
+                                  offset: const Offset(-6, 0),
+                                  child: Checkbox(
+                                    value: provider.isRememberMe,
+                                    onChanged: (value) {
+                                      provider.toggleRememberMe(value!);
+                                    },
+                                    checkColor: charcoalGray,
+                                    side: BorderSide(
+                                      color: softWarmWhite,
+                                      width: 1,
+                                    ),
+                                    activeColor: softWarmWhite,
+                                    visualDensity: VisualDensity.compact,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
                                   ),
-                                  activeColor: softWarmWhite,
-                                  onChanged: (value) {
-                                    provider.toggleRememberMe(value!);
-                                  },
                                 );
                               },
                             ),
@@ -194,7 +200,6 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 50),
-
                     Text(
                       "Made with 💜 for Gen-Z mental wellness",
                       style: nunito(
@@ -204,6 +209,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
+                    SizedBox(height: 20),
                   ],
                 ),
               ),

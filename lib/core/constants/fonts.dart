@@ -8,6 +8,7 @@ final double largeBody = 18;
 final double extraLargeBody = 20;
 
 final double smallTitle = 24;
+final double lessMediumTitle = 26;
 final double mediumTitle = 32;
 final double largeTitle = 36;
 final double extraLargeTitle = 56;

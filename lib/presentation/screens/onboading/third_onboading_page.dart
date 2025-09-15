@@ -67,7 +67,7 @@ class ThirdOnboadingPage extends StatelessWidget {
                   "Find support when you need it most.",
                   style: nunito(
                     color: charcoalGray,
-                    fontSize: mediumTitle,
+                    fontSize: lessMediumTitle,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

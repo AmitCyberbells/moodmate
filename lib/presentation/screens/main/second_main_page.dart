@@ -29,8 +29,7 @@ class SecondMainPage extends StatelessWidget {
           fit: BoxFit.fitWidth,
           width: size.width,
         ),
-        _pages[navigationProvider.currentIndex],
-
+        SafeArea(child: _pages[navigationProvider.currentIndex]),
         Positioned(
           bottom: 0,
           child: Container(

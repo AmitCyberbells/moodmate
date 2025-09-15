@@ -16,14 +16,14 @@ class CaretoolPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final List<Map<String, String>> careTools = [
       {
-        "title": "Breathing Exercises",
+        "title": "Breathing\nExercises",
         "desc": "Guided breathing to calm your mind",
       },
       {
-        "title": "Guided Meditation",
+        "title": "Guided\nMeditation",
         "desc": "5-30 min sessions for mindfulness",
       },
-      {"title": "Grounding Techniques", "desc": "5-4-3-2-1 method and more"},
+      {"title": "Grounding\nTechniques", "desc": "5-4-3-2-1 method and more"},
       {
         "title": "Mini\nGames",
         "desc": "Bubble pop, pet care, and distractions",
@@ -79,10 +79,9 @@ class CaretoolPage extends StatelessWidget {
                         color: serachContainer,
                         borderRadius: BorderRadius.circular(100),
                       ),
-                      child: Icon(
-                        Icons.search_rounded,
-                        size: 18,
-                        color: softWarmWhite,
+                      child: Image.asset(
+                        "assets/icons/search_Icon.png",
+                        scale: 4,
                       ),
                     ),
                     CircleAvatar(
@@ -135,7 +134,7 @@ class CaretoolPage extends StatelessWidget {
                     SizedBox(width: 20),
                     CustomButton(
                       onPressed: () {},
-                      width: 130,
+                      width: 120,
                       textColor: charcoalGray,
                       bgColor: softWarmWhite,
                       title: "5-4-3-2-1",
