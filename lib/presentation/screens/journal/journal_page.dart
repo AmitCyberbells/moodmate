@@ -202,7 +202,7 @@ class JournalPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 120),
+          SizedBox(height: 140),
         ],
       ),
     );

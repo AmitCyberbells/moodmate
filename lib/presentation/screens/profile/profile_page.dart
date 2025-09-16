@@ -119,13 +119,16 @@ class ProfilePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Text(
-                      "Moodmate member since may 2025",
-                      style: alegreyaSans(
-                        fontSize: smallBody,
-                        color: softWarmWhite,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.none,
+                    SizedBox(
+                      width: size.width / 2,
+                      child: Text(
+                        "Moodmate member since may 2025",
+                        style: alegreyaSans(
+                          fontSize: smallBody,
+                          color: softWarmWhite,
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.none,
+                        ),
                       ),
                     ),
                     SizedBox(height: 40),
@@ -191,7 +194,7 @@ class ProfilePage extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: 20,
                   crossAxisSpacing: 20,
-                  childAspectRatio: 1.5,
+                  childAspectRatio: 1.4,
                 ),
                 itemBuilder: (context, index) {
                   final data = achievements[index];
@@ -314,7 +317,7 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 120),
+          SizedBox(height: 140),
         ],
       ),
     );

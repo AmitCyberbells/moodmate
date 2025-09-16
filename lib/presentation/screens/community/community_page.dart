@@ -187,7 +187,7 @@ class CommunityPage extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.centerLeft,
             child: CustomButton(
               onPressed: () {},
               width: 180,
@@ -233,7 +233,7 @@ class CommunityPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 120),
+          SizedBox(height: 140),
         ],
       ),
     );

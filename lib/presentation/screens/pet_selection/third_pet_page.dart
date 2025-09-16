@@ -73,8 +73,8 @@ class ThirdPetPage extends StatelessWidget {
                       children: [
                         Image.asset(
                           "assets/images/pet3.png",
-                          width: 174,
-                          height: 274,
+                          width: 200,
+                          height: 200,
                         ),
                         SizedBox(height: 20),
                         Text(

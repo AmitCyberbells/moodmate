@@ -57,7 +57,7 @@ class SecondOnboadingPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45),
             child: Column(
@@ -71,7 +71,7 @@ class SecondOnboadingPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 10),
+
                 Text(
                   "Personalized strategies to help you through tough moments.",
                   style: atkinsonHyperlegible(
@@ -80,7 +80,7 @@ class SecondOnboadingPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 CustomButton(
                   width: size.width,
                   borderColor: onBoadingButtonColor,

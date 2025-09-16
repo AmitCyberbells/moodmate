@@ -34,7 +34,7 @@ class SecondMainPage extends StatelessWidget {
           bottom: 0,
           child: Container(
             width: size.width - 40,
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
             child: SecondCustomBottomNavBar(
               currentIndex: navigationProvider.currentIndex,
               onTap: (index) {

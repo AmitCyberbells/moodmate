@@ -57,7 +57,7 @@ class ThirdOnboadingPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 20),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45),
             child: Column(
@@ -71,7 +71,7 @@ class ThirdOnboadingPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 10),
+
                 Text(
                   "Because you don’t have to go through it alone.",
                   style: atkinsonHyperlegible(
@@ -80,7 +80,7 @@ class ThirdOnboadingPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 10),
                 CustomButton(
                   width: size.width,
                   borderColor: onBoadingButtonColor,
