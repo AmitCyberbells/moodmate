@@ -1,6 +1,6 @@
 class ApiConstants {
-  //base url
-  static const String baseUrl = "http://192.168.1.3:4500";
+  //users base url
+  static const String baseUrl = "https://moodmate-backend.vercel.app/users";
 
   //auth api urls
   static const String login = "$baseUrl/login";

@@ -96,7 +96,7 @@ class SecondCustomBottomNavBar extends StatelessWidget {
                   scale: 3,
                   filterQuality: FilterQuality.high,
                 ),
-
+                SizedBox(height: 4),
                 isSelected
                     ? CircleAvatar(backgroundColor: softWarmWhite, radius: 2)
                     : Container(),
