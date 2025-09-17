@@ -43,15 +43,15 @@ class AuthProvider with ChangeNotifier {
       }
 
       if (_user != null) {
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setStringList("userData", [
-          _user!.username ?? "",
-          _user!.email,
-          _user!.gender ?? "",
-          _user!.id,
-          _user!.mobileNo ?? "",
-        ]);
-        await prefs.setBool("isLoggedIn", true);
+        if (isRememberMe) {
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.setString("username", _user!.username ?? "");
+          await prefs.setString("email", _user!.email);
+          await prefs.setString("gender", _user!.gender ?? "");
+          await prefs.setString("mobileNo", _user!.mobileNo ?? "");
+          await prefs.setString("id", _user!.id);
+          await prefs.setBool("isRememberMe", true);
+        }
         Fluttertoast.showToast(msg: "Login Successfull.");
         Navigator.pushAndRemoveUntil(
           context,

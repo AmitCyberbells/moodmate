@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
+import 'package:moodmate/presentation/screens/home/home_provider.dart';
 import 'package:moodmate/presentation/screens/home/widgets/mood_widget.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
 import 'package:moodmate/presentation/widgets/bg_card.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 
 class SecondHomePage extends StatelessWidget {
   const SecondHomePage({super.key});
@@ -12,6 +14,7 @@ class SecondHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Padding(
       padding: EdgeInsets.only(top: 20, left: 20, right: 20),
       child: ListView(
@@ -22,27 +25,35 @@ class SecondHomePage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text.rich(
-                    TextSpan(
-                      text: "Hi! ",
-                      style: nunito(
-                        fontSize: smallTitle,
-                        color: softWarmWhite,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.none,
-                      ),
-                      children: [
+                  Consumer<HomeProvider>(
+                    builder: (context, provider, _) {
+                      String username = "User";
+                      if (provider.data.isNotEmpty) {
+                        username = provider.data[0]["username"] ?? "User";
+                      }
+                      return Text.rich(
                         TextSpan(
-                          text: "Siya",
+                          text: "Hi! ",
                           style: nunito(
-                            decoration: TextDecoration.none,
                             fontSize: smallTitle,
                             color: softWarmWhite,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w400,
+                            decoration: TextDecoration.none,
                           ),
+                          children: [
+                            TextSpan(
+                              text: username,
+                              style: nunito(
+                                fontSize: smallTitle,
+                                color: softWarmWhite,
+                                fontWeight: FontWeight.w700,
+                                decoration: TextDecoration.none,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
 
                   Text(

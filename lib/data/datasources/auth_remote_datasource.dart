@@ -14,7 +14,7 @@ class AuthRemoteDataSource {
     if (response.statusCode == 200) {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString("token", data["token"]);
-      return UserModel.fromJson(jsonDecode(response.body));
+      return UserModel.fromJson(data["user"]);
     } else if (response.statusCode == 400) {
       final data = jsonDecode(response.body);
       String message = data["message"];

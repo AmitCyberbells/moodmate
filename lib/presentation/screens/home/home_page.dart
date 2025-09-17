@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
-import 'package:moodmate/presentation/screens/home/home_state.dart';
 import 'package:moodmate/presentation/screens/home/widgets/mood_widget.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final provider = context.read<HomeState>();
+    // final provider = context.read<HomeProvider>();
 
     return Padding(
       padding: EdgeInsets.all(20),
@@ -110,7 +108,7 @@ class HomePage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  provider.navigationToSelectPetPage(context);
+                  // provider.navigationToSelectPetPage(context);
                 },
                 child: Container(
                   width: 50,

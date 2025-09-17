@@ -85,7 +85,9 @@ class ThirdOnboadingPage extends StatelessWidget {
                   width: size.width,
                   borderColor: onBoadingButtonColor,
                   bgColor: onBoadingButtonColor,
-                  onPressed: () {},
+                  onPressed: () {
+                    provider.skip(context);
+                  },
                   textColor: softWarmWhite,
                   title: "Get Started",
                 ),

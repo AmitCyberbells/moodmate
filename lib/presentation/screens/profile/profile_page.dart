@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
+import 'package:moodmate/presentation/screens/home/home_provider.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
 import 'package:moodmate/presentation/screens/profile/profile_provider.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/achievement_container.dart';
@@ -97,27 +98,38 @@ class ProfilePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text.rich(
-                      TextSpan(
-                        text: "Hi! ",
-                        style: nunito(
-                          fontSize: smallTitle,
-                          color: softWarmWhite,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.none,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "Siya",
-                            style: nunito(
-                              fontSize: smallTitle,
-                              color: softWarmWhite,
-                              fontWeight: FontWeight.w700,
-                              decoration: TextDecoration.none,
+                    Consumer<HomeProvider>(
+                      builder: (context, provider, _) {
+                        String username = "User";
+                        if (provider.data.isNotEmpty) {
+                          username = provider.data[0]["username"] ?? "User";
+                        }
+                        return SizedBox(
+                          width: size.width / 2,
+                          child: Text.rich(
+                            TextSpan(
+                              text: "Hi! ",
+                              style: nunito(
+                                fontSize: smallTitle,
+                                color: softWarmWhite,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.none,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: username,
+                                  style: nunito(
+                                    fontSize: smallTitle,
+                                    color: softWarmWhite,
+                                    fontWeight: FontWeight.w700,
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                     SizedBox(
                       width: size.width / 2,

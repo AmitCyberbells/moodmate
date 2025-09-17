@@ -7,9 +7,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SplashState with ChangeNotifier {
   void init(BuildContext context) async {
     final prefs = await SharedPreferences.getInstance();
-    final isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
+    final isRememberMe = prefs.getBool("isRememberMe") ?? false;
     final token = prefs.getString("token");
-    if (isLoggedIn && token != null && token.isNotEmpty) {
+
+    if (isRememberMe && token != null && token.isNotEmpty) {
       Future.delayed(Duration(seconds: 2), () {
         Navigator.pushReplacement(
           context,
