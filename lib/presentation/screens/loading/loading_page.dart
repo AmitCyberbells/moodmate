@@ -19,8 +19,9 @@ class LoadingPage extends StatelessWidget {
         children: [
           Image.asset(
             "assets/images/auth_bg.png",
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.fill,
             width: size.width,
+            height: size.height,
           ),
           Positioned(
             bottom: 0,

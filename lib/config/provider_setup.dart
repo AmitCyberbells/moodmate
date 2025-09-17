@@ -1,3 +1,4 @@
+import 'package:moodmate/domain/usecases/logout_usecase.dart';
 import 'package:moodmate/presentation/screens/auth/auth_provider.dart';
 import 'package:moodmate/presentation/screens/caretool/caretool_provider.dart';
 import 'package:moodmate/presentation/screens/home/home_state.dart';
@@ -5,7 +6,7 @@ import 'package:moodmate/presentation/screens/loading/loading_state.dart';
 import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
 import 'package:moodmate/presentation/screens/onboading/onboading_state.dart';
 import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
-import 'package:moodmate/presentation/screens/profile/profile_state.dart';
+import 'package:moodmate/presentation/screens/profile/profile_provider.dart';
 import 'package:moodmate/presentation/screens/splash/splash_state.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -30,7 +31,13 @@ List<SingleChildWidget> providers = [
   ChangeNotifierProvider(create: (context) => LoadingState()),
   ChangeNotifierProvider(create: (context) => PetSelectionState()),
   ChangeNotifierProvider(create: (context) => HomeState()),
-  ChangeNotifierProvider(create: (context) => ProfileState()),
+  ChangeNotifierProvider(
+    create: (_) {
+      final remoteDataSource = AuthRemoteDataSource();
+      final repository = AuthRepositoryImpl(remoteDataSource);
+      return ProfileProvider(logoutUseCase: LogoutUseCase(repository));
+    },
+  ),
   ChangeNotifierProvider(create: (context) => MainBottomNavigationState()),
   ChangeNotifierProvider(create: (context) => CaretoolProvider()),
 ];

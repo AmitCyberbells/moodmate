@@ -22,28 +22,33 @@ class SecondMainPage extends StatelessWidget {
       CaretoolPage(),
       ProfilePage(),
     ];
-    return Stack(
-      children: [
-        Image.asset(
-          "assets/images/main_bg.png",
-          fit: BoxFit.fitWidth,
-          width: size.width,
-        ),
-        SafeArea(child: _pages[navigationProvider.currentIndex]),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            width: size.width - 40,
-            margin: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-            child: SecondCustomBottomNavBar(
-              currentIndex: navigationProvider.currentIndex,
-              onTap: (index) {
-                navigationProvider.setIndex(index);
-              },
+    return SizedBox.expand(
+      child: Stack(
+        children: [
+          Image.asset(
+            "assets/images/main_bg.png",
+            fit: BoxFit.cover,
+            width: size.width,
+          ),
+          WillPopScope(
+            onWillPop: () => navigationProvider.onWillPop(),
+            child: SafeArea(child: _pages[navigationProvider.currentIndex]),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              width: size.width - 40,
+              margin: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+              child: SecondCustomBottomNavBar(
+                currentIndex: navigationProvider.currentIndex,
+                onTap: (index) {
+                  navigationProvider.setIndex(index);
+                },
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

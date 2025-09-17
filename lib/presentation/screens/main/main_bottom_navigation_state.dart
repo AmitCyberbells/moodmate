@@ -9,4 +9,13 @@ class MainBottomNavigationState extends ChangeNotifier {
     _currentIndex = index;
     notifyListeners();
   }
+
+  Future<bool> onWillPop() async {
+    if (_currentIndex != 0) {
+      _currentIndex = 0;
+      notifyListeners();
+      return false;
+    }
+    return true;
+  }
 }

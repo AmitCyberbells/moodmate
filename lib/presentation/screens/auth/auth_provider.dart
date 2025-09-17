@@ -8,6 +8,7 @@ import 'package:moodmate/presentation/screens/auth/login_page.dart';
 import 'package:moodmate/presentation/screens/auth/signup_page.dart';
 import 'package:moodmate/presentation/screens/loading/loading_page.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider with ChangeNotifier {
   final LoginUseCase loginUseCase;
@@ -42,12 +43,21 @@ class AuthProvider with ChangeNotifier {
       }
 
       if (_user != null) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setStringList("userData", [
+          _user!.username ?? "",
+          _user!.email,
+          _user!.gender ?? "",
+          _user!.id,
+          _user!.mobileNo ?? "",
+        ]);
+        await prefs.setBool("isLoggedIn", true);
         Fluttertoast.showToast(msg: "Login Successfull.");
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
             duration: Duration(seconds: 1),
-            type: PageTransitionType.fade,
+            type: PageTransitionType.rightToLeft,
             child: LoadingPage(),
           ),
           (Route<dynamic> route) => false,
@@ -99,7 +109,7 @@ class AuthProvider with ChangeNotifier {
           PageTransition(
             duration: Duration(seconds: 1),
             type: PageTransitionType.rightToLeft,
-            child: LoadingPage(),
+            child: LoginPage(),
           ),
           (Route<dynamic> route) => false,
         );

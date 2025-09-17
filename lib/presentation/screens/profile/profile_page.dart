@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
-import 'package:moodmate/presentation/screens/profile/profile_state.dart';
+import 'package:moodmate/presentation/screens/profile/profile_provider.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/achievement_container.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/setting_list_item.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/your_journey_container.dart';
@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final provider = context.read<ProfileState>();
+    final provider = context.read<ProfileProvider>();
     final List<Map<String, dynamic>> achievements = [
       {"title": "First Steps", "desc": "Completed your first mood check-in"},
       {"title": "Journaling\nSteak", "desc": "7 days of consistent Journaling"},
@@ -307,7 +307,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 10),
                 SettingListItem(
                   onTap: () {
-                    provider.logoutButton(context);
+                    provider.logout(context);
                   },
                   isLogout: true,
                   img: "assets/icons/logout.png",

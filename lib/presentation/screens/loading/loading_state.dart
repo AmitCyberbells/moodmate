@@ -4,11 +4,11 @@ import 'package:page_transition/page_transition.dart';
 
 class LoadingState extends ChangeNotifier {
   void push(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
         PageTransition(
-          duration: Duration(milliseconds: 700),
+          duration: Duration(seconds: 1),
           type: PageTransitionType.rightToLeft,
           child: FirstPetPage(),
         ),

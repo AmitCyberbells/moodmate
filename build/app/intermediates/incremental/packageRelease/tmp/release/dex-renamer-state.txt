@@ -1,0 +1,4 @@
+#Wed Sep 17 13:26:14 IST 2025
+base.0=L\:\\flutter Projects\\moodmate\\moodmate\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

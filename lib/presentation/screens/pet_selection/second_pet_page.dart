@@ -23,7 +23,7 @@ class SecondPetPage extends StatelessWidget {
             angle: math.pi,
             child: Image.asset(
               "assets/images/auth_bg.png",
-              fit: BoxFit.fitWidth,
+              fit: BoxFit.fill,
               width: size.width,
             ),
           ),

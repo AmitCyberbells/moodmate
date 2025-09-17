@@ -16,4 +16,9 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<UserEntity> signup(String username, String email, String password) {
     return remoteDataSource.signup(username, email, password);
   }
+
+  @override
+  Future<void> logout(String token) {
+    return remoteDataSource.logout(token);
+  }
 }
