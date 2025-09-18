@@ -10,9 +10,9 @@ class MainProvider extends ChangeNotifier {
   List<Map<String, dynamic>> data = [];
   bool _isLoading = true;
   bool get isLoading => _isLoading;
-
   PetEntity? _selectedPet;
   PetEntity? get selectedPet => _selectedPet;
+
   MainProvider({required this.petUsecase}) {
     _initData();
   }

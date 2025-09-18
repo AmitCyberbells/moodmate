@@ -54,7 +54,8 @@ class AuthProvider with ChangeNotifier {
           ).format(updatedAt!);
           await prefs.setString("updatedAt", formattedUpdatedAt);
           await prefs.setString("createdAt", formattedCreatedAt);
-          await prefs.setString("username", _user!.username ?? "");
+          await prefs.setString("username", _user!.username);
+          await prefs.setString("petId", _user!.petId ?? "");
           await prefs.setString("email", _user!.email);
           await prefs.setString("gender", _user!.gender ?? "");
           await prefs.setString("mobileNo", _user!.mobileNo ?? "");

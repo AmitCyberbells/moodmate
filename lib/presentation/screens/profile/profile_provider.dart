@@ -15,16 +15,16 @@ class ProfileProvider extends ChangeNotifier {
 
       if (token != null) {
         await authUseCase.logout(token);
-        Fluttertoast.showToast(msg: "Logout Successfull.");
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(seconds: 1),
+            duration: Duration(milliseconds: 600),
             type: PageTransitionType.rightToLeft,
             child: LoginPage(),
           ),
           (Route<dynamic> route) => false,
         );
+        Fluttertoast.showToast(msg: "Logout Successfull.");
       } else {
         throw Exception("No token found");
       }
