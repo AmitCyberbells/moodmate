@@ -131,17 +131,26 @@ class ProfilePage extends StatelessWidget {
                         );
                       },
                     ),
-                    SizedBox(
-                      width: size.width / 2,
-                      child: Text(
-                        "Moodmate member since may 2025",
-                        style: alegreyaSans(
-                          fontSize: smallBody,
-                          color: softWarmWhite,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.none,
-                        ),
-                      ),
+                    Consumer<HomeProvider>(
+                      builder: (context, provider, _) {
+                        String createdAt = "Jan 2025";
+                        if (provider.data.isNotEmpty) {
+                          createdAt =
+                              provider.data[0]["createdAt"] ?? "Jan 2025";
+                        }
+                        return SizedBox(
+                          width: size.width / 2,
+                          child: Text(
+                            "Moodmate member since $createdAt.",
+                            style: alegreyaSans(
+                              fontSize: smallBody,
+                              color: softWarmWhite,
+                              fontWeight: FontWeight.w400,
+                              decoration: TextDecoration.none,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(height: 40),
                     TinyWinContainer(

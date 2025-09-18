@@ -16,12 +16,16 @@ class HomeProvider extends ChangeNotifier {
     final gender = prefs.getString("gender");
     final mobileNo = prefs.getString("mobileNo");
     final id = prefs.getString("id");
+    final createdAt = prefs.getString("createdAt");
+    final updatedAt = prefs.getString("updatedAt");
     data.add({
       "username": username,
       "email": email,
       "gender": gender,
       "mobileNo": mobileNo,
       "id": id,
+      "createdAt": createdAt,
+      "updatedAt": updatedAt,
     });
     isLoading = false;
     notifyListeners();

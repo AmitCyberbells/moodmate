@@ -1,17 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:moodmate/domain/entities/pet_entity.dart';
+import 'package:moodmate/domain/usecases/pet_usecase.dart';
 import 'package:moodmate/presentation/screens/main/second_main_page.dart';
-import 'package:moodmate/presentation/screens/pet_selection/fourth_pet_page.dart';
-import 'package:moodmate/presentation/screens/pet_selection/first_pet_page.dart';
-import 'package:moodmate/presentation/screens/pet_selection/second_pet_page.dart';
-import 'package:moodmate/presentation/screens/pet_selection/third_pet_page.dart';
 import 'package:page_transition/page_transition.dart';
 
 class PetSelectionState extends ChangeNotifier {
-  void pop(BuildContext context) {
-    Navigator.pop(context);
+  final PetUsecase petUsecase;
+
+  List<PetEntity>? _pets;
+  bool _isLoading = false;
+  List<PetEntity>? get pets => _pets;
+  bool get isLoading => _isLoading;
+  int _currentIndex = 0;
+  int get currentIndex => _currentIndex;
+
+  PetSelectionState({required this.petUsecase}) {
+    getAllPets();
   }
 
-  void pushToHomepage(BuildContext context) {
+  Future<void> getAllPets() async {
+    _isLoading = true;
+    try {
+      _pets = await petUsecase.getAllPets();
+      if (_pets == null) {
+        Fluttertoast.showToast(msg: "There is no pets in the Database.");
+      }
+    } catch (e) {
+      print("failed to get pets Because Of $e");
+      Fluttertoast.showToast(msg: "failed to get pets Because Of $e");
+    } finally {
+      _isLoading = false;
+    }
+    notifyListeners();
+  }
+
+  void updateIndex(int newIndex) {
+    _currentIndex = newIndex;
+    notifyListeners();
+  }
+
+  void leftButtonPressed() {
+    int index = _currentIndex;
+    if (index == 0) {
+      index = 3;
+    } else {
+      index -= 1;
+    }
+    updateIndex(index);
+    notifyListeners();
+  }
+
+  void rightButtonPressed() {
+    int index = _currentIndex;
+    if (index == 3) {
+      index = 0;
+    } else {
+      index += 1;
+    }
+    updateIndex(index);
+    notifyListeners();
+  }
+
+  void pop(BuildContext context) {
     Navigator.pushAndRemoveUntil(
       context,
       PageTransition(
@@ -23,91 +74,15 @@ class PetSelectionState extends ChangeNotifier {
     );
   }
 
-  void firstToSecond(BuildContext context) {
-    Navigator.pushReplacement(
+  void petSelected(BuildContext context) {
+    Navigator.pushAndRemoveUntil(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 500),
+        duration: Duration(milliseconds: 700),
         type: PageTransitionType.rightToLeft,
-        child: SecondPetPage(),
+        child: SecondMainPage(),
       ),
-    );
-  }
-
-  void firstToFourth(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.leftToRight,
-        child: FourthPetPage(),
-      ),
-    );
-  }
-
-  void secondToThird(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.rightToLeft,
-        child: ThirdPetPage(),
-      ),
-    );
-  }
-
-  void secondToFirst(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.leftToRight,
-        child: FirstPetPage(),
-      ),
-    );
-  }
-
-  void thirdToFourth(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.rightToLeft,
-        child: FourthPetPage(),
-      ),
-    );
-  }
-
-  void thirdToSecond(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.leftToRight,
-        child: SecondPetPage(),
-      ),
-    );
-  }
-
-  void fourthToFirst(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.rightToLeft,
-        child: FirstPetPage(),
-      ),
-    );
-  }
-
-  void fourthToThird(BuildContext context) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(milliseconds: 500),
-        type: PageTransitionType.leftToRight,
-        child: ThirdPetPage(),
-      ),
+      (Route<dynamic> route) => false,
     );
   }
 }

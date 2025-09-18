@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:moodmate/core/utils/validators.dart';
 import 'package:moodmate/domain/entities/user_entity.dart';
-import 'package:moodmate/domain/usecases/login_usecase.dart';
-import 'package:moodmate/domain/usecases/signup_usecase.dart';
+import 'package:moodmate/domain/usecases/auth_usecase.dart';
 import 'package:moodmate/presentation/screens/auth/login_page.dart';
 import 'package:moodmate/presentation/screens/auth/signup_page.dart';
 import 'package:moodmate/presentation/screens/loading/loading_page.dart';
@@ -11,8 +11,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider with ChangeNotifier {
-  final LoginUseCase loginUseCase;
-  final SignupUseCase signupUseCase;
+  final AuthUsecase authUseCase;
 
   //for signup
   TextEditingController signupNameController = TextEditingController();
@@ -28,13 +27,13 @@ class AuthProvider with ChangeNotifier {
 
   UserEntity? get user => _user;
 
-  AuthProvider({required this.loginUseCase, required this.signupUseCase});
+  AuthProvider({required this.authUseCase});
 
   Future<void> login(BuildContext context) async {
     try {
       if (loginEmailController.text.isNotEmpty &&
           loginPasswordController.text.isNotEmpty) {
-        _user = await loginUseCase(
+        _user = await authUseCase.login(
           loginEmailController.text,
           loginPasswordController.text,
         );
@@ -45,11 +44,22 @@ class AuthProvider with ChangeNotifier {
       if (_user != null) {
         if (isRememberMe) {
           final prefs = await SharedPreferences.getInstance();
+          final createdAt = _user?.createdAt;
+          final updatedAt = _user?.updatedAt;
+          String formattedCreatedAt = DateFormat(
+            "MMMM yyyy",
+          ).format(createdAt!);
+          String formattedUpdatedAt = DateFormat(
+            "MMMM yyyy",
+          ).format(updatedAt!);
+          await prefs.setString("updatedAt", formattedUpdatedAt);
+          await prefs.setString("createdAt", formattedCreatedAt);
           await prefs.setString("username", _user!.username ?? "");
           await prefs.setString("email", _user!.email);
           await prefs.setString("gender", _user!.gender ?? "");
           await prefs.setString("mobileNo", _user!.mobileNo ?? "");
           await prefs.setString("id", _user!.id);
+          // await prefs.setString("createdAt", value)
           await prefs.setBool("isRememberMe", true);
         }
         Fluttertoast.showToast(msg: "Login Successfull.");
@@ -66,6 +76,7 @@ class AuthProvider with ChangeNotifier {
         loginPasswordController.clear();
       }
     } catch (e) {
+      print("Login failed Because Of $e");
       Fluttertoast.showToast(msg: "Login failed Because Of $e");
     }
   }
@@ -88,7 +99,7 @@ class AuthProvider with ChangeNotifier {
           } else if (isValidPassword != null) {
             Fluttertoast.showToast(msg: isValidPassword);
           } else {
-            _user = await signupUseCase(
+            _user = await authUseCase.signup(
               signupNameController.text,
               signupEmailController.text,
               signupPasswordController.text,
@@ -199,7 +210,6 @@ class AuthProvider with ChangeNotifier {
     });
   }
 
-  //Remember Me
   bool _isRememberMe = false;
 
   bool get isRememberMe => _isRememberMe;

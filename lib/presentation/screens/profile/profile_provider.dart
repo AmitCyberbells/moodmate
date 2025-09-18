@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:moodmate/domain/usecases/logout_usecase.dart';
+import 'package:moodmate/domain/usecases/auth_usecase.dart';
 import 'package:moodmate/presentation/screens/auth/login_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileProvider extends ChangeNotifier {
-  final LogoutUseCase logoutUseCase;
-  ProfileProvider({required this.logoutUseCase});
+  final AuthUsecase authUseCase;
+  ProfileProvider({required this.authUseCase});
   Future<void> logout(BuildContext context) async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString("token");
 
       if (token != null) {
-        await logoutUseCase.call(token);
+        await authUseCase.logout(token);
         Fluttertoast.showToast(msg: "Logout Successfull.");
         Navigator.pushAndRemoveUntil(
           context,
