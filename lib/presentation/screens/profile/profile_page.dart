@@ -104,31 +104,33 @@ class ProfilePage extends StatelessWidget {
                         if (provider.data.isNotEmpty) {
                           username = provider.data[0]["username"] ?? "User";
                         }
-                        return SizedBox(
-                          width: size.width / 2,
-                          child: Text.rich(
-                            TextSpan(
-                              text: "Hi! ",
-                              style: nunito(
-                                fontSize: smallTitle,
-                                color: softWarmWhite,
-                                fontWeight: FontWeight.w400,
-                                decoration: TextDecoration.none,
-                              ),
-                              children: [
+                        return provider.isLoadingUserData == true
+                            ? CircularProgressIndicator(color: softWarmWhite)
+                            : SizedBox(
+                              width: size.width / 2,
+                              child: Text.rich(
                                 TextSpan(
-                                  text: username,
+                                  text: "Hi! ",
                                   style: nunito(
                                     fontSize: smallTitle,
                                     color: softWarmWhite,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.w400,
                                     decoration: TextDecoration.none,
                                   ),
+                                  children: [
+                                    TextSpan(
+                                      text: username,
+                                      style: nunito(
+                                        fontSize: smallTitle,
+                                        color: softWarmWhite,
+                                        fontWeight: FontWeight.w700,
+                                        decoration: TextDecoration.none,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        );
+                              ),
+                            );
                       },
                     ),
                     Consumer<MainProvider>(
@@ -138,18 +140,20 @@ class ProfilePage extends StatelessWidget {
                           createdAt =
                               provider.data[0]["createdAt"] ?? "Jan 2025";
                         }
-                        return SizedBox(
-                          width: size.width / 2,
-                          child: Text(
-                            "Moodmate member since $createdAt.",
-                            style: alegreyaSans(
-                              fontSize: smallBody,
-                              color: softWarmWhite,
-                              fontWeight: FontWeight.w400,
-                              decoration: TextDecoration.none,
-                            ),
-                          ),
-                        );
+                        return provider.isLoadingUserData == true
+                            ? CircularProgressIndicator(color: softWarmWhite)
+                            : SizedBox(
+                              width: size.width / 2,
+                              child: Text(
+                                "Moodmate member since $createdAt.",
+                                style: alegreyaSans(
+                                  fontSize: smallBody,
+                                  color: softWarmWhite,
+                                  fontWeight: FontWeight.w400,
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                            );
                       },
                     ),
                     SizedBox(height: 40),

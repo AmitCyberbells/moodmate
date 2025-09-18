@@ -10,6 +10,8 @@ class MainProvider extends ChangeNotifier {
   List<Map<String, dynamic>> data = [];
   bool _isLoading = true;
   bool get isLoading => _isLoading;
+  bool _isLoadingUserData = true;
+  bool get isLoadingUserData => _isLoadingUserData;
   PetEntity? _selectedPet;
   PetEntity? get selectedPet => _selectedPet;
 
@@ -18,24 +20,30 @@ class MainProvider extends ChangeNotifier {
   }
 
   Future<void> _initData() async {
-    final prefs = await SharedPreferences.getInstance();
-    final username = prefs.getString("username");
-    final email = prefs.getString("email");
-    final gender = prefs.getString("gender");
-    final mobileNo = prefs.getString("mobileNo");
-    final id = prefs.getString("id");
-    final createdAt = prefs.getString("createdAt");
-    final updatedAt = prefs.getString("updatedAt");
-    data.add({
-      "username": username,
-      "email": email,
-      "gender": gender,
-      "mobileNo": mobileNo,
-      "id": id,
-      "createdAt": createdAt,
-      "updatedAt": updatedAt,
-    });
-    _isLoading = false;
+    _isLoadingUserData = true;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final username = prefs.getString("username");
+      final email = prefs.getString("email");
+      final gender = prefs.getString("gender");
+      final mobileNo = prefs.getString("mobileNo");
+      final id = prefs.getString("id");
+      final createdAt = prefs.getString("createdAt");
+      final updatedAt = prefs.getString("updatedAt");
+      data.add({
+        "username": username,
+        "email": email,
+        "gender": gender,
+        "mobileNo": mobileNo,
+        "id": id,
+        "createdAt": createdAt,
+        "updatedAt": updatedAt,
+      });
+    } catch (e) {
+      Fluttertoast.showToast(msg: "failed to add User Data to Shared Prefs $e");
+    } finally {
+      _isLoadingUserData = false;
+    }
     notifyListeners();
   }
 

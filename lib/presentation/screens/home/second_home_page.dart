@@ -28,36 +28,39 @@ class SecondHomePage extends StatelessWidget {
                   Consumer<MainProvider>(
                     builder: (context, provider, _) {
                       String username = "User";
+
                       if (provider.data.isNotEmpty) {
                         username = provider.data[0]["username"] ?? "User";
                       }
-                      return Text.rich(
-                        TextSpan(
-                          text: "Hi! ",
-                          style: nunito(
-                            fontSize: smallTitle,
-                            color: softWarmWhite,
-                            fontWeight: FontWeight.w400,
-                            decoration: TextDecoration.none,
-                          ),
-                          children: [
+                      return provider.isLoadingUserData == true
+                          ? CircularProgressIndicator(color: softWarmWhite)
+                          : Text.rich(
                             TextSpan(
-                              text: username,
+                              text: "Hi! ",
                               style: nunito(
                                 fontSize: smallTitle,
                                 color: softWarmWhite,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w400,
                                 decoration: TextDecoration.none,
                               ),
+                              children: [
+                                TextSpan(
+                                  text: username,
+                                  style: nunito(
+                                    fontSize: smallTitle,
+                                    color: softWarmWhite,
+                                    fontWeight: FontWeight.w700,
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      );
+                          );
                     },
                   ),
 
                   Text(
-                    "Your feelings are valid \nand important.",
+                    "Your feelings are valid\nand important.",
                     style: nunito(
                       fontSize: smallBody,
                       color: softWarmWhite,

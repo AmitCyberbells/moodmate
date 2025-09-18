@@ -42,27 +42,21 @@ class AuthProvider with ChangeNotifier {
       }
 
       if (_user != null) {
-        if (isRememberMe) {
-          final prefs = await SharedPreferences.getInstance();
-          final createdAt = _user?.createdAt;
-          final updatedAt = _user?.updatedAt;
-          String formattedCreatedAt = DateFormat(
-            "MMMM yyyy",
-          ).format(createdAt!);
-          String formattedUpdatedAt = DateFormat(
-            "MMMM yyyy",
-          ).format(updatedAt!);
-          await prefs.setString("updatedAt", formattedUpdatedAt);
-          await prefs.setString("createdAt", formattedCreatedAt);
-          await prefs.setString("username", _user!.username);
-          await prefs.setString("petId", _user!.petId ?? "");
-          await prefs.setString("email", _user!.email);
-          await prefs.setString("gender", _user!.gender ?? "");
-          await prefs.setString("mobileNo", _user!.mobileNo ?? "");
-          await prefs.setString("id", _user!.id);
-          // await prefs.setString("createdAt", value)
-          await prefs.setBool("isRememberMe", true);
-        }
+        final prefs = await SharedPreferences.getInstance();
+        final createdAt = _user?.createdAt;
+        final updatedAt = _user?.updatedAt;
+        String formattedCreatedAt = DateFormat("MMMM yyyy").format(createdAt!);
+        String formattedUpdatedAt = DateFormat("MMMM yyyy").format(updatedAt!);
+        await prefs.setString("updatedAt", formattedUpdatedAt);
+        await prefs.setString("createdAt", formattedCreatedAt);
+        await prefs.setString("username", _user!.username);
+        await prefs.setString("petId", _user!.petId ?? "");
+        await prefs.setString("email", _user!.email);
+        await prefs.setString("gender", _user!.gender ?? "");
+        await prefs.setString("mobileNo", _user!.mobileNo ?? "");
+        await prefs.setString("id", _user!.id);
+        await prefs.setBool("isRememberMe", isRememberMe);
+
         Fluttertoast.showToast(msg: "Login Successfull.");
         Navigator.pushAndRemoveUntil(
           context,

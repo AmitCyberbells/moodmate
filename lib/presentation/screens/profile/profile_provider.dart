@@ -8,11 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ProfileProvider extends ChangeNotifier {
   final AuthUsecase authUseCase;
   ProfileProvider({required this.authUseCase});
+
   Future<void> logout(BuildContext context) async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString("token");
-
       if (token != null) {
         await authUseCase.logout(token);
         Navigator.pushAndRemoveUntil(
@@ -24,11 +24,13 @@ class ProfileProvider extends ChangeNotifier {
           ),
           (Route<dynamic> route) => false,
         );
+        prefs.clear();
         Fluttertoast.showToast(msg: "Logout Successfull.");
       } else {
         throw Exception("No token found");
       }
     } catch (e) {
+      print("Logout failed Because Of $e");
       Fluttertoast.showToast(msg: "Logout failed Because Of $e");
     }
   }
