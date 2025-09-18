@@ -54,107 +54,93 @@ class PetPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CustomIconButton(
-                      isCircular: true,
-                      icon: Icons.arrow_back,
-                      bgColor: softWarmWhite,
-                      onPressed: () {
-                        provider.leftButtonPressed();
-                      },
-                      iconColor: charcoalGray,
-                    ),
-                    Consumer<PetSelectionProvider>(
-                      builder: (context, provider, child) {
-                        final data = provider.pets;
-                        final index = provider.currentIndex;
-                        if (provider.isLoading) {
-                          return Center(
-                            child: CircularProgressIndicator(
-                              color: softWarmWhite,
-                            ),
-                          );
-                        } else {
-                          if (data == null || data.isEmpty) {
-                            return const Center(child: Text("No Pets."));
-                          } else {
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.memory(
-                                  base64Decode(
-                                    data[index].petImage.split(',')[1],
-                                  ),
-                                  width: index == 2 ? 180 : 214,
-                                  height: index == 2 ? 180 : 314,
-                                ),
-                                const SizedBox(height: 20),
-                                Text(
-                                  "Hi, I am ${data[index].petName}",
-                                  style: nunito(
-                                    fontSize: smallTitle,
-                                    color: softWarmWhite,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
-                            );
-                          }
-                        }
-                      },
-                    ),
-                    CustomIconButton(
-                      isCircular: true,
-                      icon: Icons.arrow_forward,
-                      bgColor: softWarmWhite,
-                      onPressed: () {
-                        provider.rightButtonPressed();
-                      },
-                      iconColor: charcoalGray,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Divider(height: 1, color: softWarmWhite),
-                SizedBox(height: 10),
                 Consumer<PetSelectionProvider>(
                   builder: (context, value, child) {
                     final data = provider.pets;
                     final index = provider.currentIndex;
-                    if (provider.isLoading) {
-                      return Center(
-                        child: CircularProgressIndicator(color: softWarmWhite),
-                      );
-                    } else {
-                      if (data == null || data.isEmpty) {
-                        return const Center(child: Text("No Pets."));
-                      } else {
-                        return Text(
-                          data[index].petDescription,
-                          style: atkinsonHyperlegible(
-                            fontSize: mediumBody,
+                    return provider.isLoading == true
+                        ? Center(
+                          child: CircularProgressIndicator(
                             color: softWarmWhite,
-                            fontWeight: FontWeight.w400,
                           ),
+                        )
+                        : data == null
+                        ? Center(child: Text("No Data Available."))
+                        : Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CustomIconButton(
+                                  isCircular: true,
+                                  icon: Icons.arrow_back,
+                                  bgColor: softWarmWhite,
+                                  onPressed: () {
+                                    provider.leftButtonPressed();
+                                  },
+                                  iconColor: charcoalGray,
+                                ),
+
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.memory(
+                                      base64Decode(
+                                        data[index].petImage.split(',')[1],
+                                      ),
+                                      width: index == 2 ? 180 : 214,
+                                      height: index == 2 ? 180 : 314,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    Text(
+                                      "Hi, I am ${data[index].petName}",
+                                      style: nunito(
+                                        fontSize: smallTitle,
+                                        color: softWarmWhite,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                CustomIconButton(
+                                  isCircular: true,
+                                  icon: Icons.arrow_forward,
+                                  bgColor: softWarmWhite,
+                                  onPressed: () {
+                                    provider.rightButtonPressed();
+                                  },
+                                  iconColor: charcoalGray,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 20),
+                            Divider(height: 1, color: softWarmWhite),
+                            SizedBox(height: 10),
+                            Text(
+                              data[index].petDescription,
+                              style: atkinsonHyperlegible(
+                                fontSize: mediumBody,
+                                color: softWarmWhite,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            SizedBox(height: 30),
+                            CustomAnimatedButton(
+                              onPressed: () {
+                                provider.petSelected(context);
+                              },
+                              width: size.width - 20,
+                              textColor: charcoalGray,
+                              bgColor: softWarmWhite,
+                              title: "Pick Your Buddy",
+                            ),
+                            SizedBox(height: 20),
+                          ],
                         );
-                      }
-                    }
                   },
                 ),
-                SizedBox(height: 30),
-                CustomAnimatedButton(
-                  onPressed: () {
-                    provider.petSelected(context);
-                  },
-                  width: size.width - 20,
-                  textColor: charcoalGray,
-                  bgColor: softWarmWhite,
-                  title: "Pick Your Buddy",
-                ),
-                SizedBox(height: 20),
               ],
             ),
           ),

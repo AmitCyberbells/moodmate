@@ -7,6 +7,7 @@ import 'package:moodmate/presentation/screens/caretool/caretool_provider.dart';
 import 'package:moodmate/presentation/screens/home/home_provider.dart';
 import 'package:moodmate/presentation/screens/loading/loading_state.dart';
 import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
+import 'package:moodmate/presentation/screens/main/main_provider.dart';
 import 'package:moodmate/presentation/screens/onboading/onboading_state.dart';
 import 'package:moodmate/presentation/screens/pet_selection/pet_selection_state.dart';
 import 'package:moodmate/presentation/screens/profile/profile_provider.dart';
@@ -27,6 +28,13 @@ List<SingleChildWidget> providers = [
   ChangeNotifierProvider(create: (context) => SplashState()),
   ChangeNotifierProvider(create: (context) => OnboadingState()),
   ChangeNotifierProvider(create: (context) => LoadingState()),
+  ChangeNotifierProvider(
+    create: (context) {
+      final remoteDataSource = PetRemoteDatasource();
+      final repository = PetRepositoryImpl(remoteDataSource);
+      return MainProvider(petUsecase: PetUsecase(repository));
+    },
+  ),
   ChangeNotifierProvider(
     create: (_) {
       final remoteDataSource = PetRemoteDatasource();

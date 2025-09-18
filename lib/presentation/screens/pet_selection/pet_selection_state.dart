@@ -23,7 +23,6 @@ class PetSelectionProvider extends ChangeNotifier {
     _isLoading = true;
     try {
       _pets = await petUsecase.getAllPets();
-
       if (_pets == null) {
         Fluttertoast.showToast(msg: "There is no pets in the Database.");
       }

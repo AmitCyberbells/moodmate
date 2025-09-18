@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
-import 'package:moodmate/presentation/screens/home/home_provider.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
+import 'package:moodmate/presentation/screens/main/main_provider.dart';
 import 'package:moodmate/presentation/screens/profile/profile_provider.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/achievement_container.dart';
 import 'package:moodmate/presentation/screens/profile/widgets/setting_list_item.dart';
@@ -98,7 +98,7 @@ class ProfilePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Consumer<HomeProvider>(
+                    Consumer<MainProvider>(
                       builder: (context, provider, _) {
                         String username = "User";
                         if (provider.data.isNotEmpty) {
@@ -131,7 +131,7 @@ class ProfilePage extends StatelessWidget {
                         );
                       },
                     ),
-                    Consumer<HomeProvider>(
+                    Consumer<MainProvider>(
                       builder: (context, provider, _) {
                         String createdAt = "Jan 2025";
                         if (provider.data.isNotEmpty) {

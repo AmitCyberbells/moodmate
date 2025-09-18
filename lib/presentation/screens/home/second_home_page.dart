@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
-import 'package:moodmate/presentation/screens/home/home_provider.dart';
 import 'package:moodmate/presentation/screens/home/widgets/mood_widget.dart';
 import 'package:moodmate/presentation/screens/home/widgets/tiny_win_container.dart';
+import 'package:moodmate/presentation/screens/main/main_provider.dart';
 import 'package:moodmate/presentation/widgets/bg_card.dart';
 import 'package:moodmate/presentation/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +25,7 @@ class SecondHomePage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Consumer<HomeProvider>(
+                  Consumer<MainProvider>(
                     builder: (context, provider, _) {
                       String username = "User";
                       if (provider.data.isNotEmpty) {
