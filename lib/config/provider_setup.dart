@@ -31,7 +31,7 @@ List<SingleChildWidget> providers = [
     create: (_) {
       final remoteDataSource = PetRemoteDatasource();
       final repository = PetRepositoryImpl(remoteDataSource);
-      return PetSelectionState(petUsecase: PetUsecase(repository));
+      return PetSelectionProvider(petUsecase: PetUsecase(repository));
     },
   ),
   ChangeNotifierProvider(create: (context) => HomeProvider()),

@@ -14,7 +14,7 @@ class PetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final provider = context.read<PetSelectionState>();
+    final provider = context.read<PetSelectionProvider>();
     return Scaffold(
       body: Stack(
         children: [
@@ -67,7 +67,7 @@ class PetPage extends StatelessWidget {
                       },
                       iconColor: charcoalGray,
                     ),
-                    Consumer<PetSelectionState>(
+                    Consumer<PetSelectionProvider>(
                       builder: (context, provider, child) {
                         final data = provider.pets;
                         final index = provider.currentIndex;
@@ -120,7 +120,7 @@ class PetPage extends StatelessWidget {
                 SizedBox(height: 20),
                 Divider(height: 1, color: softWarmWhite),
                 SizedBox(height: 10),
-                Consumer<PetSelectionState>(
+                Consumer<PetSelectionProvider>(
                   builder: (context, value, child) {
                     final data = provider.pets;
                     final index = provider.currentIndex;

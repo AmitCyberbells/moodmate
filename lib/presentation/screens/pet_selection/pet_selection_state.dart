@@ -5,7 +5,7 @@ import 'package:moodmate/domain/usecases/pet_usecase.dart';
 import 'package:moodmate/presentation/screens/main/second_main_page.dart';
 import 'package:page_transition/page_transition.dart';
 
-class PetSelectionState extends ChangeNotifier {
+class PetSelectionProvider extends ChangeNotifier {
   final PetUsecase petUsecase;
 
   List<PetEntity>? _pets;
@@ -15,7 +15,7 @@ class PetSelectionState extends ChangeNotifier {
   int _currentIndex = 0;
   int get currentIndex => _currentIndex;
 
-  PetSelectionState({required this.petUsecase}) {
+  PetSelectionProvider({required this.petUsecase}) {
     getAllPets();
   }
 
@@ -23,6 +23,7 @@ class PetSelectionState extends ChangeNotifier {
     _isLoading = true;
     try {
       _pets = await petUsecase.getAllPets();
+
       if (_pets == null) {
         Fluttertoast.showToast(msg: "There is no pets in the Database.");
       }
@@ -43,7 +44,7 @@ class PetSelectionState extends ChangeNotifier {
   void leftButtonPressed() {
     int index = _currentIndex;
     if (index == 0) {
-      index = 3;
+      index = _pets!.length - 1;
     } else {
       index -= 1;
     }
@@ -53,7 +54,7 @@ class PetSelectionState extends ChangeNotifier {
 
   void rightButtonPressed() {
     int index = _currentIndex;
-    if (index == 3) {
+    if (index == _pets!.length - 1) {
       index = 0;
     } else {
       index += 1;
