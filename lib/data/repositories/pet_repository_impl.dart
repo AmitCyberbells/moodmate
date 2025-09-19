@@ -9,7 +9,7 @@ class PetRepositoryImpl implements PetRepository {
 
   @override
   Future<PetEntity> getPetById(String id) {
-    return remoteDataSource.getPetsById(id);
+    return remoteDataSource.getPetById(id);
   }
 
   @override

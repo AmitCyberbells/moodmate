@@ -10,10 +10,8 @@ class PetRemoteDatasource {
     print("Data : ${response.body}");
 
     if (response.statusCode == 200) {
-      final data = jsonDecode(response.body); // Map<String, dynamic>
-      final List<dynamic> petsJson = data["data"]; // This is the list
-
-      // Map each JSON item to PetModel
+      final data = jsonDecode(response.body);
+      final List<dynamic> petsJson = data["data"];
       return petsJson.map((e) => PetModel.fromJson(e)).toList();
     } else if (response.statusCode == 400) {
       final data = jsonDecode(response.body);
@@ -24,7 +22,7 @@ class PetRemoteDatasource {
     }
   }
 
-  Future<PetModel> getPetsById(String id) async {
+  Future<PetModel> getPetById(String id) async {
     final response = await http.post(
       Uri.parse(ApiConstants.getByIdPets),
       body: {"id": id},
@@ -35,6 +33,7 @@ class PetRemoteDatasource {
     } else if (response.statusCode == 400) {
       final data = jsonDecode(response.body);
       String message = data["message"];
+
       throw Exception(message);
     } else {
       throw Exception("Fetching Pet By Id Failed.");

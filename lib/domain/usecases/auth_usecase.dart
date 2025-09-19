@@ -17,4 +17,8 @@ class AuthUsecase {
   Future<void> logout(String token) {
     return repository.logout(token);
   }
+
+  Future<UserEntity> selectPet(String userId, String petId) {
+    return repository.selectPet(userId, petId);
+  }
 }

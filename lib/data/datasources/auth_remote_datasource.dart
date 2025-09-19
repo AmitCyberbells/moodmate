@@ -65,4 +65,23 @@ class AuthRemoteDataSource {
       throw Exception(message);
     }
   }
+
+  Future<UserModel> selectPet({
+    required String userId,
+    required String petId,
+  }) async {
+    final response = await http.put(
+      Uri.parse(ApiConstants.updateUser),
+      headers: {"Content-Type": "application/json"},
+      body: jsonEncode({"userId": userId, "petId": petId}),
+    );
+    final data = jsonDecode(response.body);
+    if (response.statusCode == 200 && data["success"] == true) {
+      return UserModel.fromJson(data["user"]);
+    } else if (response.statusCode == 400) {
+      throw Exception(data["message"]);
+    } else {
+      throw Exception(data["message"] ?? "Select Pet failed");
+    }
+  }
 }

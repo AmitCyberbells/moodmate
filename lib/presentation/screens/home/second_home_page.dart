@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
@@ -27,33 +29,32 @@ class SecondHomePage extends StatelessWidget {
                 children: [
                   Consumer<MainProvider>(
                     builder: (context, provider, _) {
-                      String username = "User";
-
-                      if (provider.data.isNotEmpty) {
-                        username = provider.data[0]["username"] ?? "User";
-                      }
+                      String username = provider.data["username"] ?? "User";
                       return provider.isLoadingUserData == true
                           ? CircularProgressIndicator(color: softWarmWhite)
-                          : Text.rich(
-                            TextSpan(
-                              text: "Hi! ",
-                              style: nunito(
-                                fontSize: smallTitle,
-                                color: softWarmWhite,
-                                fontWeight: FontWeight.w400,
-                                decoration: TextDecoration.none,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: username,
-                                  style: nunito(
-                                    fontSize: smallTitle,
-                                    color: softWarmWhite,
-                                    fontWeight: FontWeight.w700,
-                                    decoration: TextDecoration.none,
-                                  ),
+                          : Center(
+                            child: Text.rich(
+                              TextSpan(
+                                text: "Hi! ",
+                                style: nunito(
+                                  fontSize: smallTitle,
+                                  color: softWarmWhite,
+                                  fontWeight: FontWeight.w400,
+                                  decoration: TextDecoration.none,
                                 ),
-                              ],
+                                children: [
+                                  TextSpan(
+                                    text: username,
+                                    style: nunito(
+                                      fontSize: smallTitle,
+                                      color: softWarmWhite,
+                                      fontWeight: FontWeight.w700,
+                                      decoration: TextDecoration.none,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           );
                     },
@@ -107,53 +108,72 @@ class SecondHomePage extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image.asset("assets/images/pet1.png", height: 120),
-              SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text.rich(
-                    TextSpan(
-                      text: "Hi! ",
-                      style: nunito(
-                        fontSize: smallTitle,
-                        color: softWarmWhite,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.none,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: "I am Oreo",
-                          style: nunito(
-                            decoration: TextDecoration.none,
-                            fontSize: smallTitle,
-                            color: softWarmWhite,
-                            fontWeight: FontWeight.w700,
+          Consumer<MainProvider>(
+            builder: (context, provider, child) {
+              final data = provider.selectedPet;
+              return provider.isLoading == true
+                  ? Center(
+                    child: CircularProgressIndicator(color: softWarmWhite),
+                  )
+                  : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      data == null
+                          ? Image.asset(
+                            "assets/images/pet1.png",
+                            height: 120,
+                            width: 80,
+                          )
+                          : Image.memory(
+                            base64Decode(data.petImage.split(',')[1]),
+                            width: 80,
+                            height: 120,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width / 1.7,
-                    child: Text(
-                      "I'm here to support your mental health, ready to listen to everything you want to share.",
-                      style: atkinsonHyperlegible(
-                        decoration: TextDecoration.none,
-                        fontSize: mediumBody,
-                        color: softWarmWhite,
-                        fontWeight: FontWeight.w400,
+                      SizedBox(width: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              text: "Hi! ",
+                              style: nunito(
+                                fontSize: smallTitle,
+                                color: softWarmWhite,
+                                fontWeight: FontWeight.w400,
+                                decoration: TextDecoration.none,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: "I am ${data!.petName}",
+                                  style: nunito(
+                                    decoration: TextDecoration.none,
+                                    fontSize: smallTitle,
+                                    color: softWarmWhite,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: size.width / 1.7,
+                            child: Text(
+                              "I'm here to support your mental health, ready to listen to everything you want to share.",
+                              style: atkinsonHyperlegible(
+                                decoration: TextDecoration.none,
+                                fontSize: mediumBody,
+                                color: softWarmWhite,
+                                fontWeight: FontWeight.w400,
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                          ),
+                        ],
                       ),
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                    ],
+                  );
+            },
           ),
           SizedBox(height: 30),
           BgCard(

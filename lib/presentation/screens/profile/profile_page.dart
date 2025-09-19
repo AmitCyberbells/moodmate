@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:moodmate/core/constants/colors.dart';
 import 'package:moodmate/core/constants/fonts.dart';
@@ -90,23 +92,32 @@ class ProfilePage extends StatelessWidget {
           SizedBox(height: 30),
           BgCard(
             bgcolor: softWarmWhite.withOpacity(0.22),
-            widget: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.asset("assets/images/pet1.png", height: 120),
-                SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Consumer<MainProvider>(
-                      builder: (context, provider, _) {
-                        String username = "User";
-                        if (provider.data.isNotEmpty) {
-                          username = provider.data[0]["username"] ?? "User";
-                        }
-                        return provider.isLoadingUserData == true
-                            ? CircularProgressIndicator(color: softWarmWhite)
-                            : SizedBox(
+            widget: Consumer<MainProvider>(
+              builder: (context, provider, _) {
+                final petData = provider.selectedPet;
+                String createdAt = provider.data["createdAt"] ?? "Jan 2025";
+                String username = provider.data["username"] ?? "User";
+                return provider.isLoading == true
+                    ? CircularProgressIndicator(color: softWarmWhite)
+                    : Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        petData == null
+                            ? Image.asset(
+                              "assets/images/pet1.png",
+                              height: 120,
+                              width: 80,
+                            )
+                            : Image.memory(
+                              base64Decode(petData.petImage.split(',')[1]),
+                              width: 80,
+                              height: 120,
+                            ),
+                        SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
                               width: size.width / 2,
                               child: Text.rich(
                                 TextSpan(
@@ -130,19 +141,9 @@ class ProfilePage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                            );
-                      },
-                    ),
-                    Consumer<MainProvider>(
-                      builder: (context, provider, _) {
-                        String createdAt = "Jan 2025";
-                        if (provider.data.isNotEmpty) {
-                          createdAt =
-                              provider.data[0]["createdAt"] ?? "Jan 2025";
-                        }
-                        return provider.isLoadingUserData == true
-                            ? CircularProgressIndicator(color: softWarmWhite)
-                            : SizedBox(
+                            ),
+
+                            SizedBox(
                               width: size.width / 2,
                               child: Text(
                                 "Moodmate member since $createdAt.",
@@ -153,18 +154,19 @@ class ProfilePage extends StatelessWidget {
                                   decoration: TextDecoration.none,
                                 ),
                               ),
-                            );
-                      },
-                    ),
-                    SizedBox(height: 40),
-                    TinyWinContainer(
-                      bgColor: Color(0xff9E2D47),
-                      icon: "👏 ",
-                      title: "Level 5 . Mindful Explorer",
-                    ),
-                  ],
-                ),
-              ],
+                            ),
+
+                            SizedBox(height: 40),
+                            TinyWinContainer(
+                              bgColor: Color(0xff9E2D47),
+                              icon: "👏 ",
+                              title: "Level 5 . Mindful Explorer",
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+              },
             ),
           ),
           SizedBox(height: 20),

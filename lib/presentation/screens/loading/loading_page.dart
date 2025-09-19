@@ -5,13 +5,14 @@ import 'package:moodmate/presentation/screens/loading/loading_state.dart';
 import 'package:provider/provider.dart';
 
 class LoadingPage extends StatelessWidget {
-  const LoadingPage({super.key});
+  final bool isLogin;
+  const LoadingPage({this.isLogin = false, super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<LoadingState>().push(context);
+      context.read<LoadingState>().push(context, isLogin);
     });
     return Scaffold(
       resizeToAvoidBottomInset: true,

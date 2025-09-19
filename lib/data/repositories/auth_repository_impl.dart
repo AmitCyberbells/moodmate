@@ -21,4 +21,9 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> logout(String token) {
     return remoteDataSource.logout(token);
   }
+
+  @override
+  Future<UserEntity> selectPet(String userId, String petId) {
+    return remoteDataSource.selectPet(userId: userId, petId: petId);
+  }
 }

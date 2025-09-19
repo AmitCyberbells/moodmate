@@ -63,7 +63,7 @@ class AuthProvider with ChangeNotifier {
           PageTransition(
             duration: Duration(seconds: 1),
             type: PageTransitionType.rightToLeft,
-            child: LoadingPage(),
+            child: LoadingPage(isLogin: true),
           ),
           (Route<dynamic> route) => false,
         );
