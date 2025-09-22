@@ -71,7 +71,7 @@ class PetSelectionProvider extends ChangeNotifier {
     Navigator.pushAndRemoveUntil(
       context,
       PageTransition(
-        duration: Duration(milliseconds: 700),
+        duration: Duration(milliseconds: 500),
         type: PageTransitionType.rightToLeft,
         child: SecondMainPage(),
       ),
@@ -113,7 +113,7 @@ class PetSelectionProvider extends ChangeNotifier {
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(milliseconds: 700),
+            duration: Duration(milliseconds: 500),
             type: PageTransitionType.rightToLeft,
             child: SecondMainPage(),
           ),

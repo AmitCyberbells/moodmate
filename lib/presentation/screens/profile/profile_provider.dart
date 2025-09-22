@@ -18,7 +18,7 @@ class ProfileProvider extends ChangeNotifier {
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(milliseconds: 600),
+            duration: Duration(milliseconds: 500),
             type: PageTransitionType.rightToLeft,
             child: LoginPage(),
           ),

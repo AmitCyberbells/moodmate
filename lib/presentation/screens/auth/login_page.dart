@@ -9,7 +9,8 @@ import 'package:moodmate/presentation/widgets/custom_textfield.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final bool fromSignup;
+  const LoginPage({this.fromSignup = false, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +156,7 @@ class LoginPage extends StatelessWidget {
                     CustomButton(
                       width: size.width - 100,
                       onPressed: () {
-                        provider.login(context);
+                        provider.login(context, fromSignup);
                       },
                       borderColor: softWarmWhite,
                       textColor: charcoalGray,

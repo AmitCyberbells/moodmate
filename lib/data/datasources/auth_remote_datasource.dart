@@ -33,12 +33,13 @@ class AuthRemoteDataSource {
       Uri.parse(ApiConstants.signup),
       body: {"username": username, "email": email, "password": password},
     );
-
+    final data = jsonDecode(response.body);
     if (response.statusCode == 200) {
-      return UserModel.fromJson(jsonDecode(response.body));
+      return UserModel.fromJson(data["user"]);
     } else if (response.statusCode == 400) {
       final data = jsonDecode(response.body);
       String message = data["message"];
+
       throw Exception(message);
     } else {
       throw Exception("Signup failed");

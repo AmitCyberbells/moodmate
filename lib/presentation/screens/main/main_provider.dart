@@ -61,10 +61,9 @@ class MainProvider extends ChangeNotifier {
           Fluttertoast.showToast(msg: "There is no pet in the Database.");
         }
       } else {
-        Fluttertoast.showToast(msg: "Incorrect Pet ID.");
+        print("Incorrect Pet ID.");
       }
     } catch (e) {
-      print("failed to get pet Because Of $e");
       Fluttertoast.showToast(msg: "failed to get pet Because Of $e");
     } finally {
       _isLoading = false;

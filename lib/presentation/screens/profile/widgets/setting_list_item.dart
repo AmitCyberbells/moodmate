@@ -4,6 +4,7 @@ import 'package:moodmate/core/constants/fonts.dart';
 
 class SettingListItem extends StatelessWidget {
   final VoidCallback onTap;
+
   final String img;
   final String title;
   final bool isSwitch;
@@ -12,6 +13,7 @@ class SettingListItem extends StatelessWidget {
     required this.onTap,
     this.isSwitch = false,
     this.isLogout = false,
+
     required this.img,
     required this.title,
     super.key,
@@ -22,34 +24,39 @@ class SettingListItem extends StatelessWidget {
     final bool value = false;
     return GestureDetector(
       onTap: onTap,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(
-            children: [
-              Image.asset(img, scale: 3),
-              SizedBox(width: 10),
-              Text(
-                title,
-                style: alegreyaSans(
-                  fontSize: mediumBody,
-                  color: softWarmWhite,
-                  fontWeight: FontWeight.w400,
-                  decoration: TextDecoration.none,
+      child: Container(
+        color: Colors.transparent,
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Image.asset(img, scale: 3),
+                SizedBox(width: 10),
+                Text(
+                  title,
+                  style: alegreyaSans(
+                    fontSize: mediumBody,
+                    color: softWarmWhite,
+                    fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          isLogout
-              ? Container()
-              : isSwitch
-              ? Material(
-                color: Colors.transparent,
-                child: Switch(value: value, onChanged: (value) {}),
-              )
-              : Icon(Icons.arrow_forward_ios, size: 25, color: softWarmWhite),
-        ],
+              ],
+            ),
+            isLogout
+                ? Container()
+                : isSwitch
+                ? Material(
+                  color: Colors.transparent,
+                  child: Switch(value: value, onChanged: (value) {}),
+                )
+                : Icon(Icons.arrow_forward_ios, size: 25, color: softWarmWhite),
+          ],
+        ),
       ),
     );
   }

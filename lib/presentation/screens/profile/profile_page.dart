@@ -255,27 +255,26 @@ class ProfilePage extends StatelessWidget {
                   img: "assets/icons/account.png",
                   title: "Account",
                 ),
-                SizedBox(height: 5),
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {},
                   isSwitch: true,
                   img: "assets/icons/notifications.png",
                   title: "Notifications",
                 ),
-                SizedBox(height: 5),
+
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {},
                   isSwitch: true,
                   img: "assets/icons/light_mode.png",
                   title: "Light Mode",
                 ),
-                SizedBox(height: 5),
+
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {},
                   img: "assets/icons/language.png",
@@ -294,25 +293,25 @@ class ProfilePage extends StatelessWidget {
                   img: "assets/icons/security.png",
                   title: "Security",
                 ),
-                SizedBox(height: 5),
+
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {},
                   img: "assets/icons/terms_conditions.png",
                   title: "Terms & Conditions",
                 ),
-                SizedBox(height: 5),
+
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {},
                   img: "assets/icons/privacy_policy.png",
                   title: "Privacy Policy",
                 ),
-                SizedBox(height: 5),
+
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {},
                   img: "assets/icons/help.png",
@@ -331,9 +330,9 @@ class ProfilePage extends StatelessWidget {
                   img: "assets/icons/invite_friend.png",
                   title: "Invite a friend",
                 ),
-                SizedBox(height: 5),
+
                 Divider(thickness: 1, color: softWarmWhite),
-                SizedBox(height: 10),
+
                 SettingListItem(
                   onTap: () {
                     provider.logout(context);
@@ -342,7 +341,6 @@ class ProfilePage extends StatelessWidget {
                   img: "assets/icons/logout.png",
                   title: "Logout",
                 ),
-                SizedBox(height: 5),
               ],
             ),
           ),

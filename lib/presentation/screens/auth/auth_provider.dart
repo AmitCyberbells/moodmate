@@ -7,6 +7,7 @@ import 'package:moodmate/domain/usecases/auth_usecase.dart';
 import 'package:moodmate/presentation/screens/auth/login_page.dart';
 import 'package:moodmate/presentation/screens/auth/signup_page.dart';
 import 'package:moodmate/presentation/screens/loading/loading_page.dart';
+import 'package:moodmate/presentation/screens/main/second_main_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,7 +30,7 @@ class AuthProvider with ChangeNotifier {
 
   AuthProvider({required this.authUseCase});
 
-  Future<void> login(BuildContext context) async {
+  Future<void> login(BuildContext context, bool fromSignup) async {
     try {
       if (loginEmailController.text.isNotEmpty &&
           loginPasswordController.text.isNotEmpty) {
@@ -61,9 +62,9 @@ class AuthProvider with ChangeNotifier {
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(seconds: 1),
+            duration: Duration(milliseconds: 500),
             type: PageTransitionType.rightToLeft,
-            child: LoadingPage(isLogin: true),
+            child: LoadingPage(isLogin: fromSignup ? false : true),
           ),
           (Route<dynamic> route) => false,
         );
@@ -108,14 +109,15 @@ class AuthProvider with ChangeNotifier {
       } else {
         Fluttertoast.showToast(msg: "All Fields are required.");
       }
+
       if (_user != null) {
         Fluttertoast.showToast(msg: "Signup Successfull.");
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
-            duration: Duration(seconds: 1),
+            duration: Duration(milliseconds: 500),
             type: PageTransitionType.rightToLeft,
-            child: LoginPage(),
+            child: LoginPage(fromSignup: true),
           ),
           (Route<dynamic> route) => false,
         );
@@ -130,16 +132,15 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signinTextClick(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
-      Navigator.pushReplacement(
-        context,
-        PageTransition(
-          duration: Duration(milliseconds: 500),
-          type: PageTransitionType.rightToLeft,
-          child: LoginPage(),
-        ),
-      );
-    });
+    Navigator.pushReplacement(
+      context,
+      PageTransition(
+        duration: Duration(milliseconds: 500),
+        type: PageTransitionType.rightToLeft,
+        child: LoginPage(),
+      ),
+    );
+
     signupNameController.clear();
     signupEmailController.clear();
     signupPasswordController.clear();
@@ -147,17 +148,16 @@ class AuthProvider with ChangeNotifier {
   }
 
   void skip(BuildContext context) {
-    Future.delayed(const Duration(seconds: 1), () {
-      Navigator.pushAndRemoveUntil(
-        context,
-        PageTransition(
-          duration: Duration(milliseconds: 700),
-          type: PageTransitionType.rightToLeft,
-          child: LoadingPage(),
-        ),
-        (Route<dynamic> route) => false,
-      );
-    });
+    Navigator.pushAndRemoveUntil(
+      context,
+      PageTransition(
+        duration: Duration(milliseconds: 500),
+        type: PageTransitionType.rightToLeft,
+        child: SecondMainPage(),
+      ),
+      (Route<dynamic> route) => false,
+    );
+
     signupNameController.clear();
     signupEmailController.clear();
     signupPasswordController.clear();
@@ -165,44 +165,39 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signupTextClick(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 700), () {
-      Navigator.pushReplacement(
-        context,
-        PageTransition(
-          duration: Duration(milliseconds: 500),
-          type: PageTransitionType.rightToLeft,
-          child: SignupPage(),
-        ),
-      );
-    });
+    Navigator.pushReplacement(
+      context,
+      PageTransition(
+        duration: Duration(milliseconds: 500),
+        type: PageTransitionType.rightToLeft,
+        child: SignupPage(),
+      ),
+    );
+
     loginEmailController.clear();
     loginPasswordController.clear();
   }
 
   void navigateToSignupPage(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 700), () {
-      Navigator.push(
-        context,
-        PageTransition(
-          duration: Duration(milliseconds: 500),
-          type: PageTransitionType.rightToLeft,
-          child: SignupPage(),
-        ),
-      );
-    });
+    Navigator.push(
+      context,
+      PageTransition(
+        duration: Duration(milliseconds: 500),
+        type: PageTransitionType.rightToLeft,
+        child: SignupPage(),
+      ),
+    );
   }
 
   void navigateToSigninPage(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 700), () {
-      Navigator.push(
-        context,
-        PageTransition(
-          duration: Duration(milliseconds: 500),
-          type: PageTransitionType.rightToLeft,
-          child: LoginPage(),
-        ),
-      );
-    });
+    Navigator.push(
+      context,
+      PageTransition(
+        duration: Duration(milliseconds: 500),
+        type: PageTransitionType.rightToLeft,
+        child: LoginPage(),
+      ),
+    );
   }
 
   bool _isRememberMe = false;
