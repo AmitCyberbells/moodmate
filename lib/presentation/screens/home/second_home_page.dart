@@ -111,6 +111,12 @@ class SecondHomePage extends StatelessWidget {
           Consumer<MainProvider>(
             builder: (context, provider, child) {
               final data = provider.selectedPet;
+
+              String petName = "Oreo";
+
+              if (data != null) {
+                petName = data.petName;
+              }
               return provider.isLoading == true
                   ? Center(
                     child: CircularProgressIndicator(color: softWarmWhite),
@@ -145,7 +151,7 @@ class SecondHomePage extends StatelessWidget {
                               ),
                               children: [
                                 TextSpan(
-                                  text: "I am ${data!.petName}",
+                                  text: "I am $petName",
                                   style: nunito(
                                     decoration: TextDecoration.none,
                                     fontSize: smallTitle,

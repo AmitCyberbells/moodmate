@@ -98,7 +98,9 @@ class ProfilePage extends StatelessWidget {
                 String createdAt = provider.data["createdAt"] ?? "Jan 2025";
                 String username = provider.data["username"] ?? "User";
                 return provider.isLoading == true
-                    ? CircularProgressIndicator(color: softWarmWhite)
+                    ? Center(
+                      child: CircularProgressIndicator(color: softWarmWhite),
+                    )
                     : Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
