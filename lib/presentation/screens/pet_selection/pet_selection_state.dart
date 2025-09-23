@@ -4,8 +4,10 @@ import 'package:moodmate/domain/entities/pet_entity.dart';
 import 'package:moodmate/domain/entities/user_entity.dart';
 import 'package:moodmate/domain/usecases/auth_usecase.dart';
 import 'package:moodmate/domain/usecases/pet_usecase.dart';
+import 'package:moodmate/presentation/screens/main/main_provider.dart';
 import 'package:moodmate/presentation/screens/main/second_main_page.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PetSelectionProvider extends ChangeNotifier {
@@ -110,6 +112,10 @@ class PetSelectionProvider extends ChangeNotifier {
 
       if (_user != null) {
         await prefs.setString("petId", petId);
+
+        final mainProvider = context.read<MainProvider>();
+        mainProvider.init();
+
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(

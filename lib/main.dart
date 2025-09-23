@@ -5,7 +5,9 @@ import 'package:moodmate/presentation/screens/splash/fourth_spalsh_page.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Future.delayed(Duration(milliseconds: 100));
   runApp(const MyApp());
 }
 

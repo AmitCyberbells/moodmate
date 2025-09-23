@@ -15,6 +15,7 @@ class ProfileProvider extends ChangeNotifier {
       final token = prefs.getString("token");
       if (token != null) {
         await authUseCase.logout(token);
+        await prefs.clear();
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
@@ -24,7 +25,7 @@ class ProfileProvider extends ChangeNotifier {
           ),
           (Route<dynamic> route) => false,
         );
-        prefs.clear();
+        print("Remember me : ${prefs.getBool("isRememberMe")}");
         Fluttertoast.showToast(msg: "Logout Successfull.");
       } else {
         throw Exception("No token found");

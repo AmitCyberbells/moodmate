@@ -7,8 +7,10 @@ import 'package:moodmate/domain/usecases/auth_usecase.dart';
 import 'package:moodmate/presentation/screens/auth/login_page.dart';
 import 'package:moodmate/presentation/screens/auth/signup_page.dart';
 import 'package:moodmate/presentation/screens/loading/loading_page.dart';
+import 'package:moodmate/presentation/screens/main/main_provider.dart';
 import 'package:moodmate/presentation/screens/main/second_main_page.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider with ChangeNotifier {
@@ -57,8 +59,11 @@ class AuthProvider with ChangeNotifier {
         await prefs.setString("mobileNo", _user!.mobileNo ?? "");
         await prefs.setString("id", _user!.id);
         await prefs.setBool("isRememberMe", isRememberMe);
-
         Fluttertoast.showToast(msg: "Login Successfull.");
+
+        final mainProvider = context.read<MainProvider>();
+        mainProvider.init();
+
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(

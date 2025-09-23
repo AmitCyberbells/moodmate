@@ -111,9 +111,7 @@ class SecondHomePage extends StatelessWidget {
           Consumer<MainProvider>(
             builder: (context, provider, child) {
               final data = provider.selectedPet;
-
               String petName = "Oreo";
-
               if (data != null) {
                 petName = data.petName;
               }

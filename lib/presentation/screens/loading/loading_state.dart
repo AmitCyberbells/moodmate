@@ -5,13 +5,15 @@ import 'package:page_transition/page_transition.dart';
 
 class LoadingState extends ChangeNotifier {
   void push(BuildContext context, bool isLogin) {
-    Navigator.pushReplacement(
-      context,
-      PageTransition(
-        duration: Duration(seconds: 1),
-        type: PageTransitionType.rightToLeft,
-        child: isLogin ? SecondMainPage() : PetPage(),
-      ),
-    );
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        PageTransition(
+          duration: Duration(seconds: 1),
+          type: PageTransitionType.rightToLeft,
+          child: isLogin ? SecondMainPage() : PetPage(),
+        ),
+      );
+    });
   }
 }

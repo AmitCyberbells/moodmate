@@ -15,9 +15,11 @@ class MainProvider extends ChangeNotifier {
   PetEntity? _selectedPet;
   PetEntity? get selectedPet => _selectedPet;
 
-  MainProvider({required this.petUsecase}) {
-    _initData();
-    getPetById();
+  MainProvider({required this.petUsecase});
+
+  Future<void> init() async {
+    await _initData();
+    await getPetById();
   }
 
   Future<void> _initData() async {
@@ -53,6 +55,7 @@ class MainProvider extends ChangeNotifier {
   Future<void> getPetById() async {
     final prefs = await SharedPreferences.getInstance();
     final petId = prefs.getString("petId");
+    print("Pet Id : $petId");
     _isLoading = true;
     try {
       if (petId != null && petId.isNotEmpty) {
@@ -61,7 +64,7 @@ class MainProvider extends ChangeNotifier {
           Fluttertoast.showToast(msg: "There is no pet in the Database.");
         }
       } else {
-        print("Incorrect Pet ID.");
+        _selectedPet = null;
       }
     } catch (e) {
       Fluttertoast.showToast(msg: "failed to get pet Because Of $e");
