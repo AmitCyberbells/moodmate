@@ -86,8 +86,8 @@ class PetPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      width: index == 2 ? 160 : 224,
-                                      height: index == 2 ? 160 : 224,
+                                      width: index == 2 ? 120 : 224,
+                                      height: index == 2 ? 120 : 224,
                                       child: Image.memory(
                                         base64Decode(
                                           data[index].petImage.split(',')[1],

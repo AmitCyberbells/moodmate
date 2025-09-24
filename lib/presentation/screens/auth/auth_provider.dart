@@ -73,6 +73,7 @@ class AuthProvider with ChangeNotifier {
           ),
           (Route<dynamic> route) => false,
         );
+        _user = null;
         loginEmailController.clear();
         loginPasswordController.clear();
       }
@@ -95,16 +96,23 @@ class AuthProvider with ChangeNotifier {
           final isValidPassword = Validators.passwordValidator(
             signupPasswordController.text,
           );
+          final isValidName = Validators.emailValidator(
+            signupNameController.text,
+          );
           if (isValidEmail != null) {
             Fluttertoast.showToast(msg: isValidEmail);
           } else if (isValidPassword != null) {
             Fluttertoast.showToast(msg: isValidPassword);
+          } else if (isValidName == null) {
+            Fluttertoast.showToast(msg: "Email address can not be your name");
           } else {
-            _user = await authUseCase.signup(
-              signupNameController.text,
-              signupEmailController.text,
-              signupPasswordController.text,
-            );
+            if (isValidEmail == null && isValidPassword == null) {
+              _user = await authUseCase.signup(
+                signupNameController.text,
+                signupEmailController.text,
+                signupPasswordController.text,
+              );
+            }
           }
         } else {
           Fluttertoast.showToast(
@@ -126,6 +134,7 @@ class AuthProvider with ChangeNotifier {
           ),
           (Route<dynamic> route) => false,
         );
+        _user = null;
         signupNameController.clear();
         signupEmailController.clear();
         signupPasswordController.clear();
