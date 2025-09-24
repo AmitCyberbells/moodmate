@@ -153,6 +153,9 @@ class AuthProvider with ChangeNotifier {
   }
 
   void skip(BuildContext context) {
+    final mainProvider = context.read<MainProvider>();
+    mainProvider.init();
+
     Navigator.pushAndRemoveUntil(
       context,
       PageTransition(

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:moodmate/domain/usecases/auth_usecase.dart';
 import 'package:moodmate/presentation/screens/auth/login_page.dart';
+import 'package:moodmate/presentation/screens/main/main_bottom_navigation_state.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileProvider extends ChangeNotifier {
@@ -16,6 +18,8 @@ class ProfileProvider extends ChangeNotifier {
       if (token != null) {
         await authUseCase.logout(token);
         await prefs.clear();
+        final indexProvider = context.read<MainBottomNavigationState>();
+        indexProvider.setIndex(0);
         Navigator.pushAndRemoveUntil(
           context,
           PageTransition(
