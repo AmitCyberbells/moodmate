@@ -117,6 +117,7 @@ class ProfilePage extends StatelessWidget {
                             ),
                         SizedBox(width: 10),
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
@@ -144,7 +145,7 @@ class ProfilePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-
+                            SizedBox(height: 10),
                             SizedBox(
                               width: size.width / 2,
                               child: Text(
@@ -157,8 +158,7 @@ class ProfilePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-
-                            SizedBox(height: 40),
+                            SizedBox(height: 15),
                             TinyWinContainer(
                               bgColor: Color(0xff9E2D47),
                               icon: "👏 ",
